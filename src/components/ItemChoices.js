@@ -2,7 +2,7 @@ import { CloseIcon } from '@chakra-ui/icons';
 import { Box, Icon, SimpleGrid, Center } from "@chakra-ui/react";
 import React from 'react';
 
-const ItemsChoice = () => {
+const ItemChoices = () => {
   return (
     <>
       <SimpleGrid  minChildWidth={{base: "5em", lg: "7em"}} spacing="1" flexWrap="wrap">
@@ -25,4 +25,4 @@ const ItemsChoice = () => {
   )
 }
 
-export default ItemsChoice;
+export default ItemChoices;
