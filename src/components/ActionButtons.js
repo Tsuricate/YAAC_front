@@ -4,7 +4,13 @@ import { CheckIcon } from '@chakra-ui/icons';
 import { FaArrowsAlt, FaPalette } from "react-icons/fa";
 import RoundButton from './RoundButton';
 
-const ActionButtons = () => {
+const ActionButtons = ({ setChangeColor, changeColor }) => {
+
+  const handleChangeColor = () => {
+    setChangeColor(!changeColor);
+  };
+
+
   return (
     <Flex>
       <Button p="5" rightIcon={<CheckIcon />} color="white" fontWeight="bold" bgGradient="linear(to-r, teal.500,green.500)">
@@ -14,8 +20,8 @@ const ActionButtons = () => {
       <Spacer />
 
       <HStack spacing={4}>
-        <RoundButton ariaLabel="Change color" icon={<FaPalette />} />
-        <RoundButton ariaLabel="Move an element" icon={<FaArrowsAlt />} />
+        <RoundButton ariaLabel="Change color" icon={<FaPalette />} color={"gray"} onClick={handleChangeColor}/>
+        <RoundButton ariaLabel="Move an element" icon={<FaArrowsAlt />} color={"gray"} />
       </HStack>
 
     </Flex>

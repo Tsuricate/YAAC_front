@@ -1,7 +1,7 @@
 import React from 'react';
 import Category from '../components/Category';
 import { Flex } from "@chakra-ui/react"
-import { fakeMainCategories } from '../data/fakeData';
+import { fakeMainCategories } from '../data/fakeMainCategories';
 
 const MainCategories = () => {
   return (
