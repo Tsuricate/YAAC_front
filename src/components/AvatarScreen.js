@@ -13,11 +13,12 @@ import mouth from '../assets/pictures/mouth.png'
 import nose from '../assets/pictures/nose.png'
 import bangs from '../assets/pictures/bangs.png'
 
-const AvatarScreen = ({ setChangeColor, changeColor }) => {
+const AvatarScreen = ({ setEditionMode, backgroundColor }) => {
+
   return (
     <Box w="100vw" h="100vw" maxHeight={{ md: "50vh", lg: "80vh" }} maxWidth={{ md:"50vh", lg: "80vh" }} position="relative">
 
-      <Box bg="Gainsboro" width="100%" height="100%">
+      <Box bg={backgroundColor} width="100%" height="100%" className="boxdelimage">
         <Center>
           <ImageContainer bodyPart={nose} />
           <ImageContainer bodyPart={bangs} />
@@ -34,7 +35,7 @@ const AvatarScreen = ({ setChangeColor, changeColor }) => {
       </Box>
 
       <Box position="absolute" bottom="4" width="100%" px="3">
-        <ActionButtons setChangeColor={setChangeColor}changeColor={changeColor}/>
+        <ActionButtons setEditionMode={setEditionMode} />
       </Box>
      
     </Box>
