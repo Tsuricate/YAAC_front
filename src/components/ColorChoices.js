@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Wrap, Text } from '@chakra-ui/react';
+import { Flex, Wrap } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import RoundButton from './RoundButton';
 import { backgroundColors } from '../data/backgroundColors';
@@ -15,8 +15,7 @@ const ColorChoices = ({ setBackgroundColor, setEditionMode }) => {
 
   return (
     
-    <Flex flexDirection="column" bgColor="Gainsboro" flexGrow={1} justifyContent="center" alignItems="center" >
-      <Text fontSize="4xl" fontFamily="Apple Color Emoji" >Choisissez une couleur :</Text>
+    <Flex flexDirection="column" bgColor="Gainsboro" flexGrow={1} justifyContent="center" alignItems="center" px={3}>
       <Wrap>
         <RoundButton icon={<ArrowBackIcon />} color="gray" ariaLabel="Close colors panel" onClick={handleDisplay}/>
         { backgroundColors.map((color) => (

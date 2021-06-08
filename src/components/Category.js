@@ -3,16 +3,13 @@ import { Image } from '@chakra-ui/react';
 
 const Category = ({ label, image }) => { 
   return (
-    <Image 
+      <Image 
       src={image} 
       alt={label} 
-      maxWidth="100%"
-      height="auto"
-      border="2px solid DarkSeaGreen"
-      boxSize={{lg:"6em"}}
-      mx={{lg: "0.5"}}
-      mb={{lg: "1"}}
-    />
+      width={{base: "70px", lg: "100px"}}
+      height={{base: "70px", lg: "100px"}}
+      border={{lg: "3px solid transparent"}}
+    /> 
   )
 }
 

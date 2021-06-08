@@ -5,7 +5,7 @@ import React from 'react';
 const ItemChoices = () => {
   return (
     <>
-      <SimpleGrid  minChildWidth={{base: "5em", lg: "7em"}} spacing="1" flexWrap="wrap">
+      <SimpleGrid minChildWidth={{base: "5em", lg: "7em"}} spacing="1" >
         <Center>
           <Icon as={CloseIcon} boxSize="12" />
         </Center>

@@ -13,8 +13,8 @@ export const fakeMainCategories = [
   },
   {
     id: uniqid(),
-    label: "Face",
-    image: "https://fakeimg.pl/100x100/?text=Face",
+    label: "Jaw",
+    image: "https://fakeimg.pl/100x100/?text=Jaw",
   },
   {
     id: uniqid(),
@@ -77,8 +77,8 @@ export const fakeMainCategories = [
   },
   {
     id: uniqid(),
-    label: "Necklace",
-    image: "https://fakeimg.pl/100x100/?text=Necklace",
+    label: "ClothesAccessories",
+    image: "https://fakeimg.pl/100x100/?text=Clothes-Accessories",
   },
   {
     id: uniqid(),
