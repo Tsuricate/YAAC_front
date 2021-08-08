@@ -22,7 +22,7 @@ const App = () => {
       .catch((error) => {
         console.log(error);
       })
-  }, [])
+  }, []);
   
   return (
     <Flex minHeight="100vh" maxHeight="100vh" flexDirection={{base: "column", lg: "row"}} alignItems="center" mx={{lg: "5"}}>
