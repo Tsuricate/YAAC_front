@@ -17,7 +17,7 @@ const App = () => {
   useEffect(() => {
     axios.get(`http://localhost:3001/api/items/Body`)
       .then((res) => {
-          setItems(res.data.categoryImages);
+        setItems(res.data.categoryImages);
       })
       .catch((error) => {
         console.log(error);
@@ -31,7 +31,7 @@ const App = () => {
       <Flex flexDirection="column" overflowY="hidden" minHeight={{base: "50vh", lg: "80vh"}} ml={{lg: "4"}} flexGrow={1}>
         
         <Box >
-          <MainCategories setItems={setItems}/>
+          <MainCategories setItems={setItems} />
         </Box>
 
         { editionMode === "Items" &&
