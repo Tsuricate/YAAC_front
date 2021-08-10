@@ -13,6 +13,7 @@ const App = () => {
   const [editionMode, setEditionMode] = useState("Items");
   const [backgroundColor, setbackgroundColor] = useState("Gainsboro");
   const [items, setItems] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
 
   useEffect(() => {
     axios.get(`http://localhost:3001/api/items/Body`)
@@ -26,7 +27,7 @@ const App = () => {
   
   return (
     <Flex minHeight="100vh" maxHeight="100vh" flexDirection={{base: "column", lg: "row"}} alignItems="center" mx={{lg: "5"}}>
-      <AvatarScreen setEditionMode={setEditionMode}  backgroundColor={backgroundColor} />
+      <AvatarScreen setEditionMode={setEditionMode}  backgroundColor={backgroundColor} selectedItems={selectedItems} />
 
       <Flex flexDirection="column" overflowY="hidden" minHeight={{base: "50vh", lg: "80vh"}} ml={{lg: "4"}} flexGrow={1}>
         
@@ -36,7 +37,7 @@ const App = () => {
 
         { editionMode === "Items" &&
           <Box overflowY="auto" >
-            <ItemChoices items={items} />
+            <ItemChoices items={items} selectedItems={selectedItems} setSelectedItems={setSelectedItems} />
           </Box> }
 
         { editionMode === "Colors" &&
