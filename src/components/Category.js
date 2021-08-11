@@ -1,19 +1,13 @@
 import React from 'react';
-import axios from 'axios';
 import { Image, Skeleton } from '@chakra-ui/react';
+import { getCategoryItems } from '../utils/axios';
 
 const Category = ({ id, imageUrl, setItems }) => { 
 
   let categoryName = id.substr(3).slice(0, -4);
 
   const manageClickOnCategory = () => {
-    axios.get(`http://localhost:3001/api/items/${categoryName}`)
-      .then((res) => {
-        setItems(res.data.categoryImages);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+    getCategoryItems(categoryName, setItems);
   };
 
   return (

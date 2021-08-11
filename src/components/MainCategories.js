@@ -1,21 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import Category from '../components/Category';
 import { Stack } from "@chakra-ui/react"
 
-const MainCategories = ({ setItems }) => {
-
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:3001/api/categories")
-      .then((res) => {
-          setCategories(res.data.categories);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-  }, [])
+const MainCategories = ({ categories, setItems }) => {
 
   return (
     <Stack direction="row" justify="flex-start" overflowX="auto" wrap={{lg: "wrap"}} spacing={0} mb={{lg: 4}}>
