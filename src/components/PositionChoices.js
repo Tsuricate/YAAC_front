@@ -1,5 +1,5 @@
 import React from 'react';
-import { SimpleGrid, Box, CloseButton } from '@chakra-ui/react';
+import { SimpleGrid, Box } from '@chakra-ui/react';
 import {
   ArrowBackIcon, ArrowForwardIcon, ArrowUpIcon, ArrowDownIcon,
 } from '@chakra-ui/icons';
@@ -7,7 +7,6 @@ import RoundButton from './RoundButton';
 
 const PositionChoices = () => (
   <>
-    <CloseButton />
     <SimpleGrid columns={3} spacing={4}>
       <Box />
       <RoundButton icon={<ArrowUpIcon />} color="gray" ariaLabel="Move up element" />

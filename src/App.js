@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import AvatarScreen from './components/AvatarScreen';
+import ChoicesContainer from './components/ChoicesContainer';
 import ColorChoices from './components/ColorChoices';
 import ItemChoices from './components/ItemChoices';
 import MainCategories from './components/MainCategories';
@@ -20,6 +21,8 @@ const App = () => {
     getCategories(setCategories);
     getDefaultItems(setItems);
   }, []);
+
+  const isEditingItems = editionMode !== 'Items';
 
   return (
     <Flex
@@ -49,27 +52,27 @@ const App = () => {
           />
         </Box>
 
-        { editionMode === 'Items' && (
-          <Box overflowY="auto">
-            <ItemChoices
-              items={items}
-              selectedItems={selectedItems}
-              setSelectedItems={setSelectedItems}
-            />
-          </Box>
-        )}
+        <ChoicesContainer
+          centerContent={isEditingItems}
+          showCloseButton={isEditingItems}
+          setEditionMode={setEditionMode}
+        >
+          { editionMode === 'Items' && (
+          <ItemChoices
+            items={items}
+            selectedItems={selectedItems}
+            setSelectedItems={setSelectedItems}
+          />
+          )}
 
-        { editionMode === 'Colors' && (
-          <Flex flexGrow={1} overflowY="auto">
-            <ColorChoices setBackgroundColor={setbackgroundColor} setEditionMode={setEditionMode} />
-          </Flex>
-        )}
+          { editionMode === 'Colors' && (
+          <ColorChoices setBackgroundColor={setbackgroundColor} />
+          )}
 
-        { editionMode === 'Positions' && (
-          <Flex flexDirection="column" bgColor="Gainsboro" flexGrow={1} justifyContent="center" alignItems="center">
-            <PositionChoices />
-          </Flex>
-        )}
+          { editionMode === 'Positions' && (
+          <PositionChoices />
+          )}
+        </ChoicesContainer>
 
       </Flex>
     </Flex>

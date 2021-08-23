@@ -38,14 +38,12 @@ const Category = ({
 };
 
 Category.propTypes = {
-  category: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      imageUrl: PropTypes.string.isRequired,
-      changeColor: PropTypes.bool.isRequired,
-      changePosition: PropTypes.bool.isRequired,
-    }).isRequired,
-  ).isRequired,
+  category: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    changeColor: PropTypes.bool.isRequired,
+    changePosition: PropTypes.bool.isRequired,
+  }).isRequired,
   setItems: PropTypes.func.isRequired,
   setChangeColor: PropTypes.func.isRequired,
   setChangePosition: PropTypes.func.isRequired,

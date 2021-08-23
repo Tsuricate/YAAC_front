@@ -34,8 +34,8 @@ const ActionButtons = ({ setEditionMode, changeColor, changePosition }) => {
 
 ActionButtons.propTypes = {
   setEditionMode: PropTypes.func.isRequired,
-  changeColor: PropTypes.func.isRequired,
-  changePosition: PropTypes.func.isRequired,
+  changeColor: PropTypes.bool.isRequired,
+  changePosition: PropTypes.bool.isRequired,
 };
 
 export default ActionButtons;

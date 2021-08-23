@@ -16,8 +16,12 @@ const RoundButton = ({
   />
 );
 
+RoundButton.defaultProps = {
+  icon: null,
+};
+
 RoundButton.propTypes = {
-  icon: PropTypes.element.isRequired,
+  icon: PropTypes.element,
   ariaLabel: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,

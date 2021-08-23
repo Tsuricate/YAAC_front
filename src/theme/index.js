@@ -1,9 +1,9 @@
 import { extendTheme } from '@chakra-ui/react';
-import Image from './components/image';
+import CloseButton from './components/CloseButton';
 
 const overrides = {
   components: {
-    Image,
+    CloseButton,
   },
 };
 export default extendTheme(overrides);
