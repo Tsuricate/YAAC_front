@@ -4,9 +4,8 @@ import { Image, Skeleton } from '@chakra-ui/react';
 import { getCategoryItems } from '../utils/axios';
 
 const Category = ({
-  category, setItems, setChangeColor, setChangePosition, setEditionMode,
+  category, setItems, setChangeColor, setChangePosition, setEditionMode, setCurrentCategory,
 }) => {
-  // eslint-disable-next-line react/prop-types
   const categoryName = category.id.substr(3).slice(0, -4);
 
   const manageClickOnCategory = () => {
@@ -14,6 +13,7 @@ const Category = ({
     setChangeColor(category.changeColor);
     setChangePosition(category.changePosition);
     setEditionMode('Items');
+    setCurrentCategory(categoryName);
   };
 
   return (
@@ -29,7 +29,7 @@ const Category = ({
       cursor="pointer"
       onClick={manageClickOnCategory}
       _hover={{
-        transform: 'scale(1.03)',
+        transform: 'scale(1.02)',
         boxShadow: '0px 15px 25px -5px black',
         transition: 'all .3s',
       }}
@@ -48,6 +48,7 @@ Category.propTypes = {
   setChangeColor: PropTypes.func.isRequired,
   setChangePosition: PropTypes.func.isRequired,
   setEditionMode: PropTypes.func.isRequired,
+  setCurrentCategory: PropTypes.func.isRequired,
 };
 
 export default Category;

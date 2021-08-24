@@ -13,6 +13,8 @@ const App = () => {
   const [backgroundColor, setbackgroundColor] = useState('#f1f1f1');
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
+  const [itemColor, setItemColor] = useState({ eyes: 'pink', body: 'blue' });
+  const [currentCategory, setCurrentCategory] = useState('body');
   const [selectedItems, setSelectedItems] = useState([]);
   const [changeColor, setChangeColor] = useState(true);
   const [changePosition, setChangePosition] = useState(false);
@@ -22,7 +24,8 @@ const App = () => {
     getDefaultItems(setItems);
   }, []);
 
-  const isEditingItems = editionMode !== 'Items';
+  const isEditingItems = editionMode === 'Items';
+  const isEditingBackground = currentCategory === 'background-color';
 
   return (
     <Flex
@@ -38,6 +41,8 @@ const App = () => {
         selectedItems={selectedItems}
         changeColor={changeColor}
         changePosition={changePosition}
+        itemColor={itemColor}
+        currentCategory={currentCategory}
       />
 
       <Flex flexDirection="column" overflowY="hidden" minHeight={{ base: '50vh', lg: '80vh' }} ml={{ lg: '16' }} flexGrow={1} bgColor="#58758C" p={{ lg: '5' }}>
@@ -49,15 +54,16 @@ const App = () => {
             setChangeColor={setChangeColor}
             setChangePosition={setChangePosition}
             setEditionMode={setEditionMode}
+            setCurrentCategory={setCurrentCategory}
           />
         </Box>
 
         <ChoicesContainer
-          centerContent={isEditingItems}
-          showCloseButton={isEditingItems}
+          centerContent={!isEditingItems}
+          showCloseButton={!isEditingItems}
           setEditionMode={setEditionMode}
         >
-          { editionMode === 'Items' && (
+          { editionMode === 'Items' && !isEditingBackground && (
           <ItemChoices
             items={items}
             selectedItems={selectedItems}
@@ -65,8 +71,12 @@ const App = () => {
           />
           )}
 
-          { editionMode === 'Colors' && (
-          <ColorChoices setBackgroundColor={setbackgroundColor} />
+          { (editionMode === 'Colors' || isEditingBackground) && (
+          <ColorChoices
+            setBackgroundColor={setbackgroundColor}
+            setItemColor={setItemColor}
+            currentCategory={currentCategory}
+          />
           )}
 
           { editionMode === 'Positions' && (

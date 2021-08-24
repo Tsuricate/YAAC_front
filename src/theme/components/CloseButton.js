@@ -7,7 +7,7 @@ const CloseButton = {
       margin: '10px',
       size: 'lg',
       border: '1px solid black',
-      'border-radius': '5px',
+      borderRadius: '5px',
     },
   },
 };

@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Flex, Wrap } from '@chakra-ui/react';
+import { Flex, Wrap, Input } from '@chakra-ui/react';
 import RoundButton from './RoundButton';
 import { backgroundColors } from '../data/backgroundColors';
 
-const ColorChoices = ({ setBackgroundColor }) => {
-  const handleBackgroundColor = (color) => {
-    setBackgroundColor(color);
+const ColorChoices = ({ setBackgroundColor, setItemColor, currentCategory }) => {
+  const handleItemColor = (color) => {
+    if (currentCategory === 'background-color') {
+      setBackgroundColor(color);
+    } else {
+      setItemColor((prevState) => ({ ...prevState, [currentCategory]: color }));
+    }
   };
 
   return (
@@ -14,8 +18,9 @@ const ColorChoices = ({ setBackgroundColor }) => {
     <Flex flexDirection="column" bgColor="Gainsboro" flexGrow={1} justifyContent="center" alignItems="center" px={3}>
       <Wrap>
         { backgroundColors.map((color) => (
-          <RoundButton key={color} ariaLabel="orange" color={color} onClick={() => handleBackgroundColor(color)} />
+          <RoundButton key={color} ariaLabel="color-choices" color={color} onClick={() => handleItemColor(color)} />
         ))}
+        <Input type="color" onChange={(event) => { handleItemColor(event.target.value); }} />
       </Wrap>
     </Flex>
 
@@ -24,6 +29,8 @@ const ColorChoices = ({ setBackgroundColor }) => {
 
 ColorChoices.propTypes = {
   setBackgroundColor: PropTypes.func.isRequired,
+  setItemColor: PropTypes.func.isRequired,
+  currentCategory: PropTypes.string.isRequired,
 };
 
 export default ColorChoices;

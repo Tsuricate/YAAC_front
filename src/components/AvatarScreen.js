@@ -6,7 +6,13 @@ import ActionButtons from './ActionButtons';
 import AvatarImageContainer from './AvatarImageContainer';
 
 const AvatarScreen = ({
-  setEditionMode, backgroundColor, selectedItems, changeColor, changePosition,
+  setEditionMode,
+  backgroundColor,
+  selectedItems,
+  changeColor,
+  changePosition,
+  itemColor,
+  currentCategory,
 }) => {
   const boxStyle = {
     bg: backgroundColor, width: '100%', height: '100%', borderRadius: { lg: '10px' }, boxShadow: { lg: '10px 10px 20px dimgrey' }, border: { lg: 'thick double grey' },
@@ -17,10 +23,14 @@ const AvatarScreen = ({
       <Box {...boxStyle}>
         <Center>
           {selectedItems.map((item) => (
-            <AvatarImageContainer key={item} bodyPart={item} />
+            <AvatarImageContainer
+              key={item}
+              bodyPart={item}
+              itemColor={itemColor}
+              currentCategory={currentCategory}
+            />
           ))}
         </Center>
-
       </Box>
 
       <Box position="absolute" bottom="4" width="100%" px="3">
@@ -43,6 +53,8 @@ AvatarScreen.propTypes = {
   ).isRequired,
   changeColor: PropTypes.bool.isRequired,
   changePosition: PropTypes.bool.isRequired,
+  itemColor: PropTypes.objectOf(PropTypes.string).isRequired,
+  currentCategory: PropTypes.string.isRequired,
 };
 
 export default AvatarScreen;
