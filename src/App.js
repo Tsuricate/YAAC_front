@@ -65,6 +65,7 @@ const App = () => {
             selectedItems={selectedItems}
             setSelectedItems={setSelectedItems}
             isMandatory={currentCategoryInfos?.isMandatory}
+            currentCategoryName={currentCategoryInfos?.id}
           />
           )}
 

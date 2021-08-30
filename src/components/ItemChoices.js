@@ -4,21 +4,32 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { deleteCategoryItems } from '../utils/functions';
 
 const ItemChoices = ({
-  items, selectedItems, setSelectedItems, isMandatory,
+  items, selectedItems, setSelectedItems, isMandatory, currentCategoryName,
 }) => {
-  const manageClickOnItem = (itemId, itemUrl) => {
-    const itemCategory = itemUrl.replace(itemId, '');
-    const newArray = selectedItems.filter((item) => !item.startsWith(itemCategory));
+  const manageClickOnItem = (itemUrl) => {
+    const newArray = deleteCategoryItems(selectedItems, currentCategoryName);
     const newSelectedItems = [...newArray, itemUrl];
     setSelectedItems(newSelectedItems);
+  };
+
+  const removeItem = () => {
+    const newArray = deleteCategoryItems(selectedItems, currentCategoryName);
+    setSelectedItems(newArray);
   };
 
   return (
     <SimpleGrid minChildWidth={{ base: '5em', lg: '7em' }} spacing="1">
       <Center>
-        <IconButton aria-label="Remove item" icon={<CloseIcon />} variant="remove-item" disabled={isMandatory} />
+        <IconButton
+          aria-label="Remove item"
+          icon={<CloseIcon />}
+          variant="remove-item"
+          disabled={isMandatory}
+          onClick={removeItem}
+        />
       </Center>
       {items.map((item) => (
         <Image
@@ -32,7 +43,7 @@ const ItemChoices = ({
           borderRadius="5px"
           boxShadow={{ lg: '0px 3px 12px #151b1f' }}
           cursor="pointer"
-          onClick={() => manageClickOnItem(item.id, item.imageUrl)}
+          onClick={() => manageClickOnItem(item.imageUrl)}
         />
       ))}
     </SimpleGrid>
@@ -47,6 +58,7 @@ ItemChoices.propTypes = {
     }),
   ).isRequired,
   isMandatory: PropTypes.bool.isRequired,
+  currentCategoryName: PropTypes.string.isRequired,
 }.isRequired;
 
 export default ItemChoices;

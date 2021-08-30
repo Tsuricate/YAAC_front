@@ -1,5 +1,5 @@
 import axios from 'axios';
-import getCurrentCategoryInfo from './functions';
+import { getCurrentCategoryInfo } from './functions';
 
 export const getDefaultItems = (setItems) => {
   axios.get('http://localhost:3001/api/items/Body')
