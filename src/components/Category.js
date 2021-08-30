@@ -4,22 +4,18 @@ import { Image, Skeleton } from '@chakra-ui/react';
 import { getCategoryItems } from '../utils/axios';
 
 const Category = ({
-  category, setItems, setChangeColor, setChangePosition, setEditionMode, setCurrentCategory,
+  category, setItems, setEditionMode, setCurrentCategoryInfos,
 }) => {
-  const categoryName = category.id.substr(3).slice(0, -4);
-
   const manageClickOnCategory = () => {
-    getCategoryItems(categoryName, setItems);
-    setChangeColor(category.changeColor);
-    setChangePosition(category.changePosition);
+    getCategoryItems(category.id, setItems);
     setEditionMode('Items');
-    setCurrentCategory(categoryName);
+    setCurrentCategoryInfos(category);
   };
 
   return (
     <Image
       src={category.imageUrl}
-      alt={categoryName}
+      alt={category.id}
       fallback={<Skeleton width={{ base: '70px', lg: '100px' }} height={{ base: '70px', lg: '100px' }} />}
       width={{ base: '70px', lg: '100px' }}
       height={{ base: '70px', lg: '100px' }}
@@ -37,6 +33,10 @@ const Category = ({
   );
 };
 
+Category.defaultProps = {
+  setCurrentCategoryInfos: null,
+};
+
 Category.propTypes = {
   category: PropTypes.shape({
     id: PropTypes.string.isRequired,
@@ -45,10 +45,8 @@ Category.propTypes = {
     changePosition: PropTypes.bool.isRequired,
   }).isRequired,
   setItems: PropTypes.func.isRequired,
-  setChangeColor: PropTypes.func.isRequired,
-  setChangePosition: PropTypes.func.isRequired,
   setEditionMode: PropTypes.func.isRequired,
-  setCurrentCategory: PropTypes.func.isRequired,
+  setCurrentCategoryInfos: PropTypes.func,
 };
 
 export default Category;

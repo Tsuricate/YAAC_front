@@ -1,8 +1,10 @@
 import { extendTheme } from '@chakra-ui/react';
-import CloseButton from './components/CloseButton';
+import Button from './components/button';
+import CloseButton from './components/closebutton';
 
 const overrides = {
   components: {
+    Button,
     CloseButton,
   },
 };

@@ -12,7 +12,7 @@ const AvatarScreen = ({
   changeColor,
   changePosition,
   itemColor,
-  currentCategory,
+  currentCategoryName,
 }) => {
   const boxStyle = {
     bg: backgroundColor, width: '100%', height: '100%', borderRadius: { lg: '10px' }, boxShadow: { lg: '10px 10px 20px dimgrey' }, border: { lg: 'thick double grey' },
@@ -27,7 +27,7 @@ const AvatarScreen = ({
               key={item}
               bodyPart={item}
               itemColor={itemColor}
-              currentCategory={currentCategory}
+              currentCategoryName={currentCategoryName}
             />
           ))}
         </Center>
@@ -45,16 +45,22 @@ const AvatarScreen = ({
   );
 };
 
+AvatarScreen.defaultProps = {
+  changeColor: false,
+  changePosition: false,
+  currentCategoryName: 'body',
+};
+
 AvatarScreen.propTypes = {
   setEditionMode: PropTypes.func.isRequired,
   backgroundColor: PropTypes.string.isRequired,
   selectedItems: PropTypes.arrayOf(
     PropTypes.string.isRequired,
   ).isRequired,
-  changeColor: PropTypes.bool.isRequired,
-  changePosition: PropTypes.bool.isRequired,
+  changeColor: PropTypes.bool,
+  changePosition: PropTypes.bool,
   itemColor: PropTypes.objectOf(PropTypes.string).isRequired,
-  currentCategory: PropTypes.string.isRequired,
+  currentCategoryName: PropTypes.string,
 };
 
 export default AvatarScreen;

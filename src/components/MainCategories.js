@@ -4,7 +4,7 @@ import { SimpleGrid, Stack, useBreakpointValue } from '@chakra-ui/react';
 import Category from './Category';
 
 const MainCategories = ({
-  categories, setItems, setChangeColor, setChangePosition, setEditionMode, setCurrentCategory,
+  categories, setItems, setEditionMode, setCurrentCategoryInfos,
 }) => {
   const isDisplayedInline = useBreakpointValue({ base: true, lg: false });
 
@@ -18,9 +18,8 @@ const MainCategories = ({
                 key={category.id}
                 category={category}
                 setItems={setItems}
-                setChangeColor={setChangeColor}
-                setChangePosition={setChangePosition}
                 setEditionMode={setEditionMode}
+                setCurrentCategoryInfos={setCurrentCategoryInfos}
               />
             ))}
           </Stack>
@@ -32,10 +31,8 @@ const MainCategories = ({
                 key={category.id}
                 category={category}
                 setItems={setItems}
-                setChangeColor={setChangeColor}
-                setChangePosition={setChangePosition}
                 setEditionMode={setEditionMode}
-                setCurrentCategory={setCurrentCategory}
+                setCurrentCategoryInfos={setCurrentCategoryInfos}
               />
             ))}
           </SimpleGrid>
@@ -49,10 +46,8 @@ MainCategories.propTypes = {
     PropTypes.object,
   ).isRequired,
   setItems: PropTypes.func.isRequired,
-  setChangeColor: PropTypes.func.isRequired,
-  setChangePosition: PropTypes.func.isRequired,
   setEditionMode: PropTypes.func.isRequired,
-  setCurrentCategory: PropTypes.func.isRequired,
+  setCurrentCategoryInfos: PropTypes.func.isRequired,
 };
 
 export default MainCategories;

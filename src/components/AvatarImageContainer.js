@@ -4,14 +4,14 @@ import { SvgLoader, SvgProxy } from 'react-svgmt';
 import { Image } from '@chakra-ui/react';
 import customizableItemsMapping from '../data/customizableItemsMapping';
 
-const AvatarImageContainer = ({ bodyPart, itemColor, currentCategory }) => (
+const AvatarImageContainer = ({ bodyPart, itemColor, currentCategoryName }) => (
 
   bodyPart.includes('svg')
     ? (
       <SvgLoader path={bodyPart} position="absolute" bottom="0">
         <SvgProxy
-          selector={`#${customizableItemsMapping[currentCategory]}`}
-          fill={itemColor[currentCategory]}
+          selector={`#${customizableItemsMapping[currentCategoryName]}`}
+          fill={itemColor[currentCategoryName]}
         />
       </SvgLoader>
     )
@@ -21,7 +21,7 @@ const AvatarImageContainer = ({ bodyPart, itemColor, currentCategory }) => (
 AvatarImageContainer.propTypes = {
   bodyPart: PropTypes.string.isRequired,
   itemColor: PropTypes.objectOf(PropTypes.string).isRequired,
-  currentCategory: PropTypes.string.isRequired,
+  currentCategoryName: PropTypes.string.isRequired,
 };
 
 export default AvatarImageContainer;

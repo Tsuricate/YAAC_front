@@ -1,4 +1,5 @@
 import axios from 'axios';
+import getCurrentCategoryInfo from './functions';
 
 export const getDefaultItems = (setItems) => {
   axios.get('http://localhost:3001/api/items/Body')
@@ -10,10 +11,11 @@ export const getDefaultItems = (setItems) => {
     });
 };
 
-export const getCategories = (setCategories) => {
+export const getCategories = (setCategories, setCurrentCategoryInfos) => {
   axios.get('http://localhost:3001/api/categories')
     .then((res) => {
       setCategories(res.data.categories);
+      setCurrentCategoryInfos(getCurrentCategoryInfo(res.data.categories, 'body'));
     })
     .catch((error) => {
       console.log(error);

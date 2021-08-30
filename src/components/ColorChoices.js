@@ -4,12 +4,12 @@ import { Flex, Wrap, Input } from '@chakra-ui/react';
 import RoundButton from './RoundButton';
 import { backgroundColors } from '../data/backgroundColors';
 
-const ColorChoices = ({ setBackgroundColor, setItemColor, currentCategory }) => {
+const ColorChoices = ({ setBackgroundColor, setItemColor, currentCategoryName }) => {
   const handleItemColor = (color) => {
-    if (currentCategory === 'background-color') {
+    if (currentCategoryName === 'background-color') {
       setBackgroundColor(color);
     } else {
-      setItemColor((prevState) => ({ ...prevState, [currentCategory]: color }));
+      setItemColor((prevState) => ({ ...prevState, [currentCategoryName]: color }));
     }
   };
 
@@ -30,7 +30,7 @@ const ColorChoices = ({ setBackgroundColor, setItemColor, currentCategory }) => 
 ColorChoices.propTypes = {
   setBackgroundColor: PropTypes.func.isRequired,
   setItemColor: PropTypes.func.isRequired,
-  currentCategory: PropTypes.string.isRequired,
+  currentCategoryName: PropTypes.string.isRequired,
 };
 
 export default ColorChoices;

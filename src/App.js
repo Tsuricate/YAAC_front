@@ -14,18 +14,16 @@ const App = () => {
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
   const [itemColor, setItemColor] = useState({ eyes: 'pink', body: 'blue' });
-  const [currentCategory, setCurrentCategory] = useState('body');
+  const [currentCategoryInfos, setCurrentCategoryInfos] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
-  const [changeColor, setChangeColor] = useState(true);
-  const [changePosition, setChangePosition] = useState(false);
 
   useEffect(() => {
-    getCategories(setCategories);
+    getCategories(setCategories, setCurrentCategoryInfos);
     getDefaultItems(setItems);
   }, []);
 
   const isEditingItems = editionMode === 'Items';
-  const isEditingBackground = currentCategory === 'background-color';
+  const isEditingBackground = currentCategoryInfos?.id === 'background-color';
 
   return (
     <Flex
@@ -39,10 +37,10 @@ const App = () => {
         setEditionMode={setEditionMode}
         backgroundColor={backgroundColor}
         selectedItems={selectedItems}
-        changeColor={changeColor}
-        changePosition={changePosition}
+        changeColor={currentCategoryInfos?.changeColor}
+        changePosition={currentCategoryInfos?.changePosition}
         itemColor={itemColor}
-        currentCategory={currentCategory}
+        currentCategoryName={currentCategoryInfos?.id}
       />
 
       <Flex flexDirection="column" overflowY="hidden" minHeight={{ base: '50vh', lg: '80vh' }} ml={{ lg: '16' }} flexGrow={1} bgColor="#58758C" p={{ lg: '5' }}>
@@ -51,10 +49,8 @@ const App = () => {
           <MainCategories
             setItems={setItems}
             categories={categories}
-            setChangeColor={setChangeColor}
-            setChangePosition={setChangePosition}
             setEditionMode={setEditionMode}
-            setCurrentCategory={setCurrentCategory}
+            setCurrentCategoryInfos={setCurrentCategoryInfos}
           />
         </Box>
 
@@ -68,6 +64,7 @@ const App = () => {
             items={items}
             selectedItems={selectedItems}
             setSelectedItems={setSelectedItems}
+            isMandatory={currentCategoryInfos?.isMandatory}
           />
           )}
 
@@ -75,7 +72,7 @@ const App = () => {
           <ColorChoices
             setBackgroundColor={setbackgroundColor}
             setItemColor={setItemColor}
-            currentCategory={currentCategory}
+            currentCategoryName={currentCategoryInfos?.id}
           />
           )}
 
