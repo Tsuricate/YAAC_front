@@ -57,13 +57,17 @@ AvatarScreen.propTypes = {
   setEditionMode: PropTypes.func.isRequired,
   backgroundColor: PropTypes.string.isRequired,
   selectedItems: PropTypes.arrayOf(
-    PropTypes.string.isRequired,
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+    }).isRequired,
   ).isRequired,
   changeColor: PropTypes.bool,
   changePosition: PropTypes.bool,
   itemColor: PropTypes.objectOf(PropTypes.string).isRequired,
   currentCategoryName: PropTypes.string,
-  itemsPosition: PropTypes.objectOf(PropTypes.string).isRequired,
+  itemsPosition: PropTypes.objectOf(PropTypes.number).isRequired,
 };
 
 export default AvatarScreen;

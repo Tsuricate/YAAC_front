@@ -21,16 +21,20 @@ const RoundButton = ({
 
 RoundButton.defaultProps = {
   icon: null,
+  onClick: null,
+  onMouseDown: null,
+  onMouseUp: null,
+  onMouseLeave: null,
 };
 
 RoundButton.propTypes = {
   icon: PropTypes.element,
   ariaLabel: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  onMouseDown: PropTypes.func.isRequired,
-  onMouseUp: PropTypes.func.isRequired,
-  onMouseLeave: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
+  onMouseDown: PropTypes.func,
+  onMouseUp: PropTypes.func,
+  onMouseLeave: PropTypes.func,
 };
 
 export default RoundButton;
