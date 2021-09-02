@@ -13,6 +13,7 @@ const AvatarScreen = ({
   changePosition,
   itemColor,
   currentCategoryName,
+  itemsPosition,
 }) => {
   const boxStyle = {
     bg: backgroundColor, width: '100%', height: '100%', borderRadius: { lg: '10px' }, boxShadow: { lg: '10px 10px 20px dimgrey' }, border: { lg: 'thick double grey' },
@@ -28,6 +29,7 @@ const AvatarScreen = ({
               bodyPart={item}
               itemColor={itemColor}
               currentCategoryName={currentCategoryName}
+              itemPosition={itemsPosition[currentCategoryName]}
             />
           ))}
         </Center>
@@ -61,6 +63,7 @@ AvatarScreen.propTypes = {
   changePosition: PropTypes.bool,
   itemColor: PropTypes.objectOf(PropTypes.string).isRequired,
   currentCategoryName: PropTypes.string,
+  itemsPosition: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default AvatarScreen;

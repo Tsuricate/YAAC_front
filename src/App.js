@@ -1,5 +1,5 @@
 import { Box, Flex } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import AvatarScreen from './components/AvatarScreen';
 import ChoicesContainer from './components/ChoicesContainer';
 import ColorChoices from './components/ColorChoices';
@@ -7,6 +7,7 @@ import ItemChoices from './components/ItemChoices';
 import MainCategories from './components/MainCategories';
 import PositionChoices from './components/PositionChoices';
 import { getCategories, getDefaultItems } from './utils/axios';
+import reducer from './utils/reducers';
 
 const App = () => {
   const [editionMode, setEditionMode] = useState('Items');
@@ -16,6 +17,7 @@ const App = () => {
   const [itemColor, setItemColor] = useState({ eyes: 'pink', body: 'blue' });
   const [currentCategoryInfos, setCurrentCategoryInfos] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [itemsPosition, dispatchItemsPosition] = useReducer(reducer, { body: 1, eyes: 1, jaw: 1 });
 
   useEffect(() => {
     getCategories(setCategories, setCurrentCategoryInfos);
@@ -41,6 +43,7 @@ const App = () => {
         changePosition={currentCategoryInfos?.changePosition}
         itemColor={itemColor}
         currentCategoryName={currentCategoryInfos?.id}
+        itemPosition={itemsPosition}
       />
 
       <Flex flexDirection="column" overflowY="hidden" minHeight={{ base: '50vh', lg: '80vh' }} ml={{ lg: '16' }} flexGrow={1} bgColor="#58758C" p={{ lg: '5' }}>
@@ -78,7 +81,10 @@ const App = () => {
           )}
 
           { editionMode === 'Positions' && (
-          <PositionChoices />
+          <PositionChoices
+            currentCategoryName={currentCategoryInfos?.id}
+            dispatchItemsPosition={dispatchItemsPosition}
+          />
           )}
         </ChoicesContainer>
 
