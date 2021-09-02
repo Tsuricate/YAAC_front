@@ -29,7 +29,7 @@ const AvatarScreen = ({
               imageUrl={item.imageUrl}
               itemColor={itemColor}
               currentCategoryName={currentCategoryName}
-              itemPosition={itemsPosition[currentCategoryName]}
+              itemPosition={itemsPosition[item.category]}
             />
           ))}
         </Center>

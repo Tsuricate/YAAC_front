@@ -15,7 +15,7 @@ const App = () => {
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
   const [itemColor, setItemColor] = useState({ eyes: 'pink', body: 'blue' });
-  const [currentCategoryInfos, setCurrentCategoryInfos] = useState({ id: 'toto' });
+  const [currentCategoryInfos, setCurrentCategoryInfos] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
   const [itemsPosition, dispatchItemsPosition] = useReducer(reducer, { body: 1, eyes: 1, jaw: 1 });
 
