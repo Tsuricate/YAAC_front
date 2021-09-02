@@ -3,5 +3,5 @@ export const getCurrentCategoryInfo = (categories, currentCategoryName) => (
 );
 
 export const deleteCategoryItems = (selectedItems, currentCategoryName) => (
-  selectedItems.filter((selectedItem) => !selectedItem.includes(currentCategoryName))
+  selectedItems.filter((selectedItem) => selectedItem.category !== currentCategoryName)
 );
