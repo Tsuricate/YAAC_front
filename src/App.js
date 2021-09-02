@@ -43,7 +43,7 @@ const App = () => {
         changePosition={currentCategoryInfos?.changePosition}
         itemColor={itemColor}
         currentCategoryName={currentCategoryInfos?.id}
-        itemPosition={itemsPosition}
+        itemsPosition={itemsPosition}
       />
 
       <Flex flexDirection="column" overflowY="hidden" minHeight={{ base: '50vh', lg: '80vh' }} ml={{ lg: '16' }} flexGrow={1} bgColor="#58758C" p={{ lg: '5' }}>

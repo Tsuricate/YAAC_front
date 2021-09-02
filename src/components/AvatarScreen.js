@@ -25,8 +25,8 @@ const AvatarScreen = ({
         <Center>
           {selectedItems.map((item) => (
             <AvatarImageContainer
-              key={item}
-              bodyPart={item}
+              key={item.id}
+              imageUrl={item.imageUrl}
               itemColor={itemColor}
               currentCategoryName={currentCategoryName}
               itemPosition={itemsPosition[currentCategoryName]}
