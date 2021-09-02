@@ -9,9 +9,9 @@ import { deleteCategoryItems } from '../utils/functions';
 const ItemChoices = ({
   items, selectedItems, setSelectedItems, isMandatory, currentCategoryName,
 }) => {
-  const manageClickOnItem = (itemUrl) => {
+  const manageClickOnItem = (item) => {
     const newArray = deleteCategoryItems(selectedItems, currentCategoryName);
-    const newSelectedItems = [...newArray, itemUrl];
+    const newSelectedItems = [...newArray, item];
     setSelectedItems(newSelectedItems);
   };
 
@@ -43,7 +43,7 @@ const ItemChoices = ({
           borderRadius="5px"
           boxShadow={{ lg: '0px 3px 12px #151b1f' }}
           cursor="pointer"
-          onClick={() => manageClickOnItem(item.imageUrl)}
+          onClick={() => manageClickOnItem(item)}
         />
       ))}
     </SimpleGrid>
