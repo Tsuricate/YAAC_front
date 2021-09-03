@@ -9,15 +9,19 @@ import RoundButton from './RoundButton';
 const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
   const intervalRef = useRef(null);
 
+  const dispatchItemsPostion = (actionType, actionDirection) => {
+    dispatchItemsPosition({
+      type: actionType,
+      category: currentCategoryName,
+      direction: actionDirection,
+    });
+  };
+
   const handleMouseDown = (actionType, actionDirection) => {
     if (intervalRef.current) return;
     intervalRef.current = setInterval(() => {
-      dispatchItemsPosition({
-        type: actionType,
-        category: currentCategoryName,
-        direction: actionDirection,
-      });
-    }, 100);
+      dispatchItemsPostion(actionType, actionDirection);
+    }, 200);
   };
 
   const handleMouseUp = () => {
@@ -38,6 +42,7 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
           onMouseDown={() => handleMouseDown('Increment', 'directionY')}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
+          onClick={() => dispatchItemsPostion('Increment', 'directionY')}
         />
         <Box />
         <RoundButton
@@ -47,6 +52,7 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
           onMouseDown={() => handleMouseDown('Increment', 'directionX')}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
+          onClick={() => dispatchItemsPostion('Increment', 'directionX')}
         />
         <Box />
         <RoundButton
@@ -56,6 +62,7 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
           onMouseDown={() => handleMouseDown('Decrement', 'directionX')}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
+          onClick={() => dispatchItemsPostion('Decrement', 'directionX')}
         />
         <Box />
         <RoundButton
@@ -63,6 +70,7 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
           color="gray"
           ariaLabel="Move down element"
           onMouseDown={() => handleMouseDown('Decrement', 'directionY')}
+          onClick={() => dispatchItemsPostion('Decrement', 'directionY')}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         />
