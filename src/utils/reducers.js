@@ -2,46 +2,31 @@ const reducer = (state, action) => {
   const categoryDirection = state[action.category][action.direction];
 
   switch (action.type) {
-    case 'IncrementY':
+    case 'Increment':
       if (categoryDirection < 5) {
-        const newPosition = categoryDirection + 1;
         return {
           ...state,
-          [action.category]: { ...state[action.category], [action.direction]: newPosition },
+          [action.category]: {
+            ...state[action.category], [action.direction]: categoryDirection + 1,
+          },
         };
       }
       return state;
 
-    case 'DecrementY':
-      if (categoryDirection > 0) {
-        const newPosition = categoryDirection - 1;
+    case 'Decrement': {
+      const conditionDirectionX = action.direction === 'directionX' && categoryDirection <= 5 && categoryDirection > -5;
+      const conditionDirectionY = action.direction === 'directionY' && categoryDirection > 0;
+
+      if (conditionDirectionX || conditionDirectionY) {
         return {
           ...state,
-          [action.category]: { ...state[action.category], [action.direction]: newPosition },
+          [action.category]: {
+            ...state[action.category], [action.direction]: categoryDirection - 1,
+          },
         };
       }
       return state;
-
-    case 'IncrementX':
-      if (categoryDirection < 5) {
-        const newPosition = categoryDirection + 1;
-        return {
-          ...state,
-          [action.category]: { ...state[action.category], [action.direction]: newPosition },
-        };
-      }
-      return state;
-
-    case 'DecrementX':
-      if (categoryDirection <= 5 && categoryDirection > -5) {
-        const newPosition = categoryDirection - 1;
-        return {
-          ...state,
-          [action.category]: { ...state[action.category], [action.direction]: newPosition },
-        };
-      }
-      return state;
-
+    }
     default:
       return state;
   }

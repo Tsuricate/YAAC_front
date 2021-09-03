@@ -9,7 +9,7 @@ const AvatarImageContainer = ({
 }) => (
   imageUrl.includes('svg')
     ? (
-      <SvgLoader path={imageUrl} position="absolute" bottom="0">
+      <SvgLoader path={imageUrl} position="absolute" bottom={`${itemsPosition.directionY}em`} right={`${itemsPosition.directionX}em`}>
         <SvgProxy
           selector={`#${customizableItemsMapping[currentCategoryName]}`}
           fill={itemColor[currentCategoryName]}
@@ -19,11 +19,15 @@ const AvatarImageContainer = ({
     : <Image src={imageUrl} maxW="100%" maxH="100%" position="absolute" bottom={`${itemsPosition.directionY}em`} right={`${itemsPosition.directionX}em`} />
 );
 
+AvatarImageContainer.defaultProps = {
+  itemsPosition: { directionX: 0, directionY: 0 },
+};
+
 AvatarImageContainer.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   itemColor: PropTypes.objectOf(PropTypes.string).isRequired,
   currentCategoryName: PropTypes.string.isRequired,
-  itemsPosition: PropTypes.objectOf(PropTypes.number.isRequired).isRequired,
+  itemsPosition: PropTypes.objectOf(PropTypes.number.isRequired),
 };
 
 export default AvatarImageContainer;

@@ -35,7 +35,7 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
           icon={<ArrowUpIcon />}
           color="gray"
           ariaLabel="Move up element"
-          onMouseDown={() => handleMouseDown('IncrementY', 'directionY')}
+          onMouseDown={() => handleMouseDown('Increment', 'directionY')}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         />
@@ -44,7 +44,7 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
           icon={<ArrowBackIcon />}
           color="gray"
           ariaLabel="Move element to the left"
-          onMouseDown={() => handleMouseDown('IncrementX', 'directionX')}
+          onMouseDown={() => handleMouseDown('Increment', 'directionX')}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         />
@@ -53,7 +53,7 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
           icon={<ArrowForwardIcon />}
           color="gray"
           ariaLabel="Move element to the right"
-          onMouseDown={() => handleMouseDown('DecrementX', 'directionX')}
+          onMouseDown={() => handleMouseDown('Decrement', 'directionX')}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         />
@@ -62,7 +62,7 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
           icon={<ArrowDownIcon />}
           color="gray"
           ariaLabel="Move down element"
-          onMouseDown={() => handleMouseDown('DecrementY', 'directionY')}
+          onMouseDown={() => handleMouseDown('Decrement', 'directionY')}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         />
