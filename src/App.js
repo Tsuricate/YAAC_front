@@ -17,7 +17,11 @@ const App = () => {
   const [itemColor, setItemColor] = useState({ eyes: 'pink', body: 'blue' });
   const [currentCategoryInfos, setCurrentCategoryInfos] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
-  const [itemsPosition, dispatchItemsPosition] = useReducer(reducer, { body: 1, eyes: 1, jaw: 1 });
+  const [itemsPosition, dispatchItemsPosition] = useReducer(reducer,
+    {
+      body: { directionX: 0, directionY: 0 },
+      jaw: { directionX: 0, directionY: 0 },
+    });
 
   useEffect(() => {
     getCategories(setCategories, setCurrentCategoryInfos);

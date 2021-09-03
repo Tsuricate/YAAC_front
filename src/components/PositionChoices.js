@@ -9,10 +9,14 @@ import RoundButton from './RoundButton';
 const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
   const intervalRef = useRef(null);
 
-  const handleMouseDown = (actionType) => {
+  const handleMouseDown = (actionType, actionDirection) => {
     if (intervalRef.current) return;
     intervalRef.current = setInterval(() => {
-      dispatchItemsPosition({ type: actionType, category: currentCategoryName });
+      dispatchItemsPosition({
+        type: actionType,
+        category: currentCategoryName,
+        direction: actionDirection,
+      });
     }, 100);
   };
 
@@ -27,13 +31,41 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
     <>
       <SimpleGrid columns={3} spacing={4}>
         <Box />
-        <RoundButton icon={<ArrowUpIcon />} color="gray" ariaLabel="Move up element" onMouseDown={() => handleMouseDown('Increment')} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp} />
+        <RoundButton
+          icon={<ArrowUpIcon />}
+          color="gray"
+          ariaLabel="Move up element"
+          onMouseDown={() => handleMouseDown('IncrementY', 'directionY')}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+        />
         <Box />
-        <RoundButton icon={<ArrowBackIcon />} color="gray" ariaLabel="Move element to the left" onClick={() => console.log('Move Left !')} />
+        <RoundButton
+          icon={<ArrowBackIcon />}
+          color="gray"
+          ariaLabel="Move element to the left"
+          onMouseDown={() => handleMouseDown('IncrementX', 'directionX')}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+        />
         <Box />
-        <RoundButton icon={<ArrowForwardIcon />} color="gray" ariaLabel="Move element to the right" onClick={() => console.log('Move Right !')} />
+        <RoundButton
+          icon={<ArrowForwardIcon />}
+          color="gray"
+          ariaLabel="Move element to the right"
+          onMouseDown={() => handleMouseDown('DecrementX', 'directionX')}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+        />
         <Box />
-        <RoundButton icon={<ArrowDownIcon />} color="gray" ariaLabel="Move down element" onMouseDown={() => handleMouseDown('Decrement')} onMouseUp={handleMouseUp} />
+        <RoundButton
+          icon={<ArrowDownIcon />}
+          color="gray"
+          ariaLabel="Move down element"
+          onMouseDown={() => handleMouseDown('DecrementY', 'directionY')}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+        />
         <Box />
       </SimpleGrid>
     </>

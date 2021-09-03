@@ -29,7 +29,7 @@ const AvatarScreen = ({
               imageUrl={item.imageUrl}
               itemColor={itemColor}
               currentCategoryName={currentCategoryName}
-              itemPosition={itemsPosition[item.category]}
+              itemsPosition={itemsPosition[item.category]}
             />
           ))}
         </Center>
@@ -67,7 +67,10 @@ AvatarScreen.propTypes = {
   changePosition: PropTypes.bool,
   itemColor: PropTypes.objectOf(PropTypes.string).isRequired,
   currentCategoryName: PropTypes.string,
-  itemsPosition: PropTypes.objectOf(PropTypes.number).isRequired,
+  itemsPosition: PropTypes.objectOf(PropTypes.shape({
+    directionX: PropTypes.number.isRequired,
+    directionY: PropTypes.number.isRequired,
+  })).isRequired,
 };
 
 export default AvatarScreen;

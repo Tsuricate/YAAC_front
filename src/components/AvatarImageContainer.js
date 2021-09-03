@@ -5,9 +5,8 @@ import { Image } from '@chakra-ui/react';
 import customizableItemsMapping from '../data/customizableItemsMapping';
 
 const AvatarImageContainer = ({
-  imageUrl, itemColor, currentCategoryName, itemPosition,
+  imageUrl, itemColor, currentCategoryName, itemsPosition,
 }) => (
-
   imageUrl.includes('svg')
     ? (
       <SvgLoader path={imageUrl} position="absolute" bottom="0">
@@ -17,18 +16,14 @@ const AvatarImageContainer = ({
         />
       </SvgLoader>
     )
-    : <Image src={imageUrl} maxW="100%" maxH="100%" position="absolute" bottom={`${itemPosition}em`} />
+    : <Image src={imageUrl} maxW="100%" maxH="100%" position="absolute" bottom={`${itemsPosition.directionY}em`} right={`${itemsPosition.directionX}em`} />
 );
-
-AvatarImageContainer.defaultProps = {
-  itemPosition: 0,
-};
 
 AvatarImageContainer.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   itemColor: PropTypes.objectOf(PropTypes.string).isRequired,
   currentCategoryName: PropTypes.string.isRequired,
-  itemPosition: PropTypes.number,
+  itemsPosition: PropTypes.objectOf(PropTypes.number.isRequired).isRequired,
 };
 
 export default AvatarImageContainer;
