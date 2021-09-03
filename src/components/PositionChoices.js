@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import {
   ArrowBackIcon, ArrowDownIcon, ArrowForwardIcon, ArrowUpIcon,
 } from '@chakra-ui/icons';
@@ -31,48 +32,42 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
     }
   };
 
+  const sharedButtonProps = { color: 'gray', onMouseUp: handleMouseUp, onMouseLeave: handleMouseUp };
+
   return (
     <>
       <SimpleGrid columns={3} spacing={4}>
         <Box />
         <RoundButton
           icon={<ArrowUpIcon />}
-          color="gray"
+          {...sharedButtonProps}
           ariaLabel="Move up element"
           onMouseDown={() => handleMouseDown('Increment', 'directionY')}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
           onClick={() => dispatchItemsPostion('Increment', 'directionY')}
         />
         <Box />
         <RoundButton
           icon={<ArrowBackIcon />}
-          color="gray"
+          {...sharedButtonProps}
           ariaLabel="Move element to the left"
           onMouseDown={() => handleMouseDown('Increment', 'directionX')}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
           onClick={() => dispatchItemsPostion('Increment', 'directionX')}
         />
         <Box />
         <RoundButton
           icon={<ArrowForwardIcon />}
-          color="gray"
+          {...sharedButtonProps}
           ariaLabel="Move element to the right"
           onMouseDown={() => handleMouseDown('Decrement', 'directionX')}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
           onClick={() => dispatchItemsPostion('Decrement', 'directionX')}
         />
         <Box />
         <RoundButton
           icon={<ArrowDownIcon />}
-          color="gray"
+          {...sharedButtonProps}
           ariaLabel="Move down element"
           onMouseDown={() => handleMouseDown('Decrement', 'directionY')}
           onClick={() => dispatchItemsPostion('Decrement', 'directionY')}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
         />
         <Box />
       </SimpleGrid>
