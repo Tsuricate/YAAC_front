@@ -5,3 +5,7 @@ export const getCurrentCategoryInfo = (categories, currentCategoryName) => (
 export const deleteCategoryItems = (selectedItems, currentCategoryName) => (
   selectedItems.filter((selectedItem) => selectedItem.category !== currentCategoryName)
 );
+
+export const isImageSelected = (selectedItems, imageUrl) => (
+  selectedItems.find((selectedItem) => selectedItem.imageUrl === imageUrl)
+);

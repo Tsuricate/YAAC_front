@@ -4,7 +4,7 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { deleteCategoryItems } from '../utils/functions';
+import { deleteCategoryItems, isImageSelected } from '../utils/functions';
 
 const ItemChoices = ({
   items, selectedItems, setSelectedItems, isMandatory, currentCategoryName,
@@ -31,21 +31,24 @@ const ItemChoices = ({
       />
       )}
 
-      {items.map((item) => (
-        <Image
-          src={item.imageUrl}
-          alt={item.id}
-          key={item.id}
-          fallback={<Skeleton h={{ base: '5em', lg: '7em' }} />}
-          h={{ base: '5em', lg: '7em' }}
-          bgColor="snow"
-          border={selectedItems.includes(item.imageUrl) ? '4px solid #3bad98' : 'null'}
-          borderRadius="5px"
-          boxShadow={{ lg: '0px 3px 12px #151b1f' }}
-          cursor="pointer"
-          onClick={() => manageClickOnItem(item)}
-        />
-      ))}
+      {items.map((item) => {
+        const borderStyle = isImageSelected(selectedItems, item.imageUrl) ? '4px solid #3bad98' : 'null';
+        return (
+          <Image
+            src={item.imageUrl}
+            alt={item.id}
+            key={item.id}
+            fallback={<Skeleton h={{ base: '5em', lg: '7em' }} />}
+            h={{ base: '5em', lg: '7em' }}
+            bgColor="snow"
+            border={borderStyle}
+            borderRadius="5px"
+            boxShadow={{ lg: '0px 3px 12px #151b1f' }}
+            cursor="pointer"
+            onClick={() => manageClickOnItem(item)}
+          />
+        );
+      })}
     </SimpleGrid>
   );
 };
