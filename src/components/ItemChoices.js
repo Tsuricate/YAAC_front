@@ -1,6 +1,6 @@
 import { CloseIcon } from '@chakra-ui/icons';
 import {
-  Image, SimpleGrid, Center, Skeleton, IconButton,
+  Image, SimpleGrid, Skeleton, IconButton,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -22,15 +22,15 @@ const ItemChoices = ({
 
   return (
     <SimpleGrid minChildWidth={{ base: '5em', lg: '7em' }} spacing="1">
-      <Center>
-        <IconButton
-          aria-label="Remove item"
-          icon={<CloseIcon />}
-          variant="remove-item"
-          disabled={isMandatory}
-          onClick={removeItem}
-        />
-      </Center>
+      {isMandatory && (
+      <IconButton
+        aria-label="Remove item"
+        icon={<CloseIcon />}
+        variant="remove-item"
+        onClick={removeItem}
+      />
+      )}
+
       {items.map((item) => (
         <Image
           src={item.imageUrl}
