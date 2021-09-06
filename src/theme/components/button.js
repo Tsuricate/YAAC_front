@@ -8,6 +8,10 @@ const Button = {
       boxShadow: { lg: '0px 3px 12px #151b1f' },
       cursor: 'pointer',
       color: 'gray.500',
+      _focus: {
+        boxShadow: 'null',
+        border: '4px solid #3bad98',
+      },
     },
   },
 };
