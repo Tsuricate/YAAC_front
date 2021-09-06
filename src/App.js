@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import React, { useEffect, useReducer, useState } from 'react';
 import AvatarScreen from './components/AvatarScreen';
 import ChoicesContainer from './components/ChoicesContainer';
@@ -6,6 +6,7 @@ import ColorChoices from './components/ColorChoices';
 import ItemChoices from './components/ItemChoices';
 import MainCategories from './components/MainCategories';
 import PositionChoices from './components/PositionChoices';
+import TitleApp from './components/TitleApp';
 import { getCategories, getDefaultItems } from './utils/axios';
 import reducer from './utils/reducers';
 
@@ -36,8 +37,7 @@ const App = () => {
 
   return (
     <>
-      <Text fontSize="5xl" ml="2em"> Yet Another Avatar Creator</Text>
-      <Text fontSize="2xl" ml="12em">A wonderful catchphrase to come !</Text>
+      <TitleApp />
       <Flex
         minHeight="100vh"
         maxHeight="100vh"
