@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Flex, Wrap, Input } from '@chakra-ui/react';
 import RoundButton from './RoundButton';
-import { backgroundColors } from '../data/backgroundColors';
+import backgroundColors from '../data/backgroundColors';
 
 const ColorChoices = ({ setBackgroundColor, setItemColor, currentCategoryName }) => {
   const handleItemColor = (color) => {

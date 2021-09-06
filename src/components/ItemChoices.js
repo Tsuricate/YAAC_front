@@ -1,6 +1,6 @@
-import { CloseIcon } from '@chakra-ui/icons';
+import { VscChromeClose } from 'react-icons/vsc';
 import {
-  Image, SimpleGrid, Skeleton, IconButton,
+  Image, SimpleGrid, Skeleton, IconButton, Icon,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -25,7 +25,7 @@ const ItemChoices = ({
       {isMandatory && (
       <IconButton
         aria-label="Remove item"
-        icon={<CloseIcon />}
+        icon={<Icon as={VscChromeClose} boxSize={20} />}
         variant="remove-item"
         onClick={removeItem}
       />
