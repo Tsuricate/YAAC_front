@@ -56,7 +56,16 @@ const App = () => {
           itemsPosition={itemsPosition}
         />
 
-        <Flex flexDirection="column" overflowY="hidden" minHeight={{ base: '50vh', lg: '80vh' }} ml={{ lg: '16' }} flexGrow={1} bgColor="#58758C" p={{ lg: '5' }}>
+        <Flex
+          flexDirection="column"
+          overflowY="hidden"
+          minHeight={{ base: '50vh', lg: '80vh' }}
+          ml={{ lg: '16' }}
+          flexGrow={1}
+          p={{ lg: '5' }}
+          bgColor={{ lg: 'rgba(47, 49, 51, 0.6)' }}
+          borderRadius={{ lg: '10px' }}
+        >
 
           <Box mb={{ lg: '3em' }}>
             <MainCategories

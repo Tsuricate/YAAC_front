@@ -19,6 +19,7 @@ const ChoicesContainer = ({
       justifyContent={centerContent ? 'center' : null}
       alignItems={centerContent ? 'center' : null}
       padding={5}
+      borderRadius={{ lg: '10px' }}
     >
       {showCloseButton && <CloseButton variant="close-choices" onClick={handleCloseButton} />}
       { children }
