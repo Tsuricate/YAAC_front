@@ -6,7 +6,7 @@ import ColorChoices from './components/ColorChoices';
 import ItemChoices from './components/ItemChoices';
 import MainCategories from './components/MainCategories';
 import PositionChoices from './components/PositionChoices';
-import TitleApp from './components/TitleApp';
+import Header from './components/Header';
 import { getCategories, getDefaultItems } from './utils/axios';
 import reducer from './utils/reducers';
 
@@ -37,7 +37,7 @@ const App = () => {
 
   return (
     <>
-      <TitleApp />
+      <Header />
       <Flex
         minHeight="100vh"
         maxHeight="100vh"
