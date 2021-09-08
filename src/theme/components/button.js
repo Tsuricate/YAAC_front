@@ -1,8 +1,8 @@
 const Button = {
   variants: {
     'remove-item': {
-      height: { base: '5em', lg: '7em' },
-      width: { base: '5em', lg: '7em' },
+      height: { base: '80px', lg: '100px' },
+      width: { base: '80px', lg: '100px' },
       bgColor: 'snow',
       borderRadius: '5px',
       boxShadow: { lg: '0px 3px 12px #151b1f' },
