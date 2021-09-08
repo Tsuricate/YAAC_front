@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, useBreakpointValue } from '@chakra-ui/react';
 import React, { useEffect, useReducer, useState } from 'react';
 import AvatarScreen from './components/AvatarScreen';
 import ChoicesContainer from './components/ChoicesContainer';
@@ -34,10 +34,11 @@ const App = () => {
 
   const isEditingItems = editionMode === 'Items';
   const isEditingBackground = currentCategoryInfos?.id === 'background-color';
+  const isHeaderDisplayed = useBreakpointValue({ base: false, lg: true });
 
   return (
     <>
-      <Header />
+      {isHeaderDisplayed && (<Header />)}
       <Flex
         minHeight="100vh"
         maxHeight="100vh"
