@@ -43,7 +43,7 @@ const App = () => {
         maxHeight="100vh"
         flexDirection={{ base: 'column', lg: 'row' }}
         alignItems="center"
-        mx={{ lg: '20' }}
+        mx={{ lg: 20 }}
       >
         <AvatarScreen
           setEditionMode={setEditionMode}
@@ -59,7 +59,7 @@ const App = () => {
         <Flex
           flexDirection="column"
           overflowY="hidden"
-          minHeight={{ base: '50vh', lg: '80vh' }}
+          height={{ base: '50vh', lg: '80vh' }}
           ml={{ lg: '16' }}
           flexGrow={1}
           p={{ lg: '5' }}
@@ -67,7 +67,7 @@ const App = () => {
           borderRadius={{ lg: '10px' }}
         >
 
-          <Box mb={{ lg: '3em' }}>
+          <Box overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} pl={{ lg: 3 }}>
             <MainCategories
               setItems={setItems}
               categories={categories}
