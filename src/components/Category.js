@@ -4,13 +4,15 @@ import { Image, Skeleton } from '@chakra-ui/react';
 import { getCategoryItems } from '../utils/axios';
 
 const Category = ({
-  category, setItems, setEditionMode, setCurrentCategoryInfos,
+  category, setItems, setEditionMode, currentCategory, setCurrentCategoryInfos,
 }) => {
   const manageClickOnCategory = () => {
     getCategoryItems(category.id, setItems);
     setEditionMode('Items');
     setCurrentCategoryInfos(category);
   };
+
+  const borderStyle = currentCategory === category.id ? '4px solid #3bad98' : 'null';
 
   return (
     <Image
@@ -23,18 +25,15 @@ const Category = ({
       borderRadius={{ lg: '10px' }}
       boxShadow={{ lg: '0px 5px 10px black' }}
       cursor="pointer"
+      border={borderStyle}
       onClick={manageClickOnCategory}
-      _hover={{
-        transform: 'scale(1.02)',
-        boxShadow: '0px 15px 25px -5px black',
-        transition: 'all .3s',
-      }}
     />
   );
 };
 
 Category.defaultProps = {
   setCurrentCategoryInfos: null,
+  currentCategory: null,
 };
 
 Category.propTypes = {
@@ -46,6 +45,7 @@ Category.propTypes = {
   }).isRequired,
   setItems: PropTypes.func.isRequired,
   setEditionMode: PropTypes.func.isRequired,
+  currentCategory: PropTypes.string,
   setCurrentCategoryInfos: PropTypes.func,
 };
 

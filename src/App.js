@@ -72,6 +72,7 @@ const App = () => {
               setItems={setItems}
               categories={categories}
               setEditionMode={setEditionMode}
+              currentCategory={currentCategoryInfos?.id}
               setCurrentCategoryInfos={setCurrentCategoryInfos}
             />
           </Box>

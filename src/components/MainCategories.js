@@ -4,7 +4,7 @@ import { SimpleGrid, Stack, useBreakpointValue } from '@chakra-ui/react';
 import Category from './Category';
 
 const MainCategories = ({
-  categories, setItems, setEditionMode, setCurrentCategoryInfos,
+  categories, setItems, setEditionMode, currentCategory, setCurrentCategoryInfos,
 }) => {
   const isDisplayedInline = useBreakpointValue({ base: true, lg: false });
 
@@ -32,6 +32,7 @@ const MainCategories = ({
                 category={category}
                 setItems={setItems}
                 setEditionMode={setEditionMode}
+                currentCategory={currentCategory}
                 setCurrentCategoryInfos={setCurrentCategoryInfos}
               />
             ))}
@@ -41,12 +42,17 @@ const MainCategories = ({
   );
 };
 
+MainCategories.defaultProps = {
+  currentCategory: null,
+};
+
 MainCategories.propTypes = {
   categories: PropTypes.arrayOf(
     PropTypes.object,
   ).isRequired,
   setItems: PropTypes.func.isRequired,
   setEditionMode: PropTypes.func.isRequired,
+  currentCategory: PropTypes.string,
   setCurrentCategoryInfos: PropTypes.func.isRequired,
 };
 
