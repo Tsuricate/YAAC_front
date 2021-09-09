@@ -1,10 +1,11 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Image, Skeleton } from '@chakra-ui/react';
 import { getCategoryItems } from '../utils/axios';
 
 const Category = ({
-  category, setItems, setEditionMode, currentCategory, setCurrentCategoryInfos,
+  category, setItems, setEditionMode, currentCategory, setCurrentCategoryInfos, isDisplayedInline,
 }) => {
   const manageClickOnCategory = () => {
     getCategoryItems(category.id, setItems);
@@ -12,7 +13,8 @@ const Category = ({
     setCurrentCategoryInfos(category);
   };
 
-  const borderStyle = currentCategory === category.id ? '4px solid #3bad98' : 'null';
+  const activeBorderStyle = isDisplayedInline ? { borderBottom: '5px solid #3bad98' } : { border: '4px solid #3bad98' };
+  const borderStyle = currentCategory === category.id ? activeBorderStyle : null;
 
   return (
     <Image
@@ -25,7 +27,7 @@ const Category = ({
       borderRadius={{ lg: '10px' }}
       boxShadow={{ lg: '0px 5px 10px black' }}
       cursor="pointer"
-      border={borderStyle}
+      {...borderStyle}
       onClick={manageClickOnCategory}
     />
   );
@@ -34,6 +36,7 @@ const Category = ({
 Category.defaultProps = {
   setCurrentCategoryInfos: null,
   currentCategory: null,
+  isDisplayedInline: true,
 };
 
 Category.propTypes = {
@@ -47,6 +50,7 @@ Category.propTypes = {
   setEditionMode: PropTypes.func.isRequired,
   currentCategory: PropTypes.string,
   setCurrentCategoryInfos: PropTypes.func,
+  isDisplayedInline: PropTypes.bool,
 };
 
 export default Category;

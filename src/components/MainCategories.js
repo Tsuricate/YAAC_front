@@ -12,13 +12,15 @@ const MainCategories = ({
     <>
       {isDisplayedInline
         ? (
-          <Stack direction="row" justify="flex-start" overflowX="auto" wrap={{ lg: 'wrap' }} spacing={0}>
+          <Stack direction="row" justify="flex-start" overflowX="auto" wrap={{ lg: 'wrap' }} spacing={3}>
             {categories.map((category) => (
               <Category
                 key={category.id}
                 category={category}
+                isDisplayedInline={isDisplayedInline}
                 setItems={setItems}
                 setEditionMode={setEditionMode}
+                currentCategory={currentCategory}
                 setCurrentCategoryInfos={setCurrentCategoryInfos}
               />
             ))}
@@ -30,6 +32,7 @@ const MainCategories = ({
               <Category
                 key={category.id}
                 category={category}
+                isDisplayedInline={isDisplayedInline}
                 setItems={setItems}
                 setEditionMode={setEditionMode}
                 currentCategory={currentCategory}
