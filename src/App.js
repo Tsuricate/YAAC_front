@@ -60,7 +60,7 @@ const App = () => {
         <Flex
           flexDirection="column"
           overflowY="hidden"
-          height={{ base: '50vh', lg: '80vh' }}
+          height={{ base: '40vh', lg: '80vh' }}
           ml={{ lg: '16' }}
           flexGrow={1}
           p={{ lg: '5' }}

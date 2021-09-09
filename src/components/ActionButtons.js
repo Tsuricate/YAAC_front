@@ -14,12 +14,12 @@ const ActionButtons = ({ setEditionMode, changeColor, changePosition }) => {
 
   return (
     <Flex>
-      <Button p="5" rightIcon={<CheckIcon />} color="white" fontWeight="bold" bgGradient="linear(to-r, teal.500,green.500)">
-        Terminé
+      <Button p={2} rightIcon={<CheckIcon />} color="white" fontWeight="bold" bgGradient="linear(to-r, #0f7336, #0f7831, #117d2a, #168222, #1d8717)">
+        Fini
       </Button>
       <Spacer />
 
-      <HStack spacing={4}>
+      <HStack spacing={{ base: 2, lg: 4 }}>
         {changeColor
           ? <RoundButton ariaLabel="Change color" icon={<FaPalette />} color="gray" onClick={() => handleDisplay('Colors')} />
           : <></>}
