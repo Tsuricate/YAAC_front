@@ -21,7 +21,7 @@ const ItemChoices = ({
   };
 
   return (
-    <SimpleGrid minChildWidth={{ base: '80px', lg: '100px' }} spacing="1">
+    <SimpleGrid minChildWidth={{ base: '80px', lg: '100px' }} spacing={3}>
       {isMandatory && (
       <IconButton
         aria-label="Remove item"
