@@ -21,10 +21,10 @@ const ActionButtons = ({ setEditionMode, changeColor, changePosition }) => {
 
       <HStack spacing={{ base: 2, lg: 4 }}>
         {changeColor
-          ? <RoundButton ariaLabel="Change color" icon={<FaPalette />} color="gray" onClick={() => handleDisplay('Colors')} />
+          ? <RoundButton ariaLabel="Change color" icon={<FaPalette />} color="snow" onClick={() => handleDisplay('Colors')} />
           : <></>}
         {changePosition
-          ? <RoundButton ariaLabel="Move an element" icon={<FaArrowsAlt />} color="gray" onClick={() => handleDisplay('Positions')} />
+          ? <RoundButton ariaLabel="Move an element" icon={<FaArrowsAlt />} color="snow" onClick={() => handleDisplay('Positions')} />
           : <></>}
 
       </HStack>

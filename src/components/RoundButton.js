@@ -8,6 +8,7 @@ const RoundButton = ({
   <IconButton
     borderRadius="full"
     variant="solid"
+    boxShadow="0px 0px 6px #7d7676"
     bgColor={color}
     icon={icon}
     aria-label={ariaLabel}
