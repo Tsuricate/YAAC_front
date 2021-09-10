@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Box, Center } from '@chakra-ui/react';
 import ActionButtons from './ActionButtons';
 import AvatarImageContainer from './AvatarImageContainer';
-// import avatarBorder from '../assets/avatarBorder.svg';
 
 const AvatarScreen = ({
   setEditionMode,
@@ -17,7 +16,7 @@ const AvatarScreen = ({
   itemsPosition,
 }) => {
   const boxStyle = {
-    bg: backgroundColor, width: '100%', height: '100%', borderRadius: { lg: '10px' }, position: 'absolute', bottom: '-13px',
+    bg: backgroundColor, width: '100%', height: '100%', borderRadius: { lg: '10px' }, position: 'absolute', bottom: { lg: '-13px' },
   };
 
   return (
@@ -26,7 +25,7 @@ const AvatarScreen = ({
       width={{ base: '100vw', md: '50vh', lg: '70vh' }}
       position="relative"
     >
-      <Box position="absolute" style={{ border: '10px solid', borderImage: 'url(avatarBorder.svg) 38% / 11 / 3 stretch' }} zIndex="1" width="100%" height="100%" />
+      <Box position="absolute" sx={{ border: { lg: '10px solid' }, borderImage: { lg: 'url(avatarBorder.svg) 38% / 11 / 3 stretch' } }} zIndex="1" width="100%" height="100%" />
       <Box {...boxStyle}>
         <Center>
           {selectedItems.map((item) => (
@@ -40,7 +39,7 @@ const AvatarScreen = ({
           ))}
         </Center>
       </Box>
-      <Box position="absolute" bottom={{ base: 2, lg: 4 }} width="100%" px={{ base: 2, lg: 4 }}>
+      <Box position="absolute" bottom={{ base: 2, lg: 2 }} width="100%" px={{ base: 2, lg: 6 }}>
         <ActionButtons
           setEditionMode={setEditionMode}
           changeColor={changeColor}
