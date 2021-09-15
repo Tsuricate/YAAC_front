@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Center } from '@chakra-ui/react';
@@ -14,42 +13,46 @@ const AvatarScreen = ({
   itemColor,
   currentCategoryName,
   itemsPosition,
-}) => {
-  const boxStyle = {
-    bg: backgroundColor, width: '100%', height: '100%', borderRadius: { lg: '10px' }, position: 'absolute', bottom: { lg: '-13px' },
-  };
-
-  return (
+}) => (
+  <Box
+    height={{ base: '100vw', md: '50vh', lg: '78vh' }}
+    width={{ base: '100vw', md: '50vh', lg: '65vh' }}
+    position="relative"
+  >
+    {/* This box is only for placing border image on top on avatar container */}
     <Box
-      height={{ base: '100vw', md: '50vh', lg: '80vh' }}
-      width={{ base: '100vw', md: '50vh', lg: '70vh' }}
-      position="relative"
-    >
-      <Box position="absolute" sx={{ border: { lg: '10px solid' }, borderImage: { lg: 'url(avatarBorder.svg) 38% / 11 / 3 stretch' } }} zIndex="1" width="100%" height="100%" />
-      <Box {...boxStyle}>
-        <Center>
-          {selectedItems.map((item) => (
-            <AvatarImageContainer
-              key={item.id}
-              imageUrl={item.imageUrl}
-              itemColor={itemColor}
-              currentCategoryName={currentCategoryName}
-              itemsPosition={itemsPosition[item.category]}
-            />
-          ))}
-        </Center>
-      </Box>
-      <Box position="absolute" bottom={{ base: 2, lg: 2 }} width="100%" px={{ base: 2, lg: 6 }}>
-        <ActionButtons
-          setEditionMode={setEditionMode}
-          changeColor={changeColor}
-          changePosition={changePosition}
-        />
-      </Box>
+      position="absolute"
+      sx={{ border: { lg: '10px solid' }, borderImage: { lg: 'url(avatarBorder.svg) 45% / 11 / 3 stretch' } }}
+      zIndex="1"
+      width="100%"
+      height="100%"
+      bottom={{ lg: '11px' }}
+    />
 
+    {/* This box represent the avatar's background to color */}
+    <Box bg={backgroundColor} width="100%" height="100%">
+      <Center>
+        {selectedItems.map((item) => (
+          <AvatarImageContainer
+            key={item.id}
+            imageUrl={item.imageUrl}
+            itemColor={itemColor}
+            currentCategoryName={currentCategoryName}
+            itemsPosition={itemsPosition[item.category]}
+          />
+        ))}
+      </Center>
     </Box>
-  );
-};
+    <Box position="absolute" bottom={{ base: 2, lg: 2 }} width="100%" px={{ base: 2, lg: 6 }}>
+      <ActionButtons
+        setEditionMode={setEditionMode}
+        changeColor={changeColor}
+        changePosition={changePosition}
+      />
+    </Box>
+
+  </Box>
+);
 
 AvatarScreen.defaultProps = {
   changeColor: false,

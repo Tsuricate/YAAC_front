@@ -37,81 +37,84 @@ const App = () => {
   const isHeaderDisplayed = useBreakpointValue({ base: false, lg: true });
 
   return (
-    <>
+    <Flex
+      height="96vh"
+      flexDirection={{ base: 'column', lg: 'row' }}
+      alignItems="center"
+      m={{ lg: 4 }}
+    >
       {isHeaderDisplayed && (<Header />)}
-      <Flex
-        minHeight="100vh"
-        maxHeight="100vh"
-        flexDirection={{ base: 'column', lg: 'row' }}
-        alignItems="center"
-        mx={{ lg: 20 }}
-      >
-        <AvatarScreen
-          setEditionMode={setEditionMode}
-          backgroundColor={backgroundColor}
-          selectedItems={selectedItems}
-          changeColor={currentCategoryInfos?.changeColor}
-          changePosition={currentCategoryInfos?.changePosition}
-          itemColor={itemColor}
-          currentCategoryName={currentCategoryInfos?.id}
-          itemsPosition={itemsPosition}
-        />
 
-        <Flex
-          flexDirection="column"
-          overflowY="hidden"
-          height={{ base: '40vh', lg: '80vh' }}
-          ml={{ lg: '16' }}
-          flexGrow={1}
-          p={{ lg: '5' }}
-          bgColor={{ lg: 'rgba(47, 49, 51, 0.6)' }}
-          borderRadius={{ lg: '10px' }}
-        >
-
-          <Box overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} pl={{ lg: 3 }}>
-            <MainCategories
-              setItems={setItems}
-              categories={categories}
-              setEditionMode={setEditionMode}
-              currentCategory={currentCategoryInfos?.id}
-              setCurrentCategoryInfos={setCurrentCategoryInfos}
-            />
-          </Box>
-
-          <ChoicesContainer
-            centerContent={!isEditingItems}
-            showCloseButton={!isEditingItems}
+      {/* Theses two boxes help display AvatarScreen block above categories & items block */}
+      <Box order={{ lg: '3' }} position={{ lg: 'relative' }} height={{ lg: '100%' }} width={{ lg: '35%' }}>
+        <Box position={{ lg: 'absolute' }} left={{ lg: '-20%' }} top={{ lg: '9%' }}>
+          <AvatarScreen
             setEditionMode={setEditionMode}
-          >
-            { editionMode === 'Items' && !isEditingBackground && (
-            <ItemChoices
-              items={items}
-              selectedItems={selectedItems}
-              setSelectedItems={setSelectedItems}
-              isMandatory={currentCategoryInfos?.isMandatory}
-              currentCategoryName={currentCategoryInfos?.id}
-            />
-            )}
+            backgroundColor={backgroundColor}
+            selectedItems={selectedItems}
+            changeColor={currentCategoryInfos?.changeColor}
+            changePosition={currentCategoryInfos?.changePosition}
+            itemColor={itemColor}
+            currentCategoryName={currentCategoryInfos?.id}
+            itemsPosition={itemsPosition}
+          />
+        </Box>
+      </Box>
 
-            { (editionMode === 'Colors' || isEditingBackground) && (
-            <ColorChoices
-              setBackgroundColor={setbackgroundColor}
-              setItemColor={setItemColor}
-              currentCategoryName={currentCategoryInfos?.id}
-            />
-            )}
+      <Flex
+        flexDirection="column"
+        overflowY="hidden"
+        height={{ base: '40vh', lg: '100%' }}
+        width={{ lg: '55%' }}
+        p={{ lg: '16' }}
+        pr={{ lg: '14%' }}
+        bgColor={{ lg: '#1b1b1b' }}
 
-            { editionMode === 'Positions' && (
-            <PositionChoices
-              currentCategoryName={currentCategoryInfos?.id}
-              dispatchItemsPosition={dispatchItemsPosition}
-            />
-            )}
-          </ChoicesContainer>
+      >
 
-        </Flex>
+        <Box overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} pl={{ lg: 3 }}>
+          <MainCategories
+            setItems={setItems}
+            categories={categories}
+            setEditionMode={setEditionMode}
+            currentCategory={currentCategoryInfos?.id}
+            setCurrentCategoryInfos={setCurrentCategoryInfos}
+          />
+        </Box>
+
+        <ChoicesContainer
+          centerContent={!isEditingItems}
+          showCloseButton={!isEditingItems}
+          setEditionMode={setEditionMode}
+        >
+          { editionMode === 'Items' && !isEditingBackground && (
+          <ItemChoices
+            items={items}
+            selectedItems={selectedItems}
+            setSelectedItems={setSelectedItems}
+            isMandatory={currentCategoryInfos?.isMandatory}
+            currentCategoryName={currentCategoryInfos?.id}
+          />
+          )}
+
+          { (editionMode === 'Colors' || isEditingBackground) && (
+          <ColorChoices
+            setBackgroundColor={setbackgroundColor}
+            setItemColor={setItemColor}
+            currentCategoryName={currentCategoryInfos?.id}
+          />
+          )}
+
+          { editionMode === 'Positions' && (
+          <PositionChoices
+            currentCategoryName={currentCategoryInfos?.id}
+            dispatchItemsPosition={dispatchItemsPosition}
+          />
+          )}
+        </ChoicesContainer>
       </Flex>
-    </>
+
+    </Flex>
   );
 };
 
