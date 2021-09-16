@@ -1,4 +1,4 @@
-import '@fontsource/aclonica';
+import '@fontsource/julee';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

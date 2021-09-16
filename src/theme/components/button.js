@@ -13,6 +13,15 @@ const Button = {
         border: '4px solid #3bad98',
       },
     },
+    'start-tutorial': {
+      bgColor: 'black',
+      color: 'white',
+      size: 'lg',
+      ariaLabel: 'Start app tutorial',
+      borderRadius: '5px',
+      py: '25px',
+      letterSpacing: '3px',
+    },
   },
 };
 
