@@ -16,7 +16,7 @@ const AvatarScreen = ({
 }) => (
   <Box
     height={{ base: '100vw', md: '50vh', lg: '78vh' }}
-    width={{ base: '100vw', md: '50vh', lg: '65vh' }}
+    width={{ base: '100vw', md: '50vh', lg: '35vw' }}
     position="relative"
   >
     {/* This box is only for placing border image on top on avatar container */}

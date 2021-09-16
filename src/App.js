@@ -38,16 +38,18 @@ const App = () => {
 
   return (
     <Flex
-      height="96vh"
+      height="100vh"
+      width="100%"
       flexDirection={{ base: 'column', lg: 'row' }}
       alignItems="center"
-      m={{ lg: 4 }}
+      p={{ lg: 4 }}
+      bgColor="#F7F6F4"
     >
       {isHeaderDisplayed && (<Header />)}
 
       {/* Theses two boxes help display AvatarScreen block above categories & items block */}
       <Box order={{ lg: '3' }} position={{ lg: 'relative' }} height={{ lg: '100%' }} width={{ lg: '35%' }}>
-        <Box position={{ lg: 'absolute' }} left={{ lg: '-20%' }} top={{ lg: '9%' }}>
+        <Box position={{ lg: 'absolute' }} left={{ lg: '-10em' }} top={{ lg: '9em' }}>
           <AvatarScreen
             setEditionMode={setEditionMode}
             backgroundColor={backgroundColor}
@@ -68,8 +70,8 @@ const App = () => {
         width={{ lg: '55%' }}
         p={{ lg: '16' }}
         pr={{ lg: '14%' }}
-        bgColor={{ lg: '#1b1b1b' }}
-
+        bgColor={{ lg: '#333333' }}
+        borderRadius="5"
       >
 
         <Box overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} pl={{ lg: 3 }}>
