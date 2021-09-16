@@ -32,7 +32,7 @@ const ItemChoices = ({
       )}
 
       {items.map((item) => {
-        const borderStyle = isImageSelected(selectedItems, item.imageUrl) ? '4px solid #3bad98' : 'null';
+        const borderStyle = isImageSelected(selectedItems, item.imageUrl) ? '4px solid #EDA81F' : 'null';
         return (
           <Image
             src={item.imageUrl}

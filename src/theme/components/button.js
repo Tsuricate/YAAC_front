@@ -10,7 +10,7 @@ const Button = {
       color: 'gray.500',
       _focus: {
         boxShadow: 'null',
-        border: '4px solid #3bad98',
+        border: '4px solid #EDA81F',
       },
     },
     'start-tutorial': {

@@ -13,7 +13,7 @@ const Category = ({
     setCurrentCategoryInfos(category);
   };
 
-  const activeBorderStyle = isDisplayedInline ? { borderBottom: '5px solid #3bad98' } : { border: '4px solid #3bad98' };
+  const activeBorderStyle = isDisplayedInline ? { borderBottom: '5px solid #EDA81F' } : { border: '4px solid #EDA81F' };
   const borderStyle = currentCategory === category.id ? activeBorderStyle : null;
 
   return (
