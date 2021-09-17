@@ -14,19 +14,38 @@ const ActionButtons = ({ setEditionMode, changeColor, changePosition }) => {
 
   return (
     <Flex>
-      <Button p={2} rightIcon={<CheckIcon />} color="white" fontWeight="bold" bgGradient="linear(to-r, #0f7336, #0f7831, #117d2a, #168222, #1d8717)">
+      <Button
+        p={2}
+        rightIcon={<CheckIcon />}
+        color="white"
+        fontWeight="bold"
+        bgGradient="linear(to-r, #0f7336, #0f7831, #117d2a, #168222, #1d8717)"
+      >
         Fini
       </Button>
       <Spacer />
 
       <HStack spacing={{ base: 2, lg: 4 }}>
-        {changeColor
-          ? <RoundButton ariaLabel="Change color" icon={<FaPalette />} color="snow" onClick={() => handleDisplay('Colors')} />
-          : <></>}
-        {changePosition
-          ? <RoundButton ariaLabel="Move an element" icon={<FaArrowsAlt />} color="snow" onClick={() => handleDisplay('Positions')} />
-          : <></>}
-
+        {changeColor ? (
+          <RoundButton
+            ariaLabel="Change color"
+            icon={<FaPalette />}
+            color="snow"
+            onClick={() => handleDisplay('Colors')}
+          />
+        ) : (
+          <></>
+        )}
+        {changePosition ? (
+          <RoundButton
+            ariaLabel="Move an element"
+            icon={<FaArrowsAlt />}
+            color="snow"
+            onClick={() => handleDisplay('Positions')}
+          />
+        ) : (
+          <></>
+        )}
       </HStack>
     </Flex>
   );
