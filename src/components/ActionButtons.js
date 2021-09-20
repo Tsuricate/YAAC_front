@@ -15,11 +15,10 @@ const ActionButtons = ({ setEditionMode, changeColor, changePosition }) => {
   return (
     <Flex>
       <Button
-        p={2}
         rightIcon={<CheckIcon />}
-        color="white"
+        color="black"
         fontWeight="bold"
-        bgGradient="linear(to-r, #0f7336, #0f7831, #117d2a, #168222, #1d8717)"
+        bgColor="#EDA81F"
       >
         Fini
       </Button>

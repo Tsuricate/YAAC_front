@@ -46,7 +46,7 @@ const AvatarScreen = ({
         ))}
       </Center>
     </Box>
-    <Box position="absolute" width="100%" bottom={{ base: 2, lg: 1 }} px={{ base: 2, lg: 6 }}>
+    <Box position="absolute" width="100%" bottom={{ base: 2, lg: 3 }} px={{ base: 2, lg: 4 }}>
       <ActionButtons
         setEditionMode={setEditionMode}
         changeColor={changeColor}
