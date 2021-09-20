@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Center } from '@chakra-ui/react';
 import ActionButtons from './ActionButtons';
 import AvatarImageContainer from './AvatarImageContainer';
+import LightHeader from './LightHeader';
 
 const AvatarScreen = ({
   setEditionMode,
@@ -13,6 +14,7 @@ const AvatarScreen = ({
   itemColor,
   currentCategoryName,
   itemsPosition,
+  isHeaderFullyDisplayed,
 }) => (
   <Box
     height={{ base: '100vw', md: '50vh', lg: '78vh' }}
@@ -23,11 +25,12 @@ const AvatarScreen = ({
     <Box
       position="absolute"
       sx={{ border: { lg: '10px solid' }, borderImage: { lg: 'url(avatarBorder.svg) 45% / 11 / 3 stretch' } }}
-      zIndex="1"
       width="100%"
       height="100%"
       bottom={{ lg: '11px' }}
     />
+
+    { !isHeaderFullyDisplayed && <LightHeader /> }
 
     {/* This box represent the avatar's background to color */}
     <Box bg={backgroundColor} width="100%" height="100%">
@@ -43,7 +46,7 @@ const AvatarScreen = ({
         ))}
       </Center>
     </Box>
-    <Box position="absolute" bottom={{ base: 2, lg: 2 }} width="100%" px={{ base: 2, lg: 6 }}>
+    <Box position="absolute" width="100%" bottom={{ base: 2, lg: 1 }} px={{ base: 2, lg: 6 }}>
       <ActionButtons
         setEditionMode={setEditionMode}
         changeColor={changeColor}
@@ -78,6 +81,7 @@ AvatarScreen.propTypes = {
     directionX: PropTypes.number.isRequired,
     directionY: PropTypes.number.isRequired,
   })).isRequired,
+  isHeaderFullyDisplayed: PropTypes.bool.isRequired,
 };
 
 export default AvatarScreen;

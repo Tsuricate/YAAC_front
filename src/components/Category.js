@@ -36,7 +36,6 @@ const Category = ({
 Category.defaultProps = {
   setCurrentCategoryInfos: null,
   currentCategory: null,
-  isDisplayedInline: true,
 };
 
 Category.propTypes = {
@@ -50,7 +49,7 @@ Category.propTypes = {
   setEditionMode: PropTypes.func.isRequired,
   currentCategory: PropTypes.string,
   setCurrentCategoryInfos: PropTypes.func,
-  isDisplayedInline: PropTypes.bool,
+  isDisplayedInline: PropTypes.bool.isRequired,
 };
 
 export default Category;

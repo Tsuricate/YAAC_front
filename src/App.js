@@ -34,7 +34,7 @@ const App = () => {
 
   const isEditingItems = editionMode === 'Items';
   const isEditingBackground = currentCategoryInfos?.id === 'background-color';
-  const isHeaderDisplayed = useBreakpointValue({ base: false, lg: true });
+  const isHeaderFullyDisplayed = useBreakpointValue({ base: false, lg: true }) || false;
 
   return (
     <Flex
@@ -45,7 +45,7 @@ const App = () => {
       p={{ lg: 4 }}
       bgColor="#F7F6F4"
     >
-      {isHeaderDisplayed && (<Header />)}
+      {isHeaderFullyDisplayed && (<Header />)}
 
       {/* Theses two boxes help display AvatarScreen block above categories & items block */}
       <Box order={{ lg: '3' }} position={{ lg: 'relative' }} height={{ lg: '100%' }} width={{ lg: '35%' }}>
@@ -59,6 +59,7 @@ const App = () => {
             itemColor={itemColor}
             currentCategoryName={currentCategoryInfos?.id}
             itemsPosition={itemsPosition}
+            isHeaderFullyDisplayed={isHeaderFullyDisplayed}
           />
         </Box>
       </Box>
