@@ -6,7 +6,7 @@ import Category from './Category';
 const MainCategories = ({
   categories, setItems, setEditionMode, currentCategory, setCurrentCategoryInfos,
 }) => {
-  const isDisplayedInline = useBreakpointValue({ base: true, lg: false }) || true;
+  const isDisplayedInline = useBreakpointValue({ base: true, lg: false });
 
   return (
     <>
