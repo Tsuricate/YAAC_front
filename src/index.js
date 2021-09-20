@@ -1,4 +1,4 @@
-import '@fontsource/julee';
+import '@fontsource/life-savers';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

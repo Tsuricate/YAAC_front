@@ -1,7 +1,7 @@
 const theme = {
   fonts: {
     body: 'monospace',
-    heading: 'Julee',
+    // heading: 'Life Savers',
   },
 };
 

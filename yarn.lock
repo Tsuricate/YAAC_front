@@ -1846,10 +1846,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/julee@^4.5.0":
+"@fontsource/life-savers@^4.5.0":
   version "4.5.0"
-  resolved "https://registry.yarnpkg.com/@fontsource/julee/-/julee-4.5.0.tgz#d984a09b256e91320403593da25fab7d60a3b534"
-  integrity sha512-4Un248F0KAujRE4JxMhlGvNytnHywHa7VuMqS+4ZKqTjoZxNOWusEUVKx5DdXjqv3T9XsmJCgGyuDLbsw2v32Q==
+  resolved "https://registry.yarnpkg.com/@fontsource/life-savers/-/life-savers-4.5.0.tgz#d85b435183fba0d958d7193ef8c1db87bd72966c"
+  integrity sha512-pyOY9Zw5XUVXrmjnAgk0SoB07hNw0MSlRBLoscWactg6lXIf+N4Mz480/9k9bXuhuWXPiuQ8PORsAEPxvFmBpQ==
 
 "@hapi/address@2.x.x":
   version "2.1.4"

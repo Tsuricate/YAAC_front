@@ -49,7 +49,7 @@ const App = () => {
 
       {/* Theses two boxes help display AvatarScreen block above categories & items block */}
       <Box order={{ lg: '3' }} position={{ lg: 'relative' }} height={{ lg: '100%' }} width={{ lg: '35%' }}>
-        <Box position={{ lg: 'absolute' }} left={{ lg: '-10em' }} top={{ lg: '9em' }}>
+        <Box position={{ lg: 'absolute' }} left={{ lg: '-10em' }} top={{ lg: '7em' }}>
           <AvatarScreen
             setEditionMode={setEditionMode}
             backgroundColor={backgroundColor}

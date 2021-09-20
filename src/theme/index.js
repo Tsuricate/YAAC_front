@@ -3,6 +3,7 @@ import styles from './styles';
 import Button from './components/button';
 import CloseButton from './components/closeButton';
 import Heading from './components/heading';
+import Text from './components/text';
 
 const overrides = {
   ...styles,
@@ -10,6 +11,7 @@ const overrides = {
     Button,
     CloseButton,
     Heading,
+    Text,
   },
 };
 
