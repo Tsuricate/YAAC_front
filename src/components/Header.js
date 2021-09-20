@@ -15,7 +15,7 @@ const Header = () => (
       <Text fontFamily="Life Savers" fontSize="0.7em" textTransform="uppercase">Yet Another</Text>
       <Text fontSize="2.2em">Avatar Creator</Text>
     </Heading>
-    <Text fontSize="1.1em">
+    <Text>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Praesent a erat lorem. Nunc nibh elit, consectetur vehicula risus at, elementum porta mauris.
       Vivamus ullamcorper nec nibh quis porttitor. Donec eget consequat lectus.

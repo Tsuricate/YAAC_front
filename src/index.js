@@ -1,4 +1,5 @@
 import '@fontsource/life-savers';
+import '@fontsource/trykker';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
