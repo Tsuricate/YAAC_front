@@ -3,7 +3,7 @@ const Button = {
     'remove-item': {
       height: { base: '80px', lg: '100px' },
       width: { base: '80px', lg: '100px' },
-      bgColor: 'snow',
+      bgColor: '#EEEEEE',
       borderRadius: '5px',
       boxShadow: { lg: '0px 3px 12px #151b1f' },
       cursor: 'pointer',

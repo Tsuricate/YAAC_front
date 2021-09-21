@@ -20,10 +20,10 @@ const Category = ({
     <Image
       src={category.imageUrl}
       alt={category.id}
-      fallback={<Skeleton width={{ base: '70px', lg: '100px' }} height={{ base: '70px', lg: '100px' }} />}
-      width={{ base: '70px', lg: '100px' }}
-      height={{ base: '70px', lg: '100px' }}
-      bgColor="snow"
+      fallback={<Skeleton width={{ base: '70px', lg: '90px' }} height={{ base: '70px', lg: '90px' }} />}
+      width={{ base: '70px', lg: '90px' }}
+      height={{ base: '70px', lg: '90px' }}
+      bgColor="#EEEEEE"
       borderRadius={{ lg: '10px' }}
       boxShadow={{ lg: '0px 5px 10px black' }}
       cursor="pointer"

@@ -13,14 +13,12 @@ const ChoicesContainer = ({
     <Flex
       overflowY="auto"
       flexGrow={1}
-      bgColor="Gainsboro"
       flexDirection="column"
       position="relative"
       justifyContent={centerContent ? 'center' : null}
       alignItems={centerContent ? 'center' : null}
       padding={5}
       mt={{ lg: 5 }}
-      borderRadius={{ lg: '10px' }}
     >
       {showCloseButton && <CloseButton variant="close-choices" onClick={handleCloseButton} />}
       { children }

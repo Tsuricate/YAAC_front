@@ -27,7 +27,7 @@ const MainCategories = ({
           </Stack>
         )
         : (
-          <SimpleGrid minChildWidth="100px" spacing="14px">
+          <SimpleGrid minChildWidth="90px" spacing="10px">
             {categories.map((category) => (
               <Category
                 key={category.id}

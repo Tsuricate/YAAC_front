@@ -21,7 +21,7 @@ const ItemChoices = ({
   };
 
   return (
-    <SimpleGrid minChildWidth={{ base: '80px', lg: '100px' }} spacing={3}>
+    <SimpleGrid minChildWidth={{ base: '80px', lg: '100px' }} spacing="10px">
       {isMandatory && (
       <IconButton
         aria-label="Remove item"
@@ -40,7 +40,7 @@ const ItemChoices = ({
             key={item.id}
             fallback={<Skeleton h={{ base: '80px', lg: '100px' }} />}
             h={{ base: '80px', lg: '100px' }}
-            bgColor="snow"
+            bgColor="#EEEEEE"
             border={borderStyle}
             borderRadius="5px"
             boxShadow={{ lg: '0px 3px 12px #151b1f' }}

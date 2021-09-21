@@ -4,6 +4,7 @@ import Button from './components/button';
 import CloseButton from './components/closeButton';
 import Heading from './components/heading';
 import Text from './components/text';
+import Divider from './components/divider';
 
 const overrides = {
   ...styles,
@@ -12,6 +13,7 @@ const overrides = {
     CloseButton,
     Heading,
     Text,
+    Divider,
   },
 };
 

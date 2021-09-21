@@ -1,4 +1,6 @@
-import { Box, Flex, useBreakpointValue } from '@chakra-ui/react';
+import {
+  Box, Flex, useBreakpointValue, Divider,
+} from '@chakra-ui/react';
 import React, { useEffect, useReducer, useState } from 'react';
 import AvatarScreen from './components/AvatarScreen';
 import ChoicesContainer from './components/ChoicesContainer';
@@ -67,12 +69,12 @@ const App = () => {
       <Flex
         flexDirection="column"
         overflowY="hidden"
+        flexGrow="1"
         height={{ base: '40vh', lg: '100%' }}
         width={{ lg: '55%' }}
         p={{ lg: '16' }}
         pr={{ lg: '14%' }}
         bgColor={{ lg: '#333333' }}
-        borderRadius="5"
       >
 
         <Box overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} pl={{ lg: 3 }}>
@@ -84,6 +86,8 @@ const App = () => {
             setCurrentCategoryInfos={setCurrentCategoryInfos}
           />
         </Box>
+
+        <Divider variant="separation-categories-items" />
 
         <ChoicesContainer
           centerContent={!isEditingItems}
