@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { Button } from '@chakra-ui/react';
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import JoyRide from 'react-joyride';
+import TutorialStartButton from './TutorialStartButton';
 
 const TOUR_STEPS = [
   {
@@ -31,13 +32,8 @@ const TOUR_STEPS = [
   },
 ];
 
-const Tutorial = () => {
-  const [isTutorialRunning, setIsTutorialRunning] = useState(false);
+const Tutorial = ({ isTutorialRunning, setIsTutorialRunning }) => {
   const [storeHelpers, setStoreHelpers] = useState(null);
-
-  const startTutorial = () => {
-    setIsTutorialRunning(true);
-  };
 
   const handleCallback = (event) => {
     if (event.type === 'tour:end' || event.action === 'close') {
@@ -57,7 +53,6 @@ const Tutorial = () => {
         steps={TOUR_STEPS}
         continuous
         showProgress
-        debug
         getHelpers={getHelpers}
         showSkipButton
         run={isTutorialRunning}
@@ -67,8 +62,13 @@ const Tutorial = () => {
           back: 'Previous',
         }}
       />
-      <Button variant="start-tutorial" isFullWidth onClick={startTutorial}>Show me how !</Button>
     </>
   );
 };
+
+Tutorial.propTypes = {
+  isTutorialRunning: PropTypes.bool.isRequired,
+  setIsTutorialRunning: PropTypes.func.isRequired,
+};
+
 export default Tutorial;

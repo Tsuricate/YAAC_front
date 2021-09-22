@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Heading, Text, Flex,
 } from '@chakra-ui/react';
-import Tutorial from './Tutorial';
+import TutorialStartButton from './TutorialStartButton';
 
-const Header = () => (
+const Header = ({ setIsTutorialRunning }) => (
   <Flex
     height={{ lg: '100%' }}
     width={{ lg: '17%' }}
@@ -23,10 +24,14 @@ const Header = () => (
       Vivamus ullamcorper nec nibh quis porttitor.
       Praesent vitae dolor tellus. Nulla.
     </Text>
-    <Tutorial />
+    <TutorialStartButton setIsTutorialRunning={setIsTutorialRunning} />
 
   </Flex>
 
 );
+
+Header.propTypes = {
+  setIsTutorialRunning: PropTypes.func.isRequired,
+};
 
 export default Header;

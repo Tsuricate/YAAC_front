@@ -15,6 +15,7 @@ const AvatarScreen = ({
   currentCategoryName,
   itemsPosition,
   isHeaderFullyDisplayed,
+  setIsTutorialRunning,
 }) => (
   <Box
     height={{ base: '100vw', md: '50vh', lg: '78vh' }}
@@ -30,7 +31,7 @@ const AvatarScreen = ({
       bottom={{ lg: '11px' }}
     />
 
-    { !isHeaderFullyDisplayed && <LightHeader /> }
+    { !isHeaderFullyDisplayed && <LightHeader setIsTutorialRunning={setIsTutorialRunning} /> }
 
     {/* This box represent the avatar's background to color */}
     <Box bg={backgroundColor} width="100%" height="100%">
@@ -82,6 +83,7 @@ AvatarScreen.propTypes = {
     directionY: PropTypes.number.isRequired,
   })).isRequired,
   isHeaderFullyDisplayed: PropTypes.bool.isRequired,
+  setIsTutorialRunning: PropTypes.func.isRequired,
 };
 
 export default AvatarScreen;

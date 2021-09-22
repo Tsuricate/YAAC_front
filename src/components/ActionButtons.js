@@ -21,7 +21,7 @@ const ActionButtons = ({ setEditionMode, changeColor, changePosition }) => {
         bgColor="#EDA81F"
         className="tour-avatar-download"
       >
-        Fini
+        Done
       </Button>
       <Spacer />
 

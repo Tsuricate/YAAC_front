@@ -9,6 +9,7 @@ import ItemChoices from './components/ItemChoices';
 import MainCategories from './components/MainCategories';
 import PositionChoices from './components/PositionChoices';
 import Header from './components/Header';
+import Tutorial from './components/Tutorial';
 import { getCategories, getDefaultItems } from './utils/axios';
 import reducer from './utils/reducers';
 
@@ -20,6 +21,7 @@ const App = () => {
   const [itemColor, setItemColor] = useState({ eyes: 'pink', body: 'blue' });
   const [currentCategoryInfos, setCurrentCategoryInfos] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [isTutorialRunning, setIsTutorialRunning] = useState(false);
   const [itemsPosition, dispatchItemsPosition] = useReducer(reducer,
     {
       body: { directionX: 0, directionY: 0 },
@@ -47,7 +49,8 @@ const App = () => {
       p={{ lg: 4 }}
       bgColor="#F7F6F4"
     >
-      {isHeaderFullyDisplayed && (<Header />)}
+      <Tutorial isTutorialRunning={isTutorialRunning} setIsTutorialRunning={setIsTutorialRunning} />
+      {isHeaderFullyDisplayed && (<Header setIsTutorialRunning={setIsTutorialRunning} />)}
 
       {/* Theses two boxes help display AvatarScreen block above categories & items block */}
       <Box order={{ lg: '3' }} position={{ lg: 'relative' }} height={{ lg: '100%' }} width={{ lg: '35%' }}>
@@ -62,6 +65,7 @@ const App = () => {
             currentCategoryName={currentCategoryInfos?.id}
             itemsPosition={itemsPosition}
             isHeaderFullyDisplayed={isHeaderFullyDisplayed}
+            setIsTutorialRunning={setIsTutorialRunning}
           />
         </Box>
       </Box>

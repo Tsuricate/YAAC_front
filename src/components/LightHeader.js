@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Flex, Text, useDisclosure, IconButton, Modal, ModalOverlay,
   ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Button,
 } from '@chakra-ui/react';
 import { InfoOutlineIcon } from '@chakra-ui/icons';
-import Tutorial from './Tutorial';
+import TutorialStartButton from './TutorialStartButton';
 
-const LightHeader = () => {
+const LightHeader = ({ setIsTutorialRunning }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -33,7 +34,7 @@ const LightHeader = () => {
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Tutorial />
+            <TutorialStartButton setIsTutorialRunning={setIsTutorialRunning} closeModal={onClose} />
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -41,4 +42,9 @@ const LightHeader = () => {
     </Flex>
   );
 };
+
+LightHeader.propTypes = {
+  setIsTutorialRunning: PropTypes.func.isRequired,
+};
+
 export default LightHeader;
