@@ -19,6 +19,7 @@ const ChoicesContainer = ({
       alignItems={centerContent ? 'center' : null}
       padding={5}
       mt={{ lg: 5 }}
+      className="tour-items"
     >
       {showCloseButton && <CloseButton variant="close-choices" onClick={handleCloseButton} />}
       { children }

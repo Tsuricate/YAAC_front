@@ -51,7 +51,7 @@ const App = () => {
 
       {/* Theses two boxes help display AvatarScreen block above categories & items block */}
       <Box order={{ lg: '3' }} position={{ lg: 'relative' }} height={{ lg: '100%' }} width={{ lg: '35%' }}>
-        <Box position={{ lg: 'absolute' }} left={{ lg: '-10em' }} top={{ lg: '7em' }}>
+        <Box position={{ lg: 'absolute' }} left={{ lg: '-10em' }} top={{ lg: '7em' }} className="tour-avatar-screen">
           <AvatarScreen
             setEditionMode={setEditionMode}
             backgroundColor={backgroundColor}
@@ -77,7 +77,7 @@ const App = () => {
         bgColor={{ lg: '#333333' }}
       >
 
-        <Box overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} pl={{ lg: 3 }}>
+        <Box overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} pl={{ lg: 3 }} className="tour-categories">
           <MainCategories
             setItems={setItems}
             categories={categories}

@@ -19,12 +19,13 @@ const ActionButtons = ({ setEditionMode, changeColor, changePosition }) => {
         color="black"
         fontWeight="bold"
         bgColor="#EDA81F"
+        className="tour-avatar-download"
       >
         Fini
       </Button>
       <Spacer />
 
-      <HStack spacing={{ base: 2, lg: 4 }}>
+      <HStack spacing={{ base: 2, lg: 4 }} className="tour-avatar-customization">
         {changeColor ? (
           <RoundButton
             ariaLabel="Change color"

@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-  Heading, Text, Button, Flex,
+  Heading, Text, Flex,
 } from '@chakra-ui/react';
+import GuidedTour from './GuidedTour';
 
 const Header = () => (
   <Flex
@@ -22,7 +23,7 @@ const Header = () => (
       Vivamus ullamcorper nec nibh quis porttitor.
       Praesent vitae dolor tellus. Nulla.
     </Text>
-    <Button variant="start-tutorial" isFullWidth>Show me how !</Button>
+    <GuidedTour />
 
   </Flex>
 
