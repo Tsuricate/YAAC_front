@@ -4,7 +4,7 @@ import {
   ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Button,
 } from '@chakra-ui/react';
 import { InfoOutlineIcon } from '@chakra-ui/icons';
-import GuidedTour from './GuidedTour';
+import Tutorial from './Tutorial';
 
 const LightHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -33,7 +33,7 @@ const LightHeader = () => {
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <GuidedTour />
+            <Tutorial />
           </ModalFooter>
         </ModalContent>
       </Modal>

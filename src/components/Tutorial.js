@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Button } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import JoyRide from 'react-joyride';
@@ -30,15 +31,23 @@ const TOUR_STEPS = [
   },
 ];
 
-const GuidedTour = () => {
+const Tutorial = () => {
   const [isTutorialRunning, setIsTutorialRunning] = useState(false);
-  const handleClick = () => {
+  const [storeHelpers, setStoreHelpers] = useState(null);
+
+  const startTutorial = () => {
     setIsTutorialRunning(true);
   };
-  const handleCallback = (param) => {
-    if (param.type === 'tour:end' || param.action === 'close') {
+
+  const handleCallback = (event) => {
+    if (event.type === 'tour:end' || event.action === 'close') {
       setIsTutorialRunning(false);
+      storeHelpers.reset();
     }
+  };
+
+  const getHelpers = (helpers) => {
+    setStoreHelpers(helpers);
   };
 
   return (
@@ -48,6 +57,8 @@ const GuidedTour = () => {
         steps={TOUR_STEPS}
         continuous
         showProgress
+        debug
+        getHelpers={getHelpers}
         showSkipButton
         run={isTutorialRunning}
         locale={{
@@ -56,8 +67,8 @@ const GuidedTour = () => {
           back: 'Previous',
         }}
       />
-      <Button variant="start-tutorial" isFullWidth onClick={handleClick}>Show me how !</Button>
+      <Button variant="start-tutorial" isFullWidth onClick={startTutorial}>Show me how !</Button>
     </>
   );
 };
-export default GuidedTour;
+export default Tutorial;

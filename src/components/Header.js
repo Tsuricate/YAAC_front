@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Heading, Text, Flex,
 } from '@chakra-ui/react';
-import GuidedTour from './GuidedTour';
+import Tutorial from './Tutorial';
 
 const Header = () => (
   <Flex
@@ -23,7 +23,7 @@ const Header = () => (
       Vivamus ullamcorper nec nibh quis porttitor.
       Praesent vitae dolor tellus. Nulla.
     </Text>
-    <GuidedTour />
+    <Tutorial />
 
   </Flex>
 
