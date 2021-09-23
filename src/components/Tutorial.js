@@ -7,34 +7,32 @@ import TutorialStartButton from './TutorialStartButton';
 const TOUR_STEPS = [
   {
     target: '.tour-categories',
-    content: 'This is our tour’s logo',
+    content: 'You can chose here which category you want to modify. Let\'s take "Body" for this example !',
     disableBeacon: true,
   },
   {
     target: '.tour-items',
-    content: 'View the cart you’ve added here',
-    disableBeacon: true,
+    content: 'Here are all the different "Body" designs available. Try them, change your mind, delete them : make your Avatar unique !',
   },
   {
     target: '.tour-avatar-screen',
-    content: 'Contact the developer',
-    disableBeacon: true,
+    content: 'Here\'s your canvas. You can see your Avatar with all your current choices.',
+    placement: 'right',
   },
   {
     target: '.tour-avatar-customization',
-    content: 'We accept returns after 14 days max',
-    disableBeacon: true,
+    content: 'Some items allows you to customize their color and/or their position.',
   },
   {
     target: '.tour-avatar-download',
-    content: 'Finally satisfied with how your avatar is looking ? Download it !',
-    disableBeacon: true,
+    content: 'Satisfied with how your avatar is looking ? Download it and use it anywhere you want !',
   },
 ];
 
 const Tutorial = ({ isTutorialRunning, setIsTutorialRunning }) => {
   const [storeHelpers, setStoreHelpers] = useState(null);
 
+  /* Called when Joyride's state changes. Handle close and reset tutorial */
   const handleCallback = (event) => {
     if (event.type === 'tour:end' || event.action === 'close') {
       setIsTutorialRunning(false);
@@ -42,6 +40,7 @@ const Tutorial = ({ isTutorialRunning, setIsTutorialRunning }) => {
     }
   };
 
+  /* Give access to store methods to control the tour programmatically */
   const getHelpers = (helpers) => {
     setStoreHelpers(helpers);
   };
@@ -60,6 +59,25 @@ const Tutorial = ({ isTutorialRunning, setIsTutorialRunning }) => {
           last: 'End tour',
           skip: 'Close tour',
           back: 'Previous',
+        }}
+        styles={{
+          options: {
+            backgroundColor: '#F7F6F4',
+            overlayColor: '#000000a8',
+            primaryColor: '#61A0AF',
+            textColor: '#333333',
+          },
+          tooltipContent: {
+            fontSize: 18,
+            padding: '25px 35px',
+          },
+          buttonSkip: {
+            border: '1px solid #61A0AF',
+            borderRadius: '5px',
+          },
+          buttonNext: {
+            color: '#000000',
+          },
         }}
       />
     </>

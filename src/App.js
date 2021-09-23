@@ -78,7 +78,7 @@ const App = () => {
         width={{ lg: '55%' }}
         p={{ lg: '16' }}
         pr={{ lg: '14%' }}
-        bgColor={{ lg: '#333333' }}
+        bgColor={{ lg: '#2A2B2A' }}
       >
 
         <Box overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} pl={{ lg: 3 }} className="tour-categories">
