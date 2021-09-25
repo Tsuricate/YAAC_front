@@ -91,7 +91,7 @@ const App = () => {
           />
         </Box>
 
-        <Divider variant="separation-categories-items" />
+        {isHeaderFullyDisplayed && (<Divider variant="separation-categories-items" />)}
 
         <ChoicesContainer
           centerContent={!isEditingItems}
