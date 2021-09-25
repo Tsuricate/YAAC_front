@@ -23,6 +23,16 @@ const Button = {
       color: '#fff',
       letterSpacing: '2px',
     },
+    'close-choices': {
+      position: 'absolute',
+      top: '0',
+      right: '0',
+      margin: '10px',
+      size: 'lg',
+      color: '#EDA81F',
+      border: '2px solid #EDA81F',
+      borderRadius: '5px',
+    },
   },
 };
 

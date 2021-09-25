@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CloseButton, Flex } from '@chakra-ui/react';
+import { Button, Flex } from '@chakra-ui/react';
+import { ArrowBackIcon } from '@chakra-ui/icons';
 
 const ChoicesContainer = ({
   children, centerContent, showCloseButton, setEditionMode,
@@ -13,15 +14,13 @@ const ChoicesContainer = ({
     <Flex
       overflowY="auto"
       flexGrow={1}
-      flexDirection="column"
       position="relative"
       justifyContent={centerContent ? 'center' : null}
       alignItems={centerContent ? 'center' : null}
       padding={5}
-      mt={{ lg: 5 }}
       className="tour-items"
     >
-      {showCloseButton && <CloseButton variant="close-choices" onClick={handleCloseButton} />}
+      {showCloseButton && <Button variant="close-choices" leftIcon={<ArrowBackIcon />} onClick={handleCloseButton}>Back</Button>}
       { children }
     </Flex>
   );
