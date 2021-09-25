@@ -32,7 +32,7 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
     }
   };
 
-  const sharedButtonProps = { color: 'gray', onMouseUp: handleMouseUp, onMouseLeave: handleMouseUp };
+  const sharedButtonProps = { color: '#f7f6f4', onMouseUp: handleMouseUp, onMouseLeave: handleMouseUp };
 
   return (
     <>

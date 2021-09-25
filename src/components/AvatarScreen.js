@@ -18,7 +18,7 @@ const AvatarScreen = ({
   setIsTutorialRunning,
 }) => (
   <Box
-    height={{ base: '100vw', md: '50vh', lg: '78vh' }}
+    height={{ base: '60vh', md: '50vh', lg: '78vh' }}
     width={{ base: '100vw', md: '50vh', lg: '35vw' }}
     position="relative"
   >

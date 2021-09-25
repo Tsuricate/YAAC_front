@@ -1,8 +1,9 @@
-import React from 'react';
+import { Input, Wrap, WrapItem } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import { Flex, Wrap, Input } from '@chakra-ui/react';
-import RoundButton from './RoundButton';
+import React, { useRef } from 'react';
+import { HiOutlineSparkles } from 'react-icons/hi';
 import backgroundColors from '../data/backgroundColors';
+import RoundButton from './RoundButton';
 
 const ColorChoices = ({ setBackgroundColor, setItemColor, currentCategoryName }) => {
   const handleItemColor = (color) => {
@@ -13,16 +14,25 @@ const ColorChoices = ({ setBackgroundColor, setItemColor, currentCategoryName })
     }
   };
 
+  const inputRef = useRef(null);
+
+  const handleClick = () => {
+    inputRef.current.click();
+  };
+
   return (
 
-    <Flex flexDirection="column" bgColor="Gainsboro" flexGrow={1} justifyContent="center" alignItems="center" px={3}>
-      <Wrap>
-        { backgroundColors.map((color) => (
-          <RoundButton key={color} ariaLabel="color-choices" color={color} onClick={() => handleItemColor(color)} />
-        ))}
-        <Input type="color" onChange={(event) => { handleItemColor(event.target.value); }} />
-      </Wrap>
-    </Flex>
+    <Wrap className="WraparoundColors" spacing="15px" height="100%" pt="3em">
+      { backgroundColors.map((color) => (
+        <WrapItem>
+          <RoundButton key={color} ariaLabel="color-choices" color={color} onClick={() => handleItemColor(color)} size="lg" />
+        </WrapItem>
+      ))}
+      <WrapItem>
+        <RoundButton ariaLabel="color-choices" color="#f0f" onClick={handleClick} icon={<HiOutlineSparkles />} size="lg" />
+        <Input type="color" ref={inputRef} onChange={(event) => { handleItemColor(event.target.value); }} opacity="0" />
+      </WrapItem>
+    </Wrap>
 
   );
 };
