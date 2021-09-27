@@ -7,7 +7,9 @@ import { CheckIcon } from '@chakra-ui/icons';
 import { FaArrowsAlt, FaPalette } from 'react-icons/fa';
 import RoundButton from './RoundButton';
 
-const ActionButtons = ({ setEditionMode, changeColor, changePosition }) => {
+const ActionButtons = ({
+  setEditionMode, changeColor, changePosition, isTutorialRunning,
+}) => {
   const handleDisplay = (mode) => {
     setEditionMode(mode);
   };
@@ -26,7 +28,7 @@ const ActionButtons = ({ setEditionMode, changeColor, changePosition }) => {
       <Spacer />
 
       <HStack spacing={{ base: 2, lg: 4 }} className="tour-avatar-customization">
-        {changeColor ? (
+        {changeColor || isTutorialRunning ? (
           <RoundButton
             ariaLabel="Change color"
             icon={<FaPalette />}
@@ -36,7 +38,7 @@ const ActionButtons = ({ setEditionMode, changeColor, changePosition }) => {
         ) : (
           <></>
         )}
-        {changePosition ? (
+        {changePosition || isTutorialRunning ? (
           <RoundButton
             ariaLabel="Move an element"
             icon={<FaArrowsAlt />}
@@ -55,6 +57,7 @@ ActionButtons.propTypes = {
   setEditionMode: PropTypes.func.isRequired,
   changeColor: PropTypes.bool.isRequired,
   changePosition: PropTypes.bool.isRequired,
+  isTutorialRunning: PropTypes.bool.isRequired,
 };
 
 export default ActionButtons;

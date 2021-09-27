@@ -17,11 +17,11 @@ const App = () => {
   const [editionMode, setEditionMode] = useState('Items');
   const [backgroundColor, setbackgroundColor] = useState('#f1f1f1');
   const [categories, setCategories] = useState([]);
+  const [currentCategoryInfos, setCurrentCategoryInfos] = useState(null);
+  const [isTutorialRunning, setIsTutorialRunning] = useState(false);
   const [items, setItems] = useState([]);
   const [itemColor, setItemColor] = useState({ eyes: 'pink', body: 'blue' });
-  const [currentCategoryInfos, setCurrentCategoryInfos] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
-  const [isTutorialRunning, setIsTutorialRunning] = useState(false);
   const [itemsPosition, dispatchItemsPosition] = useReducer(reducer,
     {
       body: { directionX: 0, directionY: 0 },
@@ -50,6 +50,7 @@ const App = () => {
       bgColor="#F7F6F4"
     >
       <Tutorial isTutorialRunning={isTutorialRunning} setIsTutorialRunning={setIsTutorialRunning} />
+
       {isHeaderFullyDisplayed && (<Header setIsTutorialRunning={setIsTutorialRunning} />)}
 
       {/* Theses two boxes help display AvatarScreen block above categories & items block */}
@@ -65,6 +66,7 @@ const App = () => {
             currentCategoryName={currentCategoryInfos?.id}
             itemsPosition={itemsPosition}
             isHeaderFullyDisplayed={isHeaderFullyDisplayed}
+            isTutorialRunning={isTutorialRunning}
             setIsTutorialRunning={setIsTutorialRunning}
           />
         </Box>

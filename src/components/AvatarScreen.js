@@ -15,6 +15,7 @@ const AvatarScreen = ({
   currentCategoryName,
   itemsPosition,
   isHeaderFullyDisplayed,
+  isTutorialRunning,
   setIsTutorialRunning,
 }) => (
   <Box
@@ -52,6 +53,7 @@ const AvatarScreen = ({
         setEditionMode={setEditionMode}
         changeColor={changeColor}
         changePosition={changePosition}
+        isTutorialRunning={isTutorialRunning}
       />
     </Box>
 
@@ -83,6 +85,7 @@ AvatarScreen.propTypes = {
     directionY: PropTypes.number.isRequired,
   })).isRequired,
   isHeaderFullyDisplayed: PropTypes.bool.isRequired,
+  isTutorialRunning: PropTypes.bool.isRequired,
   setIsTutorialRunning: PropTypes.func.isRequired,
 };
 
