@@ -2,7 +2,7 @@
 import {
   ArrowBackIcon, ArrowDownIcon, ArrowForwardIcon, ArrowUpIcon,
 } from '@chakra-ui/icons';
-import { Box, SimpleGrid } from '@chakra-ui/react';
+import { Box, Flex, SimpleGrid } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import RoundButton from './RoundButton';
@@ -35,7 +35,7 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
   const sharedButtonProps = { color: '#f7f6f4', onMouseUp: handleMouseUp, onMouseLeave: handleMouseUp };
 
   return (
-    <>
+    <Flex height="100%" alignItems={{ md: 'center' }}>
       <SimpleGrid columns={3} spacing={4}>
         <Box />
         <RoundButton
@@ -71,7 +71,7 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
         />
         <Box />
       </SimpleGrid>
-    </>
+    </Flex>
   );
 };
 
