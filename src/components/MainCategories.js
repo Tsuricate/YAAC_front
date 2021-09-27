@@ -1,6 +1,8 @@
-import React from 'react';
+import {
+  Stack, useBreakpointValue, Wrap, WrapItem,
+} from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import { SimpleGrid, Stack, useBreakpointValue } from '@chakra-ui/react';
+import React from 'react';
 import Category from './Category';
 
 const MainCategories = ({
@@ -27,19 +29,21 @@ const MainCategories = ({
           </Stack>
         )
         : (
-          <SimpleGrid minChildWidth="90px" spacing="10px">
+          <Wrap spacing="10px" width="100%" overflow="hidden">
             {categories.map((category) => (
-              <Category
-                key={category.id}
-                category={category}
-                isDisplayedInline={isDisplayedInline}
-                setItems={setItems}
-                setEditionMode={setEditionMode}
-                currentCategory={currentCategory}
-                setCurrentCategoryInfos={setCurrentCategoryInfos}
-              />
+              <WrapItem key={category.id}>
+                <Category
+                  category={category}
+                  isDisplayedInline={isDisplayedInline}
+                  setItems={setItems}
+                  setEditionMode={setEditionMode}
+                  currentCategory={currentCategory}
+                  setCurrentCategoryInfos={setCurrentCategoryInfos}
+                />
+              </WrapItem>
+
             ))}
-          </SimpleGrid>
+          </Wrap>
         )}
     </>
   );

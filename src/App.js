@@ -81,7 +81,7 @@ const App = () => {
         bgColor={{ lg: '#2A2B2A' }}
       >
 
-        <Box overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} pl={{ lg: 3 }} className="tour-categories">
+        <Box overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} width="100%" className="tour-categories">
           <MainCategories
             setItems={setItems}
             categories={categories}

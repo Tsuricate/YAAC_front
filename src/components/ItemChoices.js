@@ -1,6 +1,6 @@
 import { VscChromeClose } from 'react-icons/vsc';
 import {
-  Image, SimpleGrid, Skeleton, IconButton, Icon,
+  Image, Wrap, Skeleton, IconButton, Icon, WrapItem,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -21,35 +21,38 @@ const ItemChoices = ({
   };
 
   return (
-    <SimpleGrid minChildWidth={{ base: '80px', lg: '100px' }} width="100%" spacing="10px">
-      {isMandatory && (
-      <IconButton
-        aria-label="Remove item"
-        icon={<Icon as={VscChromeClose} boxSize={20} />}
-        variant="remove-item"
-        onClick={removeItem}
-      />
-      )}
-
+    <Wrap width="100%" spacing="16px">
+      <WrapItem>
+        {isMandatory && (
+        <IconButton
+          aria-label="Remove item"
+          icon={<Icon as={VscChromeClose} boxSize={20} />}
+          variant="remove-item"
+          onClick={removeItem}
+        />
+        )}
+      </WrapItem>
       {items.map((item) => {
         const borderStyle = isImageSelected(selectedItems, item.imageUrl) ? '4px solid #EDA81F' : 'null';
         return (
-          <Image
-            src={item.imageUrl}
-            alt={item.id}
-            key={item.id}
-            fallback={<Skeleton h={{ base: '80px', lg: '100px' }} />}
-            h={{ base: '80px', lg: '100px' }}
-            bgColor="#EEEEEE"
-            border={borderStyle}
-            borderRadius="5px"
-            boxShadow={{ lg: '0px 3px 12px #151b1f' }}
-            cursor="pointer"
-            onClick={() => manageClickOnItem(item)}
-          />
+          <WrapItem key={item.id}>
+            <Image
+              src={item.imageUrl}
+              alt={item.id}
+              fallback={<Skeleton h={{ base: '80px', lg: '100px' }} />}
+              h={{ base: '80px', lg: '100px' }}
+              bgColor="#EEEEEE"
+              border={borderStyle}
+              borderRadius="5px"
+              boxShadow={{ lg: '0px 3px 12px #151b1f' }}
+              cursor="pointer"
+              onClick={() => manageClickOnItem(item)}
+            />
+          </WrapItem>
+
         );
       })}
-    </SimpleGrid>
+    </Wrap>
   );
 };
 

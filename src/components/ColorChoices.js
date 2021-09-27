@@ -22,10 +22,10 @@ const ColorChoices = ({ setBackgroundColor, setItemColor, currentCategoryName })
 
   return (
 
-    <Wrap className="WraparoundColors" spacing="15px" height="100%" pt="3em">
+    <Wrap spacing="10px" height="100%" pt="3em">
       { backgroundColors.map((color) => (
-        <WrapItem>
-          <RoundButton key={color} ariaLabel="color-choices" color={color} onClick={() => handleItemColor(color)} size="lg" />
+        <WrapItem key={color}>
+          <RoundButton ariaLabel="color-choices" color={color} onClick={() => handleItemColor(color)} size="lg" />
         </WrapItem>
       ))}
       <WrapItem>
