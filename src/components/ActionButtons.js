@@ -8,7 +8,7 @@ import { FaArrowsAlt, FaPalette } from 'react-icons/fa';
 import RoundButton from './RoundButton';
 
 const ActionButtons = ({
-  setEditionMode, changeColor, changePosition, isTutorialRunning,
+  setEditionMode, changeColor, changePosition, isTutorialRunning, handleDownloadAvatar,
 }) => {
   const handleDisplay = (mode) => {
     setEditionMode(mode);
@@ -22,6 +22,7 @@ const ActionButtons = ({
         fontWeight="bold"
         bgColor="#EDA81F"
         className="tour-avatar-download"
+        onClick={handleDownloadAvatar}
       >
         Done
       </Button>
@@ -58,6 +59,7 @@ ActionButtons.propTypes = {
   changeColor: PropTypes.bool.isRequired,
   changePosition: PropTypes.bool.isRequired,
   isTutorialRunning: PropTypes.bool.isRequired,
+  handleDownloadAvatar: PropTypes.func.isRequired,
 };
 
 export default ActionButtons;

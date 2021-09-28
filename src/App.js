@@ -10,7 +10,7 @@ import MainCategories from './components/MainCategories';
 import PositionChoices from './components/PositionChoices';
 import Header from './components/Header';
 import Tutorial from './components/Tutorial';
-import { getCategories, getDefaultItems } from './utils/axios';
+import { getCategories, getDefaultItems, getMergedAvatar } from './utils/axios';
 import reducer from './utils/reducers';
 
 const App = () => {
@@ -35,6 +35,10 @@ const App = () => {
     getCategories(setCategories, setCurrentCategoryInfos);
     getDefaultItems(setItems);
   }, []);
+
+  const handleDownloadAvatar = () => {
+    getMergedAvatar(selectedItems);
+  };
 
   const isEditingItems = editionMode === 'Items';
   const isEditingBackground = currentCategoryInfos?.id === 'background-color';
@@ -68,6 +72,7 @@ const App = () => {
             isHeaderFullyDisplayed={isHeaderFullyDisplayed}
             isTutorialRunning={isTutorialRunning}
             setIsTutorialRunning={setIsTutorialRunning}
+            handleDownloadAvatar={handleDownloadAvatar}
           />
         </Box>
       </Box>

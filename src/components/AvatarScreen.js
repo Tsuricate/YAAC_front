@@ -17,6 +17,7 @@ const AvatarScreen = ({
   isHeaderFullyDisplayed,
   isTutorialRunning,
   setIsTutorialRunning,
+  handleDownloadAvatar,
 }) => (
   <Box
     height={{ base: '60vh', md: '50vh', lg: '78vh' }}
@@ -54,6 +55,7 @@ const AvatarScreen = ({
         changeColor={changeColor}
         changePosition={changePosition}
         isTutorialRunning={isTutorialRunning}
+        handleDownloadAvatar={handleDownloadAvatar}
       />
     </Box>
 
@@ -87,6 +89,7 @@ AvatarScreen.propTypes = {
   isHeaderFullyDisplayed: PropTypes.bool.isRequired,
   isTutorialRunning: PropTypes.bool.isRequired,
   setIsTutorialRunning: PropTypes.func.isRequired,
+  handleDownloadAvatar: PropTypes.func.isRequired,
 };
 
 export default AvatarScreen;
