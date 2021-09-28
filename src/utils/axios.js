@@ -33,9 +33,11 @@ export const getCategoryItems = (categoryName, setItems) => {
 };
 
 export const getMergedAvatar = (selectedItems) => {
+  const imagesUrl = selectedItems.map((item) => item.imageUrl);
   axios.post('http://localhost:3001/api/merge', {
-    selectedItems,
+    imagesUrl,
   })
+    // eslint-disable-next-line no-unused-vars
     .then((response) => {
       // Response contains the avatar in base64 format
       const linkSource = response.data.avatar;
@@ -46,6 +48,7 @@ export const getMergedAvatar = (selectedItems) => {
       link.href = linkSource;
       link.setAttribute('download', 'avatar.png');
       link.click();
+      // console.log('ALRIGHT !');
     })
     .catch((error) => {
       console.log(error);
