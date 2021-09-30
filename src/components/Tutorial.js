@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import JoyRide from 'react-joyride';
-import TutorialStartButton from './TutorialStartButton';
 
 const TOUR_STEPS = [
   {

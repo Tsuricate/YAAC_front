@@ -1,6 +1,6 @@
-import React from 'react';
+import { AspectRatio, Box, Flex } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import { Box, Center } from '@chakra-ui/react';
+import React from 'react';
 import ActionButtons from './ActionButtons';
 import AvatarImageContainer from './AvatarImageContainer';
 import LightHeader from './LightHeader';
@@ -17,7 +17,6 @@ const AvatarScreen = ({
   isHeaderFullyDisplayed,
   isTutorialRunning,
   setIsTutorialRunning,
-  handleDownloadAvatar,
 }) => (
   <Box
     height={{ base: '60vh', md: '50vh', lg: '78vh' }}
@@ -36,26 +35,27 @@ const AvatarScreen = ({
     { !isHeaderFullyDisplayed && <LightHeader setIsTutorialRunning={setIsTutorialRunning} /> }
 
     {/* This box represent the avatar's background to color */}
-    <Box bg={backgroundColor} width="100%" height="100%">
-      <Center>
-        {selectedItems.map((item) => (
-          <AvatarImageContainer
-            key={item.id}
-            imageUrl={item.imageUrl}
-            itemColor={itemColor}
-            currentCategoryName={currentCategoryName}
-            itemsPosition={itemsPosition[item.category]}
-          />
-        ))}
-      </Center>
-    </Box>
+    <Flex bg={backgroundColor} width="100%" height="100%" overflow="hidden" alignItems="flex-end" className="canvas">
+      <AspectRatio width="100%" ratio={4 / 5} position="inherit">
+        <Box>
+          {selectedItems.map((item) => (
+            <AvatarImageContainer
+              key={item.id}
+              imageUrl={item.imageUrl}
+              itemColor={itemColor}
+              currentCategoryName={currentCategoryName}
+              itemsPosition={itemsPosition[item.category]}
+            />
+          ))}
+        </Box>
+      </AspectRatio>
+    </Flex>
     <Box position="absolute" width="100%" bottom={{ base: 2, lg: 3 }} px={{ base: 2, lg: 4 }}>
       <ActionButtons
         setEditionMode={setEditionMode}
         changeColor={changeColor}
         changePosition={changePosition}
         isTutorialRunning={isTutorialRunning}
-        handleDownloadAvatar={handleDownloadAvatar}
       />
     </Box>
 
@@ -89,7 +89,6 @@ AvatarScreen.propTypes = {
   isHeaderFullyDisplayed: PropTypes.bool.isRequired,
   isTutorialRunning: PropTypes.bool.isRequired,
   setIsTutorialRunning: PropTypes.func.isRequired,
-  handleDownloadAvatar: PropTypes.func.isRequired,
 };
 
 export default AvatarScreen;

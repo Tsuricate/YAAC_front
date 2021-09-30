@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
+import domtoimage from 'dom-to-image';
 import {
   Button, Spacer, HStack, Flex,
 } from '@chakra-ui/react';
@@ -14,6 +16,17 @@ const ActionButtons = ({
     setEditionMode(mode);
   };
 
+  const downloadAvatar = () => {
+    const node = document.querySelector('.canvas');
+    domtoimage.toPng(node, { quality: 0.95 })
+      .then((dataUrl) => {
+        const link = document.createElement('a');
+        link.download = 'my-avatar.png';
+        link.href = dataUrl;
+        link.click();
+      });
+  };
+
   return (
     <Flex>
       <Button
@@ -22,7 +35,7 @@ const ActionButtons = ({
         fontWeight="bold"
         bgColor="#EDA81F"
         className="tour-avatar-download"
-        onClick={handleDownloadAvatar}
+        onClick={downloadAvatar}
       >
         Done
       </Button>
