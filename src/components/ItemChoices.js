@@ -22,16 +22,16 @@ const ItemChoices = ({
 
   return (
     <Wrap width="100%" spacing="16px">
+      {isMandatory && (
       <WrapItem>
-        {isMandatory && (
         <IconButton
           aria-label="Remove item"
           icon={<Icon as={VscChromeClose} boxSize={20} />}
           variant="remove-item"
           onClick={removeItem}
         />
-        )}
       </WrapItem>
+      )}
       {items.map((item) => {
         const borderStyle = isImageSelected(selectedItems, item.imageUrl) ? '4px solid #EDA81F' : 'null';
         return (
