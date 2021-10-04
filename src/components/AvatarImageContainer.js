@@ -30,4 +30,5 @@ AvatarImageContainer.propTypes = {
   itemsPosition: PropTypes.objectOf(PropTypes.number.isRequired),
 };
 
-export default AvatarImageContainer;
+const MemoizedAvatarImageContainer = React.memo(AvatarImageContainer);
+export default MemoizedAvatarImageContainer;

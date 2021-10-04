@@ -2,21 +2,20 @@ import {
   Box, Flex, useBreakpointValue, Divider,
 } from '@chakra-ui/react';
 import React, { useEffect, useReducer, useState } from 'react';
-import AvatarScreen from './components/AvatarScreen';
-import ChoicesContainer from './components/ChoicesContainer';
-import ColorChoices from './components/ColorChoices';
-import ItemChoices from './components/ItemChoices';
-import MainCategories from './components/MainCategories';
-import PositionChoices from './components/PositionChoices';
-import Header from './components/Header';
 import Tutorial from './components/Tutorial';
-import { getCategories, getDefaultItems } from './utils/axios';
+import MemoizedHeader from './components/Header';
+import MemoizedAvatarScreen from './components/AvatarScreen';
+import MemoizedMainCategories from './components/MainCategories';
+import ChoicesContainer from './components/ChoicesContainer';
+import MemoizedColorChoices from './components/ColorChoices';
+import ItemChoices from './components/ItemChoices';
+import PositionChoices from './components/PositionChoices';
+import { getDefaultItems } from './utils/axios';
 import reducer from './utils/reducers';
 
 const App = () => {
   const [editionMode, setEditionMode] = useState('Items');
-  const [backgroundColor, setbackgroundColor] = useState('#f1f1f1');
-  const [categories, setCategories] = useState([]);
+  const [backgroundColor, setBackgroundColor] = useState('#f1f1f1');
   const [currentCategoryInfos, setCurrentCategoryInfos] = useState(null);
   const [isTutorialRunning, setIsTutorialRunning] = useState(false);
   const [items, setItems] = useState([]);
@@ -32,7 +31,6 @@ const App = () => {
     });
 
   useEffect(() => {
-    getCategories(setCategories, setCurrentCategoryInfos);
     getDefaultItems(setItems);
   }, []);
 
@@ -51,12 +49,12 @@ const App = () => {
     >
       <Tutorial isTutorialRunning={isTutorialRunning} setIsTutorialRunning={setIsTutorialRunning} />
 
-      {isHeaderFullyDisplayed && (<Header setIsTutorialRunning={setIsTutorialRunning} />)}
+      {isHeaderFullyDisplayed && (<MemoizedHeader setIsTutorialRunning={setIsTutorialRunning} />)}
 
       {/* Theses two boxes help display AvatarScreen block above categories & items block */}
       <Box order={{ lg: '3' }} position={{ lg: 'relative' }} height={{ lg: '100%' }} width={{ lg: '35%' }}>
         <Box position={{ lg: 'absolute' }} left={{ lg: '-10em' }} top={{ lg: '7em' }} className="tour-avatar-screen">
-          <AvatarScreen
+          <MemoizedAvatarScreen
             setEditionMode={setEditionMode}
             backgroundColor={backgroundColor}
             selectedItems={selectedItems}
@@ -84,9 +82,8 @@ const App = () => {
       >
 
         <Box overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} width="100%" className="tour-categories">
-          <MainCategories
+          <MemoizedMainCategories
             setItems={setItems}
-            categories={categories}
             setEditionMode={setEditionMode}
             currentCategory={currentCategoryInfos?.id}
             setCurrentCategoryInfos={setCurrentCategoryInfos}
@@ -111,8 +108,8 @@ const App = () => {
           )}
 
           { (editionMode === 'Colors' || isEditingBackground) && (
-          <ColorChoices
-            setBackgroundColor={setbackgroundColor}
+          <MemoizedColorChoices
+            setBackgroundColor={setBackgroundColor}
             setItemColor={setItemColor}
             currentCategoryName={currentCategoryInfos?.id}
           />

@@ -2,13 +2,19 @@ import {
   Stack, useBreakpointValue, Wrap, WrapItem,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Category from './Category';
+import { getCategories } from '../utils/axios';
 
 const MainCategories = ({
-  categories, setItems, setEditionMode, currentCategory, setCurrentCategoryInfos,
+  setItems, setEditionMode, currentCategory, setCurrentCategoryInfos,
 }) => {
+  const [categories, setCategories] = useState([]);
   const isDisplayedInline = useBreakpointValue({ base: true, lg: false });
+
+  useEffect(() => {
+    getCategories(setCategories, setCurrentCategoryInfos);
+  }, []);
 
   return (
     <>
@@ -54,13 +60,11 @@ MainCategories.defaultProps = {
 };
 
 MainCategories.propTypes = {
-  categories: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
   setItems: PropTypes.func.isRequired,
   setEditionMode: PropTypes.func.isRequired,
   currentCategory: PropTypes.string,
   setCurrentCategoryInfos: PropTypes.func.isRequired,
 };
 
-export default MainCategories;
+const MemoizedMainCategories = React.memo(MainCategories);
+export default MemoizedMainCategories;

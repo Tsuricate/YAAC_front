@@ -10,7 +10,7 @@ import { FaArrowsAlt, FaPalette } from 'react-icons/fa';
 import RoundButton from './RoundButton';
 
 const ActionButtons = ({
-  setEditionMode, changeColor, changePosition, isTutorialRunning, handleDownloadAvatar,
+  setEditionMode, changeColor, changePosition, isTutorialRunning,
 }) => {
   const handleDisplay = (mode) => {
     setEditionMode(mode);
@@ -72,7 +72,6 @@ ActionButtons.propTypes = {
   changeColor: PropTypes.bool.isRequired,
   changePosition: PropTypes.bool.isRequired,
   isTutorialRunning: PropTypes.bool.isRequired,
-  handleDownloadAvatar: PropTypes.func.isRequired,
 };
 
 export default ActionButtons;

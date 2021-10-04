@@ -34,4 +34,5 @@ Header.propTypes = {
   setIsTutorialRunning: PropTypes.func.isRequired,
 };
 
-export default Header;
+const MemoizedHeader = React.memo(Header);
+export default MemoizedHeader;

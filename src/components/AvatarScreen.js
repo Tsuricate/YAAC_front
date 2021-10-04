@@ -91,4 +91,5 @@ AvatarScreen.propTypes = {
   setIsTutorialRunning: PropTypes.func.isRequired,
 };
 
-export default AvatarScreen;
+const MemoizedAvatarScreen = React.memo(AvatarScreen);
+export default MemoizedAvatarScreen;
