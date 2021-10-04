@@ -5,7 +5,9 @@ import { HiOutlineSparkles } from 'react-icons/hi';
 import backgroundColors from '../data/backgroundColors';
 import RoundButton from './RoundButton';
 
-export const ColorChoices = ({ setItemColor, currentCategoryName, setBackgroundColor }) => {
+export const ColorChoices = ({
+  setItemColor, initialColor, currentCategoryName, setBackgroundColor,
+}) => {
   const handleItemColor = (color) => {
     if (currentCategoryName === 'background-color') {
       setBackgroundColor(color);
@@ -30,7 +32,7 @@ export const ColorChoices = ({ setItemColor, currentCategoryName, setBackgroundC
       ))}
       <WrapItem>
         <RoundButton ariaLabel="color-choices" color="#f0f" onClick={handleClick} icon={<HiOutlineSparkles />} size="lg" />
-        <Input type="color" ref={inputRef} value="#eee" onChange={(e) => handleItemColor(e.target.value)} opacity="0" />
+        <Input type="color" ref={inputRef} value={initialColor} onChange={(e) => handleItemColor(e.target.value)} opacity="0" />
       </WrapItem>
     </Wrap>
 
@@ -41,6 +43,7 @@ ColorChoices.propTypes = {
   setBackgroundColor: PropTypes.func.isRequired,
   setItemColor: PropTypes.func.isRequired,
   currentCategoryName: PropTypes.string.isRequired,
+  initialColor: PropTypes.string.isRequired,
 };
 
 const MemoizedColorChoices = React.memo(ColorChoices);
