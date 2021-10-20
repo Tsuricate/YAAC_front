@@ -1,6 +1,6 @@
 const customizableItemsMapping = {
   eyes: 'puille',
-  body: 'ant-shape',
+  jaw: 'jaw-1-skin',
 };
 
 export default customizableItemsMapping;

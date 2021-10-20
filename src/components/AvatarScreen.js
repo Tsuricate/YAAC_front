@@ -37,7 +37,7 @@ const AvatarScreen = ({
     {/* This box represent the avatar's background to color */}
     <Flex bg={backgroundColor} width="100%" height="100%" overflow="hidden" alignItems="flex-end" className="canvas">
       <AspectRatio width="100%" ratio={4 / 5} position="inherit">
-        <Box>
+        <Box className="WHOAREU">
           {selectedItems.map((item) => (
             <AvatarImageContainer
               key={item.id}

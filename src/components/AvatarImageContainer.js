@@ -1,23 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { chakra } from '@chakra-ui/react';
 import { SvgLoader, SvgProxy } from 'react-svgmt';
-import { Image } from '@chakra-ui/react';
 import customizableItemsMapping from '../data/customizableItemsMapping';
 
 const AvatarImageContainer = ({
-  imageUrl, itemColor, currentCategoryName, itemsPosition,
-}) => (
-  imageUrl.includes('svg')
-    ? (
-      <SvgLoader path={imageUrl} position="absolute" bottom={`${itemsPosition.directionY}em`} right={`${itemsPosition.directionX}em`}>
-        <SvgProxy
-          selector={`#${customizableItemsMapping[currentCategoryName]}`}
-          fill={itemColor[currentCategoryName]}
-        />
-      </SvgLoader>
-    )
-    : <Image src={imageUrl} maxW="100%" maxH="100%" position="absolute" bottom={`${itemsPosition.directionY}em`} right={`${itemsPosition.directionX}em`} />
-);
+  imageUrl,
+  itemColor,
+  currentCategoryName,
+  itemsPosition,
+}) => {
+  const SvgLoaderWithChakra = chakra(SvgLoader);
+
+  return (
+    <SvgLoaderWithChakra
+      path={imageUrl}
+      width="100%"
+      height="auto"
+      position="absolute"
+      bottom={`${itemsPosition.directionY}em`}
+      right={`${itemsPosition.directionX}em`}
+    >
+      <SvgProxy
+        selector={`#${customizableItemsMapping[currentCategoryName]}`}
+        fill={itemColor[currentCategoryName]}
+      />
+    </SvgLoaderWithChakra>
+  );
+};
 
 AvatarImageContainer.defaultProps = {
   itemsPosition: { directionX: 0, directionY: 0 },

@@ -19,7 +19,7 @@ const App = () => {
   const [currentCategoryInfos, setCurrentCategoryInfos] = useState(null);
   const [isTutorialRunning, setIsTutorialRunning] = useState(false);
   const [items, setItems] = useState([]);
-  const [itemColor, setItemColor] = useState({ eyes: 'pink', body: 'blue' });
+  const [itemColor, setItemColor] = useState({ eyes: 'pink', body: 'blue', jaw: 'blue' });
   const [selectedItems, setSelectedItems] = useState([]);
   const [itemsPosition, dispatchItemsPosition] = useReducer(reducer,
     {
