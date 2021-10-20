@@ -1,7 +1,8 @@
-import { Input, Wrap, WrapItem } from '@chakra-ui/react';
+import {
+  Button, Input, Wrap, WrapItem,
+} from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
-import { HiOutlineSparkles } from 'react-icons/hi';
 import backgroundColors from '../data/backgroundColors';
 import RoundButton from './RoundButton';
 
@@ -31,7 +32,7 @@ export const ColorChoices = ({
         </WrapItem>
       ))}
       <WrapItem>
-        <RoundButton ariaLabel="color-choices" color="#f0f" onClick={handleClick} icon={<HiOutlineSparkles />} size="lg" />
+        <Button variant="spinning-wheel" aria-label="color-choices" onClick={handleClick} size="lg" />
         <Input type="color" ref={inputRef} value={initialColor} onChange={(e) => handleItemColor(e.target.value)} opacity="0" />
       </WrapItem>
     </Wrap>

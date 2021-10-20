@@ -33,6 +33,20 @@ const Button = {
       border: '2px solid #EDA81F',
       borderRadius: '5px',
     },
+    'spinning-wheel': {
+      borderRadius: 'full',
+      background: `conic-gradient(
+        from 90deg,
+        violet,
+        indigo,
+        blue,
+        green,
+        yellow,
+        orange,
+        red,
+        violet
+      )`,
+    },
   },
 };
 
