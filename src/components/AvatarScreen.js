@@ -12,7 +12,6 @@ const AvatarScreen = ({
   changeColor,
   changePosition,
   itemColor,
-  currentCategoryName,
   itemsPosition,
   isHeaderFullyDisplayed,
   isTutorialRunning,
@@ -43,7 +42,7 @@ const AvatarScreen = ({
               key={item.id}
               imageUrl={item.imageUrl}
               itemColor={itemColor}
-              currentCategoryName={currentCategoryName}
+              categoryName={item.category}
               itemsPosition={itemsPosition[item.category]}
             />
           ))}
@@ -65,7 +64,6 @@ const AvatarScreen = ({
 AvatarScreen.defaultProps = {
   changeColor: false,
   changePosition: false,
-  currentCategoryName: 'body',
 };
 
 AvatarScreen.propTypes = {
@@ -81,7 +79,6 @@ AvatarScreen.propTypes = {
   changeColor: PropTypes.bool,
   changePosition: PropTypes.bool,
   itemColor: PropTypes.objectOf(PropTypes.string).isRequired,
-  currentCategoryName: PropTypes.string,
   itemsPosition: PropTypes.objectOf(PropTypes.shape({
     directionX: PropTypes.number.isRequired,
     directionY: PropTypes.number.isRequired,

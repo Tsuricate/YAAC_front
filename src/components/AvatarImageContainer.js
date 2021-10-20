@@ -7,7 +7,7 @@ import customizableItemsMapping from '../data/customizableItemsMapping';
 const AvatarImageContainer = ({
   imageUrl,
   itemColor,
-  currentCategoryName,
+  categoryName,
   itemsPosition,
 }) => {
   const SvgLoaderWithChakra = chakra(SvgLoader);
@@ -22,8 +22,8 @@ const AvatarImageContainer = ({
       right={`${itemsPosition.directionX}em`}
     >
       <SvgProxy
-        selector={`#${customizableItemsMapping[currentCategoryName]}`}
-        fill={itemColor[currentCategoryName]}
+        selector={`#${customizableItemsMapping[categoryName]}`}
+        fill={itemColor[categoryName]}
       />
     </SvgLoaderWithChakra>
   );
@@ -36,7 +36,7 @@ AvatarImageContainer.defaultProps = {
 AvatarImageContainer.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   itemColor: PropTypes.objectOf(PropTypes.string).isRequired,
-  currentCategoryName: PropTypes.string.isRequired,
+  categoryName: PropTypes.string.isRequired,
   itemsPosition: PropTypes.objectOf(PropTypes.number.isRequired),
 };
 
