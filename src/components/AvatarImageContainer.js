@@ -23,7 +23,7 @@ const AvatarImageContainer = ({
     >
       <SvgProxy
         selector={`#${customizableItemsMapping[categoryName]}`}
-        fill={itemColor[categoryName]}
+        fill={categoryName === 'ears' ? itemColor.body : itemColor[categoryName]}
       />
     </SvgLoaderWithChakra>
   );

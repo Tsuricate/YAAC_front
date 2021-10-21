@@ -20,7 +20,7 @@ const App = () => {
   const [isTutorialRunning, setIsTutorialRunning] = useState(false);
   const [items, setItems] = useState([]);
   const [itemColor, setItemColor] = useState({
-    eyes: 'white', body: '#F0E5DE', jaw: '#F0E5DE', ears: '#F0E5DE',
+    eyes: 'white', body: '#F0E5DE', jaw: 'transparent',
   });
   const [selectedItems, setSelectedItems] = useState([]);
   const [itemsPosition, dispatchItemsPosition] = useReducer(reducer,

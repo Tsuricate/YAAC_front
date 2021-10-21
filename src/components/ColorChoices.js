@@ -3,7 +3,7 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
-import backgroundColors from '../data/backgroundColors';
+import { mainColors, bodyColors } from '../data/colors';
 import RoundButton from './RoundButton';
 
 export const ColorChoices = ({
@@ -17,8 +17,9 @@ export const ColorChoices = ({
     }
   };
 
-  const inputRef = useRef(null);
+  const availableColors = currentCategoryName === 'body' ? [...bodyColors, ...mainColors] : mainColors;
 
+  const inputRef = useRef(null);
   const handleClick = () => {
     inputRef.current.click();
   };
@@ -26,7 +27,7 @@ export const ColorChoices = ({
   return (
 
     <Wrap spacing="10px" height="100%" pt="3em">
-      { backgroundColors.map((color) => (
+      { availableColors.map((color) => (
         <WrapItem key={color}>
           <RoundButton ariaLabel="color-choices" color={color} onClick={() => handleItemColor(color)} size="lg" />
         </WrapItem>
