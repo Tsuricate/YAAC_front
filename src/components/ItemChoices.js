@@ -1,9 +1,12 @@
-import { VscChromeClose } from 'react-icons/vsc';
 import {
-  Image, Wrap, Skeleton, IconButton, Icon, WrapItem,
+  chakra, Icon, IconButton, Skeleton, Wrap, WrapItem,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { VscChromeClose } from 'react-icons/vsc';
+import { SvgLoader, SvgProxy } from 'react-svgmt';
+// import customizableItemsMapping from '../data/customizableItemsMapping';
+import itemsThumnailTransform from '../data/itemsThumbnailTransform';
 import { deleteCategoryItems, isImageSelected } from '../utils/functions';
 
 const ItemChoices = ({
@@ -20,6 +23,8 @@ const ItemChoices = ({
     setSelectedItems(newArray);
   };
 
+  const SvgLoaderWithChakra = chakra(SvgLoader);
+
   return (
     <Wrap width="100%" spacing="16px">
       {isMandatory && (
@@ -35,19 +40,32 @@ const ItemChoices = ({
       {items.map((item) => {
         const borderStyle = isImageSelected(selectedItems, item.imageUrl) ? '4px solid #EDA81F' : 'null';
         return (
-          <WrapItem key={item.id}>
-            <Image
+          <WrapItem
+            key={item.id}
+            overflow="hidden"
+            fallback={<Skeleton h={{ base: '80px', lg: '100px' }} />}
+            h={{ base: '80px', lg: '100px' }}
+            w={{ base: '80px', lg: '100px' }}
+            border={borderStyle}
+            borderRadius="5px"
+            boxShadow={{ lg: '0px 3px 12px #151b1f' }}
+            cursor="pointer"
+            onClick={() => manageClickOnItem(item)}
+          >
+            <SvgLoaderWithChakra
               src={item.imageUrl}
               alt={item.id}
-              fallback={<Skeleton h={{ base: '80px', lg: '100px' }} />}
-              h={{ base: '80px', lg: '100px' }}
+              height="100%"
+              width="100%"
               bgColor="#EEEEEE"
-              border={borderStyle}
-              borderRadius="5px"
-              boxShadow={{ lg: '0px 3px 12px #151b1f' }}
-              cursor="pointer"
-              onClick={() => manageClickOnItem(item)}
-            />
+              transform={itemsThumnailTransform[item.category]}
+            >
+              <SvgProxy
+                selector="#customizable"
+                fill="#EEEEEE"
+                stroke="#eee"
+              />
+            </SvgLoaderWithChakra>
           </WrapItem>
 
         );

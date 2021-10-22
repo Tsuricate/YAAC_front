@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { chakra } from '@chakra-ui/react';
 import { SvgLoader, SvgProxy } from 'react-svgmt';
-import customizableItemsMapping from '../data/customizableItemsMapping';
+// import customizableItemsMapping from '../data/customizableItemsMapping';
 
 const AvatarImageContainer = ({
   imageUrl,
@@ -22,7 +22,7 @@ const AvatarImageContainer = ({
       right={`${itemsPosition.directionX}em`}
     >
       <SvgProxy
-        selector={`#${customizableItemsMapping[categoryName]}`}
+        selector="#customizable"
         fill={categoryName === 'ears' ? itemColor.body : itemColor[categoryName]}
       />
     </SvgLoaderWithChakra>
