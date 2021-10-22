@@ -4,6 +4,7 @@ import React from 'react';
 import ActionButtons from './ActionButtons';
 import AvatarImageContainer from './AvatarImageContainer';
 import LightHeader from './LightHeader';
+import categoriesOrderDepth from '../data/categoriesOrderDepth';
 
 const AvatarScreen = ({
   setEditionMode,
@@ -16,50 +17,57 @@ const AvatarScreen = ({
   isHeaderFullyDisplayed,
   isTutorialRunning,
   setIsTutorialRunning,
-}) => (
-  <Box
-    height={{ base: '60vh', md: '50vh', lg: '78vh' }}
-    width={{ base: '100vw', md: '50vh', lg: '35vw' }}
-    position="relative"
-  >
-    {/* This box is only for placing border image on top on avatar container */}
+}) => {
+  const sortedItemsArray = selectedItems.sort(
+    // eslint-disable-next-line max-len
+    (itemA, itemB) => categoriesOrderDepth.indexOf(itemA.category) - categoriesOrderDepth.indexOf(itemB.category),
+  );
+
+  return (
     <Box
-      position="absolute"
-      sx={{ border: { lg: '10px solid' }, borderImage: { lg: 'url(avatarBorder.svg) 45% / 11 / 3 stretch' } }}
-      width="100%"
-      height="100%"
-      bottom={{ lg: '11px' }}
-    />
-
-    { !isHeaderFullyDisplayed && <LightHeader setIsTutorialRunning={setIsTutorialRunning} /> }
-
-    {/* This box represent the avatar's background to color */}
-    <Flex bg={backgroundColor} width="100%" height="100%" overflow="hidden" alignItems="flex-end" className="canvas">
-      <AspectRatio width="100%" ratio={4 / 5} position="inherit">
-        <Box className="WHOAREU">
-          {selectedItems.map((item) => (
-            <AvatarImageContainer
-              key={item.id}
-              imageUrl={item.imageUrl}
-              itemColor={itemColor}
-              categoryName={item.category}
-              itemsPosition={itemsPosition[item.category]}
-            />
-          ))}
-        </Box>
-      </AspectRatio>
-    </Flex>
-    <Box position="absolute" width="100%" bottom={{ base: 2, lg: 3 }} px={{ base: 2, lg: 4 }}>
-      <ActionButtons
-        setEditionMode={setEditionMode}
-        changeColor={changeColor}
-        changePosition={changePosition}
-        isTutorialRunning={isTutorialRunning}
+      height={{ base: '60vh', md: '50vh', lg: '78vh' }}
+      width={{ base: '100vw', md: '50vh', lg: '35vw' }}
+      position="relative"
+    >
+      {/* This box is only for placing border image on top on avatar container */}
+      <Box
+        position="absolute"
+        sx={{ border: { lg: '10px solid' }, borderImage: { lg: 'url(avatarBorder.svg) 45% / 11 / 3 stretch' } }}
+        width="100%"
+        height="100%"
+        bottom={{ lg: '11px' }}
       />
-    </Box>
 
-  </Box>
-);
+      { !isHeaderFullyDisplayed && <LightHeader setIsTutorialRunning={setIsTutorialRunning} /> }
+
+      {/* This box represent the avatar's background to color */}
+      <Flex bg={backgroundColor} width="100%" height="100%" overflow="hidden" alignItems="flex-end" className="canvas">
+        <AspectRatio width="100%" ratio={4 / 5} position="inherit">
+          <Box>
+            {sortedItemsArray.map((item) => (
+              <AvatarImageContainer
+                key={item.id}
+                imageUrl={item.imageUrl}
+                itemColor={itemColor}
+                categoryName={item.category}
+                itemsPosition={itemsPosition[item.category]}
+              />
+            ))}
+          </Box>
+        </AspectRatio>
+      </Flex>
+      <Box position="absolute" width="100%" bottom={{ base: 2, lg: 3 }} px={{ base: 2, lg: 4 }}>
+        <ActionButtons
+          setEditionMode={setEditionMode}
+          changeColor={changeColor}
+          changePosition={changePosition}
+          isTutorialRunning={isTutorialRunning}
+        />
+      </Box>
+
+    </Box>
+  );
+};
 
 AvatarScreen.defaultProps = {
   changeColor: false,
