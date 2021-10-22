@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { VscChromeClose } from 'react-icons/vsc';
 import { SvgLoader, SvgProxy } from 'react-svgmt';
-// import customizableItemsMapping from '../data/customizableItemsMapping';
 import itemsThumnailTransform from '../data/itemsThumbnailTransform';
 import { deleteCategoryItems, isImageSelected } from '../utils/functions';
 
@@ -27,7 +26,7 @@ const ItemChoices = ({
 
   return (
     <Wrap width="100%" spacing="16px">
-      {isMandatory && (
+      {!isMandatory && (
       <WrapItem>
         <IconButton
           aria-label="Remove item"

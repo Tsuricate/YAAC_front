@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { chakra } from '@chakra-ui/react';
 import { SvgLoader, SvgProxy } from 'react-svgmt';
-// import customizableItemsMapping from '../data/customizableItemsMapping';
 
 const AvatarImageContainer = ({
   imageUrl,
