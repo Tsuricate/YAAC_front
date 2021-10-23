@@ -10,8 +10,9 @@ const categoriesOrderDepth = [
   'ears',
   'eyebrows',
   'jaw',
-  'face-accessories',
+
   'hair-back',
+  'face-accessories',
   'hair-fringe',
   'hair-spike',
   'hair-top',
