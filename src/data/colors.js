@@ -114,9 +114,29 @@ export const mainColors = [
   '#292929',
   '#1F1F1F',
   '#141414',
+];
 
-  // gradient
+export const gradientColors = [
   'linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1)',
+  'linear-gradient(to left bottom, #b3ffab, #12fff7)',
+  'linear-gradient(to right bottom, #c6ffdd, #fbd786, #f7797d)',
+  'linear-gradient(to right top, #c31432, #240b36)',
+  'linear-gradient(to bottom, #8360c3, #2ebf91)',
+  'linear-gradient(to top, #108dc7, #ef8e38)',
+  'linear-gradient(to right top, #1a2a6c, #b21f1f, #fdbb2d)',
+  'linear-gradient(to top, #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a 59%, #801357 71%, #3d1635 84%, #1c1a27 100%)',
+  'linear-gradient( 102.2deg,  rgba(109,118,150,1) 7.1%, rgba(89,72,79,1) 14.7%, rgba(69,92,79,1) 28%, rgba(204,85,67,1) 43.4%, rgba(237,181,121,1) 60.2%, rgba(219,230,175,1) 76.8% )',
+  'linear-gradient( 89.8deg,  rgba(204,156,223,1) 0.3%, rgba(155,219,245,1) 20.4%, rgba(245,183,208,1) 40.2%, rgba(250,186,98,1) 62.9%, rgba(234,238,240,1) 81.9%, rgba(250,245,171,1) 99.2% )',
+  'linear-gradient( 97.3deg,  rgb(25,50,70) 10.7%, rgb(155,65,25) 39.5%, rgb(255,192,0) 69.7% )',
+  'linear-gradient( 109.6deg,  rgba(247,253,166,1) 11.2%, rgba(128,255,221,1) 57.8%, rgba(255,128,249,1) 85.9% )',
+  'linear-gradient( 108.7deg,  rgba(224,235,213,1) 8.1%, rgba(37,148,141,1) 91.2% )',
+  'linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%)',
+  'linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%)',
+  'radial-gradient( circle farthest-corner at 32.7% 82.7%,  rgba(173,0,171,1) 8.3%, rgba(15,51,92,1) 79.4% )',
+  'radial-gradient( circle farthest-corner at -25.1% 53.5%,  rgba(252,175,23,1) 0%, rgba(242,101,34,1) 48.8%, rgba(133,0,88,1) 100.2% )',
+  'linear-gradient( 153.8deg,  rgba(0,0,0,1) 29.9%, rgba(41,190,104,1) 101.7% )',
+  'linear-gradient( 114.3deg,  rgba(49,75,90,1) 48.8%, rgba(3,155,193,1) 94.9% )',
+  'radial-gradient( circle farthest-corner at 10% 20%,  rgba(253,239,132,1) 0%, rgba(247,198,169,1) 54.2%, rgba(21,186,196,1) 100.3% )',
 ];
 
 export const bodyColors = [

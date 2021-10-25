@@ -3,7 +3,7 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
-import { mainColors, bodyColors } from '../data/colors';
+import { getColourPaletteForCategory } from '../utils/functions';
 import RoundButton from './RoundButton';
 
 export const ColorChoices = ({
@@ -17,7 +17,7 @@ export const ColorChoices = ({
     }
   };
 
-  const availableColors = currentCategoryName === 'body' ? [...bodyColors, ...mainColors] : mainColors;
+  const availableColors = getColourPaletteForCategory(currentCategoryName);
 
   const inputRef = useRef(null);
   const handleClick = () => {

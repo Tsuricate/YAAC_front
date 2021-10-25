@@ -84,7 +84,7 @@ const App = () => {
         bgColor={{ lg: '#2A2B2A' }}
       >
 
-        <Box overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} width="100%" className="tour-categories">
+        <Box minHeight={{ lg: '40%' }} overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} width="100%" className="tour-categories">
           <MemoizedMainCategories
             setItems={setItems}
             setEditionMode={setEditionMode}
