@@ -40,7 +40,6 @@ const App = () => {
   const isEditingItems = editionMode === 'Items';
   const isEditingBackground = currentCategoryInfos?.id === 'background-color';
   const isHeaderFullyDisplayed = useBreakpointValue({ base: false, lg: true }) || false;
-  const colorToEdit = editionMode === 'Items' ? itemColor[currentCategoryInfos?.id] : backgroundColor;
 
   return (
     <Flex
@@ -115,7 +114,6 @@ const App = () => {
             setBackgroundColor={setBackgroundColor}
             setItemColor={setItemColor}
             currentCategoryName={currentCategoryInfos?.id}
-            initialColor={colorToEdit}
           />
           )}
 
