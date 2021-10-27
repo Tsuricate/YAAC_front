@@ -31,3 +31,11 @@ export const getCategoryItems = (categoryName, setItems) => {
       console.log(error);
     });
 };
+
+export const getRandomAvatar = (setSelectedItems) => {
+  axios.get('http://localhost:3001/api/random')
+    .then((res) => setSelectedItems(res.data))
+    .catch((error) => {
+      console.log(error);
+    });
+};

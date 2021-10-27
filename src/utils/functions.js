@@ -21,3 +21,9 @@ export const getColourPaletteForCategory = (currentCategoryName) => {
   }
   return mainColors;
 };
+
+export const getRandomColorForCategory = (category) => {
+  const colorPalette = getColourPaletteForCategory(category);
+  const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
+  return randomColor;
+};

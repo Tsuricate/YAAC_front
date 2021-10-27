@@ -1,14 +1,19 @@
 import {
-  Stack, useBreakpointValue, Wrap, WrapItem, IconButton, Icon,
+  Stack, useBreakpointValue, Wrap, WrapItem,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import { IoDiceOutline } from 'react-icons/io5';
+import RandomAvatarButton from './RandomAvatarButton';
 import Category from './Category';
 import { getCategories } from '../utils/axios';
 
 const MainCategories = ({
-  setItems, setEditionMode, currentCategory, setCurrentCategoryInfos,
+  setItems,
+  setEditionMode,
+  currentCategory,
+  setCurrentCategoryInfos,
+  setSelectedItems,
+  setBackgroundColor,
 }) => {
   const [categories, setCategories] = useState([]);
   const isDisplayedInline = useBreakpointValue({ base: true, lg: false });
@@ -17,22 +22,15 @@ const MainCategories = ({
     getCategories(setCategories, setCurrentCategoryInfos);
   }, []);
 
-  const getRandomAvatar = () => {
-    console.log('Random !');
-  };
-
   return (
     <>
       {isDisplayedInline
         ? (
 
           <Stack direction="row" justify="flex-start" overflowX="auto" spacing={3}>
-            <IconButton
-              aria-label="random-avatar"
-              icon={<Icon as={IoDiceOutline} boxSize={16} />}
-              minWidth={{ base: '70px', lg: '90px' }}
-              height="70px"
-              onClick={getRandomAvatar}
+            <RandomAvatarButton
+              setSelectedItems={setSelectedItems}
+              setBackgroundColor={setBackgroundColor}
             />
             {categories.map((category) => (
               <Category
@@ -50,11 +48,9 @@ const MainCategories = ({
         : (
           <Wrap spacing="10px" width="100%" overflow="hidden">
             <WrapItem>
-              <IconButton
-                aria-label="random-avatar"
-                icon={<Icon as={IoDiceOutline} boxSize={16} />}
-                width={{ base: '70px', lg: '90px' }}
-                height={{ base: '70px', lg: '90px' }}
+              <RandomAvatarButton
+                setSelectedItems={setSelectedItems}
+                setBackgroundColor={setBackgroundColor}
               />
             </WrapItem>
 
@@ -85,6 +81,8 @@ MainCategories.propTypes = {
   setEditionMode: PropTypes.func.isRequired,
   currentCategory: PropTypes.string,
   setCurrentCategoryInfos: PropTypes.func.isRequired,
+  setSelectedItems: PropTypes.func.isRequired,
+  setBackgroundColor: PropTypes.func.isRequired,
 };
 
 const MemoizedMainCategories = React.memo(MainCategories);

@@ -89,6 +89,8 @@ const App = () => {
             setEditionMode={setEditionMode}
             currentCategory={currentCategoryInfos?.id}
             setCurrentCategoryInfos={setCurrentCategoryInfos}
+            setSelectedItems={setSelectedItems}
+            setBackgroundColor={setBackgroundColor}
           />
         </Box>
 
