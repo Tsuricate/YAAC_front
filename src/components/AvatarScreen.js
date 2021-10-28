@@ -1,10 +1,12 @@
-import { AspectRatio, Box, Flex } from '@chakra-ui/react';
+import {
+  AspectRatio, Box, Flex,
+} from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React from 'react';
+import categoriesOrderDepth from '../data/categoriesOrderDepth';
 import ActionButtons from './ActionButtons';
 import AvatarImageContainer from './AvatarImageContainer';
 import LightHeader from './LightHeader';
-import categoriesOrderDepth from '../data/categoriesOrderDepth';
 
 const AvatarScreen = ({
   setEditionMode,

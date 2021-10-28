@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import RandomAvatarButton from './RandomAvatarButton';
 import Category from './Category';
 import { getCategories } from '../utils/axios';
+import { composeRandomAvatar } from '../utils/functions';
 
 const MainCategories = ({
   setItems,
@@ -14,6 +15,7 @@ const MainCategories = ({
   setCurrentCategoryInfos,
   setSelectedItems,
   setBackgroundColor,
+  setItemColor,
 }) => {
   const [categories, setCategories] = useState([]);
   const isDisplayedInline = useBreakpointValue({ base: true, lg: false });
@@ -21,6 +23,10 @@ const MainCategories = ({
   useEffect(() => {
     getCategories(setCategories, setCurrentCategoryInfos);
   }, []);
+
+  useEffect(() => {
+    composeRandomAvatar(setSelectedItems, setBackgroundColor, setItemColor, categories);
+  }, [categories]);
 
   return (
     <>
@@ -31,6 +37,8 @@ const MainCategories = ({
             <RandomAvatarButton
               setSelectedItems={setSelectedItems}
               setBackgroundColor={setBackgroundColor}
+              categories={categories}
+              setItemColor={setItemColor}
             />
             {categories.map((category) => (
               <Category
@@ -51,6 +59,8 @@ const MainCategories = ({
               <RandomAvatarButton
                 setSelectedItems={setSelectedItems}
                 setBackgroundColor={setBackgroundColor}
+                categories={categories}
+                setItemColor={setItemColor}
               />
             </WrapItem>
 
@@ -83,6 +93,7 @@ MainCategories.propTypes = {
   setCurrentCategoryInfos: PropTypes.func.isRequired,
   setSelectedItems: PropTypes.func.isRequired,
   setBackgroundColor: PropTypes.func.isRequired,
+  setItemColor: PropTypes.func.isRequired,
 };
 
 const MemoizedMainCategories = React.memo(MainCategories);

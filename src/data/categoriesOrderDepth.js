@@ -2,6 +2,7 @@ const categoriesOrderDepth = [
   'background-color',
   'body',
   'clothes',
+  'jaw',
   'clothes-accessories',
   'face-details',
   'eyes',
@@ -9,7 +10,6 @@ const categoriesOrderDepth = [
   'mouth',
   'ears',
   'eyebrows',
-  'jaw',
 
   'hair-back',
   'face-accessories',

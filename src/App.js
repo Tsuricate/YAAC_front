@@ -19,9 +19,7 @@ const App = () => {
   const [currentCategoryInfos, setCurrentCategoryInfos] = useState(null);
   const [isTutorialRunning, setIsTutorialRunning] = useState(false);
   const [items, setItems] = useState([]);
-  const [itemColor, setItemColor] = useState({
-    eyes: 'white', body: '#F0E5DE', jaw: 'transparent',
-  });
+  const [itemColor, setItemColor] = useState({});
   const [selectedItems, setSelectedItems] = useState([]);
   const [itemsPosition, dispatchItemsPosition] = useReducer(reducer,
     {
@@ -91,6 +89,7 @@ const App = () => {
             setCurrentCategoryInfos={setCurrentCategoryInfos}
             setSelectedItems={setSelectedItems}
             setBackgroundColor={setBackgroundColor}
+            setItemColor={setItemColor}
           />
         </Box>
 
