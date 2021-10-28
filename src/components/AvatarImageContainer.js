@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { chakra } from '@chakra-ui/react';
 import { SvgLoader, SvgProxy } from 'react-svgmt';
+import { fullAvatarAnimation } from '../utils/animation';
 
 const AvatarImageContainer = ({
   imageUrl,
@@ -19,6 +20,7 @@ const AvatarImageContainer = ({
       position="absolute"
       bottom={`${itemsPosition.directionY}em`}
       right={`${itemsPosition.directionX}em`}
+      animation={`${fullAvatarAnimation} 0.2s ease-in forwards`}
     >
       <SvgProxy
         selector="#customizable"

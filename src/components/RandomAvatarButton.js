@@ -18,7 +18,7 @@ const RandomAvatarButton = ({
     setAnimation(true);
   };
 
-  const spinAnimation = animation ? `${randomButtonAnimation} 0.7s ease-in-out both` : '';
+  const spinAnimation = animation ? `${randomButtonAnimation} 0.5s ease-in-out both` : '';
 
   return (
     <IconButton
@@ -34,6 +34,7 @@ const RandomAvatarButton = ({
       minWidth={{ base: '70px', lg: '90px' }}
       height={{ base: '70px', lg: '90px' }}
       onClick={handleClick}
+      bgColor="#EEEEEE"
     />
   );
 };

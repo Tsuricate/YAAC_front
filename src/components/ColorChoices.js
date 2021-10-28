@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { getColourPaletteForCategory } from '../utils/functions';
 import RoundButton from './RoundButton';
+import { choicesAnimation } from '../utils/animation';
 
-export const ColorChoices = ({
+const ColorChoices = ({
   setItemColor, currentCategoryName, setBackgroundColor,
 }) => {
   const handleItemColor = (color) => {
@@ -16,12 +17,13 @@ export const ColorChoices = ({
   };
 
   const availableColors = getColourPaletteForCategory(currentCategoryName);
+  const marginTop = currentCategoryName === 'background-color' ? '2em' : '6em';
 
   return (
 
-    <Wrap spacing="10px" height="100%" pt="3em">
+    <Wrap spacing="10px" height="100%" mt={marginTop}>
       { availableColors.map((color) => (
-        <WrapItem key={color}>
+        <WrapItem key={color} animation={`${choicesAnimation} 0.5s ease-in-out both`}>
           <RoundButton ariaLabel="color-choices" color={color} onClick={() => handleItemColor(color)} size="lg" />
         </WrapItem>
       ))}
@@ -36,5 +38,4 @@ ColorChoices.propTypes = {
   currentCategoryName: PropTypes.string.isRequired,
 };
 
-const MemoizedColorChoices = React.memo(ColorChoices);
-export default MemoizedColorChoices;
+export default ColorChoices;

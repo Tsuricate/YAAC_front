@@ -7,7 +7,7 @@ import MemoizedHeader from './components/Header';
 import MemoizedAvatarScreen from './components/AvatarScreen';
 import MemoizedMainCategories from './components/MainCategories';
 import ChoicesContainer from './components/ChoicesContainer';
-import MemoizedColorChoices from './components/ColorChoices';
+import ColorChoices from './components/ColorChoices';
 import ItemChoices from './components/ItemChoices';
 import PositionChoices from './components/PositionChoices';
 import { getDefaultItems } from './utils/axios';
@@ -99,6 +99,7 @@ const App = () => {
           centerContent={!isEditingItems}
           showCloseButton={!isEditingItems}
           setEditionMode={setEditionMode}
+          editionMode={editionMode}
         >
           { editionMode === 'Items' && !isEditingBackground && (
           <ItemChoices
@@ -111,7 +112,7 @@ const App = () => {
           )}
 
           { (editionMode === 'Colors' || isEditingBackground) && (
-          <MemoizedColorChoices
+          <ColorChoices
             setBackgroundColor={setBackgroundColor}
             setItemColor={setItemColor}
             currentCategoryName={currentCategoryInfos?.id}

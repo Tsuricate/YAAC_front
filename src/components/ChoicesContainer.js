@@ -4,7 +4,7 @@ import { Button, Flex } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 
 const ChoicesContainer = ({
-  children, centerContent, showCloseButton, setEditionMode,
+  children, centerContent, showCloseButton, setEditionMode, editionMode,
 }) => {
   const handleCloseButton = () => {
     setEditionMode('Items');
@@ -19,6 +19,8 @@ const ChoicesContainer = ({
       alignItems={centerContent ? 'center' : null}
       padding={5}
       className="tour-items"
+      height={editionMode === 'Colors' ? '55%' : '40%'}
+      transition="height 0.25s"
     >
       {showCloseButton && <Button variant="close-choices" leftIcon={<ArrowBackIcon />} onClick={handleCloseButton}>Back</Button>}
       { children }
@@ -36,6 +38,7 @@ ChoicesContainer.propTypes = {
   centerContent: PropTypes.bool,
   showCloseButton: PropTypes.bool,
   setEditionMode: PropTypes.func.isRequired,
+  editionMode: PropTypes.string.isRequired,
 };
 
 export default ChoicesContainer;

@@ -6,6 +6,7 @@ import { Box, Flex, SimpleGrid } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import RoundButton from './RoundButton';
+import { choicesAnimation } from '../utils/animation';
 
 const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
   const intervalRef = useRef(null);
@@ -35,7 +36,7 @@ const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
   const sharedButtonProps = { color: '#f7f6f4', onMouseUp: handleMouseUp, onMouseLeave: handleMouseUp };
 
   return (
-    <Flex height="100%" alignItems={{ md: 'center' }}>
+    <Flex height="100%" alignItems={{ md: 'center' }} animation={`${choicesAnimation} 0.5s ease-in-out both`}>
       <SimpleGrid columns={3} spacing={4}>
         <Box />
         <RoundButton
