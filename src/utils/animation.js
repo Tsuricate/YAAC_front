@@ -37,3 +37,56 @@ export const removeItemButtonAnimation = keyframes`
           transform: translateX(0);
   opacity: 1;
 }`;
+
+export const actionButtonsAnimation = keyframes`
+0% {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  opacity: 0;
+}
+38% {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  opacity: 1;
+}
+55% {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+}
+72% {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+81% {
+  -webkit-transform: scale(0.84);
+          transform: scale(0.84);
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+}
+89% {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+95% {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+}
+100% {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+`;

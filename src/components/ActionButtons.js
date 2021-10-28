@@ -8,6 +8,7 @@ import {
 import { CheckIcon } from '@chakra-ui/icons';
 import { FaArrowsAlt, FaPalette } from 'react-icons/fa';
 import RoundButton from './RoundButton';
+import { actionButtonsAnimation } from '../utils/animation';
 
 const ActionButtons = ({
   setEditionMode, changeColor, changePosition, isTutorialRunning,
@@ -48,6 +49,7 @@ const ActionButtons = ({
             icon={<FaPalette />}
             color="snow"
             onClick={() => handleDisplay('Colors')}
+            animation={`${actionButtonsAnimation} 0.8s both`}
           />
         ) : (
           <></>
@@ -58,6 +60,7 @@ const ActionButtons = ({
             icon={<FaArrowsAlt />}
             color="snow"
             onClick={() => handleDisplay('Positions')}
+            animation={`${actionButtonsAnimation} 0.9s both`}
           />
         ) : (
           <></>

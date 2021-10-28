@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const RoundButton = ({
-  icon, ariaLabel, color, onClick, onMouseDown, onMouseUp, onMouseLeave, size,
+  icon, ariaLabel, color, onClick, onMouseDown, onMouseUp, onMouseLeave, size, animation,
 }) => (
   <IconButton
     borderRadius="full"
@@ -18,6 +18,7 @@ const RoundButton = ({
     onMouseUp={onMouseUp}
     onMouseLeave={onMouseLeave}
     size={size}
+    animation={animation}
   />
 );
 
@@ -28,6 +29,7 @@ RoundButton.defaultProps = {
   onMouseUp: null,
   onMouseLeave: null,
   size: 'md',
+  animation: null,
 };
 
 RoundButton.propTypes = {
@@ -39,6 +41,7 @@ RoundButton.propTypes = {
   onMouseUp: PropTypes.func,
   onMouseLeave: PropTypes.func,
   size: PropTypes.string,
+  animation: PropTypes.string,
 };
 
 export default RoundButton;
