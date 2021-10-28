@@ -62,7 +62,6 @@ const ItemChoices = ({
               <SvgProxy
                 selector="#customizable"
                 fill="#EEEEEE"
-                stroke="#eee"
               />
             </SvgLoaderWithChakra>
           </WrapItem>
