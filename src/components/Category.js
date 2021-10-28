@@ -5,7 +5,12 @@ import { Image, Skeleton } from '@chakra-ui/react';
 import { getCategoryItems } from '../utils/axios';
 
 const Category = ({
-  category, setItems, setEditionMode, currentCategory, setCurrentCategoryInfos, isDisplayedInline,
+  category,
+  setItems,
+  setEditionMode,
+  currentCategory,
+  setCurrentCategoryInfos,
+  isDisplayedInline,
 }) => {
   const manageClickOnCategory = () => {
     getCategoryItems(category.id, setItems);

@@ -6,6 +6,7 @@ import React from 'react';
 import { VscChromeClose } from 'react-icons/vsc';
 import { SvgLoader, SvgProxy } from 'react-svgmt';
 import itemsThumnailTransform from '../data/itemsThumbnailTransform';
+import { itemChoicesAnimation, removeItemButtonAnimation } from '../utils/animation';
 import { deleteCategoryItems, isImageSelected } from '../utils/functions';
 
 const ItemChoices = ({
@@ -27,7 +28,7 @@ const ItemChoices = ({
   return (
     <Wrap width="100%" spacing="16px">
       {!isMandatory && (
-      <WrapItem>
+      <WrapItem animation={`${removeItemButtonAnimation} 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both`}>
         <IconButton
           aria-label="Remove item"
           icon={<Icon as={VscChromeClose} boxSize={20} />}
@@ -49,6 +50,7 @@ const ItemChoices = ({
             borderRadius="5px"
             boxShadow={{ lg: '0px 3px 12px #151b1f' }}
             cursor="pointer"
+            animation={`${itemChoicesAnimation} 1.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both`}
             onClick={() => manageClickOnItem(item)}
           >
             <SvgLoaderWithChakra

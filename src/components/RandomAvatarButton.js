@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { IconButton, Icon } from '@chakra-ui/react';
 import { IoDiceOutline } from 'react-icons/io5';
 import { composeRandomAvatar } from '../utils/functions';
-import randomButtonAnimation from '../utils/animation';
+import { randomButtonAnimation } from '../utils/animation';
 
 const RandomAvatarButton = ({
   setSelectedItems, setBackgroundColor, setItemColor, categories,
@@ -30,7 +30,7 @@ const RandomAvatarButton = ({
           animation={spinAnimation}
           onAnimationEnd={() => setAnimation(false)}
         />
-)}
+      )}
       minWidth={{ base: '70px', lg: '90px' }}
       height={{ base: '70px', lg: '90px' }}
       onClick={handleClick}
