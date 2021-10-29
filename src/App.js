@@ -12,6 +12,7 @@ import ItemChoices from './components/ItemChoices';
 import PositionChoices from './components/PositionChoices';
 import { getDefaultItems } from './utils/axios';
 import reducer from './utils/reducers';
+import customScrollbar from './utils/scrollbarStyle';
 
 const App = () => {
   const [editionMode, setEditionMode] = useState('Items');
@@ -35,7 +36,7 @@ const App = () => {
     getDefaultItems(setItems);
   }, []);
 
-  const isEditingItems = editionMode === 'Items';
+  const isEditingItems = editionMode !== 'Items' && currentCategoryInfos?.id !== 'background-color';
   const isEditingBackground = currentCategoryInfos?.id === 'background-color';
   const isHeaderFullyDisplayed = useBreakpointValue({ base: false, lg: true }) || false;
 
@@ -81,7 +82,14 @@ const App = () => {
         bgColor={{ lg: '#2A2B2A' }}
       >
 
-        <Box minHeight={{ lg: '40%' }} overflowY={{ lg: 'auto' }} pb={{ lg: 5 }} width="100%" className="tour-categories">
+        <Box
+          minHeight={{ lg: '40%' }}
+          overflowY={{ lg: 'auto' }}
+          pb={{ lg: 5 }}
+          width="100%"
+          className="tour-categories"
+          sx={customScrollbar}
+        >
           <MemoizedMainCategories
             setItems={setItems}
             setEditionMode={setEditionMode}
@@ -96,8 +104,8 @@ const App = () => {
         {isHeaderFullyDisplayed && (<Divider variant="separation-categories-items" />)}
 
         <ChoicesContainer
-          centerContent={!isEditingItems}
-          showCloseButton={!isEditingItems}
+          centerContent={isEditingItems}
+          showCloseButton={isEditingItems}
           setEditionMode={setEditionMode}
           editionMode={editionMode}
         >

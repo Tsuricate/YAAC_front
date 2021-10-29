@@ -28,7 +28,7 @@ const ItemChoices = ({
   return (
     <Wrap width="100%" spacing="16px">
       {!isMandatory && (
-      <WrapItem animation={`${removeItemButtonAnimation} 0.7s cubic-bezier(0.175, 0.885, 0.320, 1.275) both`}>
+      <WrapItem animation={`${removeItemButtonAnimation} 0.8s cubic-bezier(0.175, 0.885, 0.320, 1.275) both`}>
         <IconButton
           aria-label="Remove item"
           icon={<Icon as={VscChromeClose} boxSize={20} />}

@@ -13,8 +13,12 @@ const Category = ({
   isDisplayedInline,
 }) => {
   const manageClickOnCategory = () => {
-    getCategoryItems(category.id, setItems);
-    setEditionMode('Items');
+    if (category.id === 'background-color') {
+      setEditionMode('Colors');
+    } else {
+      getCategoryItems(category.id, setItems);
+      setEditionMode('Items');
+    }
     setCurrentCategoryInfos(category);
   };
 
