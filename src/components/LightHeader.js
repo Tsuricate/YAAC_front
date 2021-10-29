@@ -11,7 +11,7 @@ const LightHeader = ({ setIsTutorialRunning }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Flex position="absolute" pl="2" alignItems="baseline">
+    <Flex position="absolute" pl="2" alignItems="baseline" zIndex="1">
 
       <Text fontWeight="bold">YAAC</Text>
       <IconButton aria-label="Application description and tutorial" icon={<InfoOutlineIcon />} bgColor="transparent" onClick={onOpen} size="sm" />
