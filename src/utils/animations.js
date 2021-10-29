@@ -100,9 +100,9 @@ export const actionButtonsAnimation = keyframes`
 
 export const fullAvatarAnimation = keyframes`
   0% {
-    -webkit-filter: blur(4px);
-            filter: blur(4px);
-    opacity: 0;
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+    opacity: 0.7;
   }
   100% {
     -webkit-filter: blur(0px);
@@ -124,4 +124,13 @@ export const choicesAnimation = keyframes`
   -webkit-transform: scale(1);
           transform: scale(1);
 }
+`;
+
+export const changeColors = keyframes`
+0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+      }
 `;

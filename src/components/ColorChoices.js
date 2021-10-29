@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { getColourPaletteForCategory } from '../utils/functions';
 import RoundButton from './RoundButton';
-import { choicesAnimation } from '../utils/animation';
+import { choicesAnimation } from '../utils/animations';
 
 const ColorChoices = ({
   setItemColor, currentCategoryName, setBackgroundColor,

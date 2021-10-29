@@ -6,7 +6,7 @@ import React from 'react';
 import { VscChromeClose } from 'react-icons/vsc';
 import { SvgLoader, SvgProxy } from 'react-svgmt';
 import itemsThumnailTransform from '../data/itemsThumbnailTransform';
-import { itemChoicesAnimation, removeItemButtonAnimation } from '../utils/animation';
+import { itemChoicesAnimation, removeItemButtonAnimation } from '../utils/animations';
 import { deleteCategoryItems, isImageSelected } from '../utils/functions';
 
 const ItemChoices = ({
@@ -74,6 +74,11 @@ const ItemChoices = ({
   );
 };
 
+ItemChoices.defaultProps = {
+  isMandatory: true,
+  currentCategoryName: 'body',
+};
+
 ItemChoices.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
@@ -81,9 +86,9 @@ ItemChoices.propTypes = {
       id: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  isMandatory: PropTypes.bool.isRequired,
-  currentCategoryName: PropTypes.string.isRequired,
-  selectedItems: PropTypes.objectOf(PropTypes.string).isRequired,
+  isMandatory: PropTypes.bool,
+  currentCategoryName: PropTypes.string,
+  selectedItems: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
   setSelectedItems: PropTypes.func.isRequired,
 };
 

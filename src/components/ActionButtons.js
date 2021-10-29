@@ -8,7 +8,7 @@ import {
 import { CheckIcon } from '@chakra-ui/icons';
 import { FaArrowsAlt, FaPalette } from 'react-icons/fa';
 import RoundButton from './RoundButton';
-import { actionButtonsAnimation } from '../utils/animation';
+import { actionButtonsAnimation } from '../utils/animations';
 
 const ActionButtons = ({
   setEditionMode, changeColor, changePosition, isTutorialRunning,

@@ -6,7 +6,7 @@ import { Box, Flex, SimpleGrid } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import RoundButton from './RoundButton';
-import { choicesAnimation } from '../utils/animation';
+import { choicesAnimation } from '../utils/animations';
 
 const PositionChoices = ({ currentCategoryName, dispatchItemsPosition }) => {
   const intervalRef = useRef(null);
