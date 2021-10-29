@@ -18,7 +18,7 @@ const RandomAvatarButton = ({
     setAnimation(true);
   };
 
-  const spinAnimation = animation ? `${randomButtonAnimation} 0.5s ease-in-out both` : '';
+  const spinAnimation = animation ? `${randomButtonAnimation} 0.6s ease-in both` : '';
 
   return (
     <IconButton

@@ -15,8 +15,8 @@ const Header = ({ setIsTutorialRunning }) => (
     alignItems="center"
   >
     <Heading lineHeight="0.8" textAlign="center">
-      <Text fontFamily="Life Savers" fontSize="0.7em" textTransform="uppercase">Yet Another</Text>
-      <Text fontSize="2.2em">Avatar Creator</Text>
+      <Text fontFamily="Life Savers" fontSize={{ lg: '0.5em', xl: '0.7em' }} textTransform="uppercase">Yet Another</Text>
+      <Text fontSize={{ lg: '1.5em', xl: '2.2em' }}>Avatar Creator</Text>
     </Heading>
     <Text textAlign="center">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
