@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import {
-  Stack, useBreakpointValue, Wrap, WrapItem,
+  Stack, useBreakpointValue, Wrap, Box,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
@@ -28,57 +29,35 @@ const MainCategories = ({
     composeRandomAvatar(setSelectedItems, setBackgroundColor, setItemColor, categories);
   }, [categories]);
 
+  const containerComponent = isDisplayedInline ? Stack : Wrap;
+  const stackStyles = {
+    direction: 'row', justify: 'flex-start', overflowX: 'auto', spacing: 3,
+  };
+  const wrapStyles = { spacing: '10px', width: '100%', overflow: 'hidden' };
+  const componentStyles = isDisplayedInline ? stackStyles : wrapStyles;
+
   return (
-    <>
-      {isDisplayedInline
-        ? (
 
-          <Stack direction="row" justify="flex-start" overflowX="auto" spacing={3}>
-            <RandomAvatarButton
-              setSelectedItems={setSelectedItems}
-              setBackgroundColor={setBackgroundColor}
-              categories={categories}
-              setItemColor={setItemColor}
-            />
-            {categories.map((category) => (
-              <Category
-                key={category.id}
-                category={category}
-                isDisplayedInline={isDisplayedInline}
-                setItems={setItems}
-                setEditionMode={setEditionMode}
-                currentCategory={currentCategory}
-                setCurrentCategoryInfos={setCurrentCategoryInfos}
-              />
-            ))}
-          </Stack>
-        )
-        : (
-          <Wrap spacing="10px" width="100%" overflow="hidden">
-            <WrapItem>
-              <RandomAvatarButton
-                setSelectedItems={setSelectedItems}
-                setBackgroundColor={setBackgroundColor}
-                categories={categories}
-                setItemColor={setItemColor}
-              />
-            </WrapItem>
+    <Box as={containerComponent} {...componentStyles}>
+      <RandomAvatarButton
+        setSelectedItems={setSelectedItems}
+        setBackgroundColor={setBackgroundColor}
+        categories={categories}
+        setItemColor={setItemColor}
+      />
+      {categories.map((category) => (
+        <Category
+          key={category.id}
+          category={category}
+          isDisplayedInline={isDisplayedInline}
+          setItems={setItems}
+          setEditionMode={setEditionMode}
+          currentCategory={currentCategory}
+          setCurrentCategoryInfos={setCurrentCategoryInfos}
+        />
+      ))}
+    </Box>
 
-            {categories.map((category) => (
-              <WrapItem key={category.id}>
-                <Category
-                  category={category}
-                  isDisplayedInline={isDisplayedInline}
-                  setItems={setItems}
-                  setEditionMode={setEditionMode}
-                  currentCategory={currentCategory}
-                  setCurrentCategoryInfos={setCurrentCategoryInfos}
-                />
-              </WrapItem>
-            ))}
-          </Wrap>
-        )}
-    </>
   );
 };
 
