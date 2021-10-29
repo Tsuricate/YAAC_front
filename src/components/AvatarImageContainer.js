@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { chakra } from '@chakra-ui/react';
 import { SvgLoader, SvgProxy } from 'react-svgmt';
-import { fullAvatarAnimation } from '../utils/animation';
+import { fullAvatarAnimation } from '../utils/animations';
 
 const AvatarImageContainer = ({
   imageUrl,
   itemColor,
-  categoryName,
   itemsPosition,
 }) => {
   const SvgLoaderWithChakra = chakra(SvgLoader);
@@ -20,11 +19,11 @@ const AvatarImageContainer = ({
       position="absolute"
       bottom={`${itemsPosition.directionY}em`}
       right={`${itemsPosition.directionX}em`}
-      animation={`${fullAvatarAnimation} 0.2s ease-in forwards`}
+      animation={`${fullAvatarAnimation} 0.2s ease forwards`}
     >
       <SvgProxy
         selector="#customizable"
-        fill={['ears', 'jaw'].includes(categoryName) ? itemColor.body : itemColor[categoryName]}
+        fill={itemColor}
       />
     </SvgLoaderWithChakra>
   );
@@ -32,12 +31,12 @@ const AvatarImageContainer = ({
 
 AvatarImageContainer.defaultProps = {
   itemsPosition: { directionX: 0, directionY: 0 },
+  itemColor: 'transparent',
 };
 
 AvatarImageContainer.propTypes = {
   imageUrl: PropTypes.string.isRequired,
-  itemColor: PropTypes.objectOf(PropTypes.string).isRequired,
-  categoryName: PropTypes.string.isRequired,
+  itemColor: PropTypes.string,
   itemsPosition: PropTypes.objectOf(PropTypes.number.isRequired),
 };
 

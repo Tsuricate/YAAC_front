@@ -46,15 +46,20 @@ const AvatarScreen = ({
       <Flex bg={backgroundColor} width="100%" height="100%" overflow="hidden" alignItems="flex-end" className="canvas">
         <AspectRatio width="100%" ratio={4 / 5} position="inherit">
           <Box>
-            {sortedItemsArray.map((item) => (
-              <AvatarImageContainer
-                key={item.id}
-                imageUrl={item.imageUrl}
-                itemColor={itemColor}
-                categoryName={item.category}
-                itemsPosition={itemsPosition[item.category]}
-              />
-            ))}
+            {sortedItemsArray.map((item) => {
+              const color = ['ears', 'jaw'].includes(item.category) ? itemColor.body : itemColor[item.category];
+
+              return (
+                <AvatarImageContainer
+                  key={item.id}
+                  imageUrl={item.imageUrl}
+                  itemColor={color}
+                  categoryName={item.category}
+                  itemsPosition={itemsPosition[item.category]}
+                />
+              );
+            })}
+
           </Box>
         </AspectRatio>
       </Flex>
