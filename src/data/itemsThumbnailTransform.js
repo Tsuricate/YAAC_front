@@ -9,7 +9,7 @@ const itemsThumnailTransform = {
   'hair-side': 'scale(2.5) translate(2%, 5%)',
   'hair-back': 'scale(1.3) translate(2%, 7%)',
   'hair-top': 'scale(2) translate(1%, 25%)',
-  'face-accessories': 'scale(7) translate(-13%, 3%)',
+  'face-accessories': 'scale(2.5) translate(2%, 8%)',
   // TODO other categories
 };
 
