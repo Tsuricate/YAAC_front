@@ -30,6 +30,7 @@ const App = () => {
       mouth: { directionX: 0, directionY: 0 },
       nose: { directionX: 0, directionY: 0 },
       'face-accessories': { directionX: 0, directionY: 0 },
+      'face-details': { directionX: 0, directionY: 0 },
     });
 
   useEffect(() => {

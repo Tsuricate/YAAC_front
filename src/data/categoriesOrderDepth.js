@@ -14,10 +14,10 @@ const categoriesOrderDepth = [
   'face-accessories',
   'hair-main',
   'hair-side',
-  'hair-spike',
   'hair-top',
   'hair-fringe',
   'hair-accessories',
+  'hair-spike',
 ];
 
 export default categoriesOrderDepth;
