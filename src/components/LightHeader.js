@@ -22,11 +22,15 @@ const LightHeader = ({ setIsTutorialRunning }) => {
           <ModalHeader>Yet Another Avatar Creator</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text fontSize="1.1em">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Praesent a erat lorem. Nunc nibh elit, consectetur vehicula risus at,
-              elementum porta mauris. Vivamus ullamcorper nec nibh quis porttitor.
-              Donec eget consequat lectus. Praesent vitae dolor tellus. Nulla.
+            <Text fontSize="1.1em" fontWeight="semibold" mb={5}>
+              Welcome to YAAC !
+            </Text>
+            <Text>
+              Create your own avatar : try making it realistic or fanciful
+              and have fun personalizing each detail.
+            </Text>
+            <Text>
+              Feel free to download it and use it anywhere you want !
             </Text>
           </ModalBody>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Heading, Text, Flex,
+  Heading, Text, Flex, Stack,
 } from '@chakra-ui/react';
 import TutorialStartButton from './TutorialStartButton';
 
@@ -18,12 +18,19 @@ const Header = ({ setIsTutorialRunning }) => (
       <Text fontFamily="Life Savers" fontSize={{ lg: '0.5em', xl: '0.7em' }} textTransform="uppercase">Yet Another</Text>
       <Text fontSize={{ lg: '1.5em', '2xl': '2.2em' }}>Avatar Creator</Text>
     </Heading>
-    <Text textAlign="center">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Praesent a erat lorem. Nunc nibh elit, consectetur vehicula risus at, elementum porta mauris.
-      Vivamus ullamcorper nec nibh quis porttitor.
-      Praesent vitae dolor tellus. Nulla.
-    </Text>
+    <Stack>
+      <Text fontSize={{ lg: '1.2em' }} textAlign="center" fontWeight="semibold" mb={5}>
+        Welcome to YAAC !
+      </Text>
+      <Text>
+        Create your own avatar : try making it realistic or fanciful
+        and have fun personalizing each detail.
+      </Text>
+      <Text>
+        Feel free to download it and use it anywhere you want !
+      </Text>
+    </Stack>
+
     <TutorialStartButton setIsTutorialRunning={setIsTutorialRunning} />
 
   </Flex>
