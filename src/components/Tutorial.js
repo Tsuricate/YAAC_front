@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { useBreakpointValue } from '@chakra-ui/react';
 import JoyRide from 'react-joyride';
 
 const TOUR_STEPS = [
@@ -11,7 +11,7 @@ const TOUR_STEPS = [
   },
   {
     target: '.tour-items',
-    content: 'Here are all the different "Body" designs available. Try them, change your mind, delete them : make your Avatar unique !',
+    content: 'Here are all the different "Body" designs available. Having a body is mandatory, but some others categories -like accessories- are deletable.',
   },
   {
     target: '.tour-avatar-screen',
@@ -23,12 +23,17 @@ const TOUR_STEPS = [
     content: 'Some items allows you to customize their color and/or their position.',
   },
   {
+    target: '.tour-random',
+    content: 'Feeling lucky ? You can generate a random avatar by clicking on the dice anytime.',
+  },
+  {
     target: '.tour-avatar-download',
     content: 'Satisfied with how your avatar is looking ? Download it and use it anywhere you want !',
   },
 ];
 
 const Tutorial = ({ isTutorialRunning, setIsTutorialRunning }) => {
+  const padding = useBreakpointValue({ base: '10px 20px', lg: '25px 35px' });
   const [storeHelpers, setStoreHelpers] = useState(null);
 
   /* Called when Joyride's state changes. Handle close and reset tutorial */
@@ -68,7 +73,8 @@ const Tutorial = ({ isTutorialRunning, setIsTutorialRunning }) => {
           },
           tooltipContent: {
             fontSize: 18,
-            padding: '25px 35px',
+            padding,
+            textAlign: 'left',
           },
           buttonSkip: {
             border: '1px solid #61A0AF',

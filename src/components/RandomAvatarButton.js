@@ -23,6 +23,7 @@ const RandomAvatarButton = ({
   return (
     <IconButton
       aria-label="random-avatar"
+      className="tour-random"
       icon={(
         <Icon
           as={IoDiceOutline}
