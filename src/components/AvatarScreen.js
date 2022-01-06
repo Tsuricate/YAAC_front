@@ -4,6 +4,7 @@ import {
 import PropTypes from 'prop-types';
 import React from 'react';
 import categoriesOrderDepth from '../data/categoriesOrderDepth';
+import API_URL from '../utils/env.variables';
 import ActionButtons from './ActionButtons';
 import AvatarImageContainer from './AvatarImageContainer';
 import LightHeader from './LightHeader';
@@ -52,7 +53,7 @@ const AvatarScreen = ({
               return (
                 <AvatarImageContainer
                   key={item.id}
-                  imageUrl={item.imageUrl}
+                  imageUrl={`${API_URL}${item.imageUrl}`}
                   itemColor={color}
                   categoryName={item.category}
                   itemsPosition={itemsPosition[item.category]}

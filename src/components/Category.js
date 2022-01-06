@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image, Skeleton } from '@chakra-ui/react';
 import { getCategoryItems } from '../utils/axios';
+import API_URL from '../utils/env.variables';
 
 const Category = ({
   category,
@@ -27,7 +28,7 @@ const Category = ({
 
   return (
     <Image
-      src={category.imageUrl}
+      src={`${API_URL}${category.imageUrl}`}
       alt={category.id}
       fallback={<Skeleton width={{ base: '70px', lg: '90px' }} height={{ base: '70px', lg: '90px' }} />}
       width={{ base: '70px', lg: '90px' }}

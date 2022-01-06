@@ -1,9 +1,11 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 // eslint-disable-next-line import/no-cycle
 import { getCurrentCategoryInfo } from './functions';
+import API_URL from './env.variables';
 
 export const getDefaultItems = (setItems) => {
-  axios.get('https://yaac-back.vercel.app/api/items/Body')
+  axios.get(`${API_URL}/api/items/Body`)
     .then((res) => {
       setItems(res.data.categoryImages);
     })
@@ -13,7 +15,7 @@ export const getDefaultItems = (setItems) => {
 };
 
 export const getCategories = (setCategories, setCurrentCategoryInfos) => {
-  axios.get('https://yaac-back.vercel.app/api/categories')
+  axios.get(`${API_URL}/api/categories`)
     .then((res) => {
       setCategories(res.data.categories);
       setCurrentCategoryInfos(getCurrentCategoryInfo(res.data.categories, 'body'));
@@ -24,7 +26,7 @@ export const getCategories = (setCategories, setCurrentCategoryInfos) => {
 };
 
 export const getCategoryItems = (categoryName, setItems) => {
-  axios.get(`https://yaac-back.vercel.app/api/items/${categoryName}`)
+  axios.get(`${API_URL}/api/items/${categoryName}`)
     .then((res) => {
       setItems(res.data.categoryImages);
     })
@@ -34,7 +36,7 @@ export const getCategoryItems = (categoryName, setItems) => {
 };
 
 export const getRandomAvatar = (setSelectedItems) => {
-  axios.get('https://yaac-back.vercel.app/api/random')
+  axios.get(`${API_URL}/api/random`)
     .then((res) => setSelectedItems(res.data))
     .catch((error) => {
       console.log(error);

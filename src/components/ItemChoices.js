@@ -7,6 +7,7 @@ import { VscChromeClose } from 'react-icons/vsc';
 import { SvgLoader, SvgProxy } from 'react-svgmt';
 import itemsThumnailTransform from '../data/itemsThumbnailTransform';
 import { itemChoicesAnimation, removeItemButtonAnimation } from '../utils/animations';
+import API_URL from '../utils/env.variables';
 import { deleteCategoryItems, isImageSelected } from '../utils/functions';
 
 const ItemChoices = ({
@@ -54,7 +55,7 @@ const ItemChoices = ({
             onClick={() => manageClickOnItem(item)}
           >
             <SvgLoaderWithChakra
-              src={item.imageUrl}
+              src={`${API_URL}${item.imageUrl}`}
               alt={item.id}
               height="100%"
               width="100%"
