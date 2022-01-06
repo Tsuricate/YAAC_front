@@ -3,7 +3,7 @@ import axios from 'axios';
 import { getCurrentCategoryInfo } from './functions';
 
 export const getDefaultItems = (setItems) => {
-  axios.get('http://localhost:3001/api/items/Body')
+  axios.get('https://yaac-back.vercel.app/api/items/Body')
     .then((res) => {
       setItems(res.data.categoryImages);
     })
@@ -13,7 +13,7 @@ export const getDefaultItems = (setItems) => {
 };
 
 export const getCategories = (setCategories, setCurrentCategoryInfos) => {
-  axios.get('http://localhost:3001/api/categories')
+  axios.get('https://yaac-back.vercel.app/api/categories')
     .then((res) => {
       setCategories(res.data.categories);
       setCurrentCategoryInfos(getCurrentCategoryInfo(res.data.categories, 'body'));
@@ -24,7 +24,7 @@ export const getCategories = (setCategories, setCurrentCategoryInfos) => {
 };
 
 export const getCategoryItems = (categoryName, setItems) => {
-  axios.get(`http://localhost:3001/api/items/${categoryName}`)
+  axios.get(`https://yaac-back.vercel.app/api/items/${categoryName}`)
     .then((res) => {
       setItems(res.data.categoryImages);
     })
@@ -34,7 +34,7 @@ export const getCategoryItems = (categoryName, setItems) => {
 };
 
 export const getRandomAvatar = (setSelectedItems) => {
-  axios.get('http://localhost:3001/api/random')
+  axios.get('https://yaac-back.vercel.app/api/random')
     .then((res) => setSelectedItems(res.data))
     .catch((error) => {
       console.log(error);
