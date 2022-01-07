@@ -20,7 +20,6 @@ const AvatarScreen = ({
   isHeaderFullyDisplayed,
   isTutorialRunning,
   setIsTutorialRunning,
-  setItems,
 }) => {
   const sortedItemsArray = selectedItems.sort(
     // eslint-disable-next-line max-len
@@ -45,7 +44,6 @@ const AvatarScreen = ({
       { !isHeaderFullyDisplayed && (
       <LightHeader
         setIsTutorialRunning={setIsTutorialRunning}
-        setItems={setItems}
       />
       ) }
 
@@ -108,7 +106,6 @@ AvatarScreen.propTypes = {
   isHeaderFullyDisplayed: PropTypes.bool.isRequired,
   isTutorialRunning: PropTypes.bool.isRequired,
   setIsTutorialRunning: PropTypes.func.isRequired,
-  setItems: PropTypes.func.isRequired,
 };
 
 const MemoizedAvatarScreen = React.memo(AvatarScreen);

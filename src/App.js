@@ -53,12 +53,13 @@ const App = () => {
       <Tutorial
         isTutorialRunning={isTutorialRunning}
         setIsTutorialRunning={setIsTutorialRunning}
+        currentCategoryName={currentCategoryInfos?.id}
       />
 
       {isHeaderFullyDisplayed && (
       <MemoizedHeader
         setIsTutorialRunning={setIsTutorialRunning}
-        setItems={setItems}
+        setCurrentCategoryInfos={setCurrentCategoryInfos}
       />
       )}
 
@@ -76,7 +77,6 @@ const App = () => {
             isHeaderFullyDisplayed={isHeaderFullyDisplayed}
             isTutorialRunning={isTutorialRunning}
             setIsTutorialRunning={setIsTutorialRunning}
-            setItems={setItems}
           />
         </Box>
       </Box>
