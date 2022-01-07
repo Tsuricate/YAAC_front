@@ -65,10 +65,14 @@ const Tutorial = ({ isTutorialRunning, setIsTutorialRunning, currentCategoryName
   );
 };
 
+Tutorial.defaultProps = {
+  currentCategoryName: 'body',
+};
+
 Tutorial.propTypes = {
   isTutorialRunning: PropTypes.bool.isRequired,
   setIsTutorialRunning: PropTypes.func.isRequired,
-  currentCategoryName: PropTypes.string.isRequired,
+  currentCategoryName: PropTypes.string,
 };
 
 export default Tutorial;

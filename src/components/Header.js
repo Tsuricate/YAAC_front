@@ -5,7 +5,7 @@ import {
 } from '@chakra-ui/react';
 import TutorialStartButton from './TutorialStartButton';
 
-const Header = ({ setIsTutorialRunning, setItems, setCurrentCategoryInfos }) => (
+const Header = ({ setIsTutorialRunning, setCurrentCategoryInfos }) => (
   <Flex
     height={{ lg: '100%' }}
     width={{ lg: '17%' }}
@@ -33,7 +33,6 @@ const Header = ({ setIsTutorialRunning, setItems, setCurrentCategoryInfos }) => 
 
     <TutorialStartButton
       setIsTutorialRunning={setIsTutorialRunning}
-      setItems={setItems}
       setCurrentCategoryInfos={setCurrentCategoryInfos}
     />
 
@@ -43,7 +42,6 @@ const Header = ({ setIsTutorialRunning, setItems, setCurrentCategoryInfos }) => 
 
 Header.propTypes = {
   setIsTutorialRunning: PropTypes.func.isRequired,
-  setItems: PropTypes.func.isRequired,
   setCurrentCategoryInfos: PropTypes.func.isRequired,
 };
 
