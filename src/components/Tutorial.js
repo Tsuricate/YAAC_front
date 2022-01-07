@@ -53,6 +53,8 @@ const Tutorial = ({ isTutorialRunning, setIsTutorialRunning }) => {
     <>
       <JoyRide
         callback={handleCallback}
+        disableScrollParentFix
+        disableOverlayClose
         steps={TOUR_STEPS}
         continuous
         showProgress
