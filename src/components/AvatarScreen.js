@@ -41,7 +41,11 @@ const AvatarScreen = ({
         bottom={{ lg: '11px' }}
       />
 
-      { !isHeaderFullyDisplayed && <LightHeader setIsTutorialRunning={setIsTutorialRunning} /> }
+      { !isHeaderFullyDisplayed && (
+      <LightHeader
+        setIsTutorialRunning={setIsTutorialRunning}
+      />
+      ) }
 
       {/* This box represent the avatar's background to color */}
       <Flex bg={backgroundColor} width="100%" height="100%" overflow="hidden" alignItems="flex-end" className="canvas">

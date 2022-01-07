@@ -2,37 +2,9 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useBreakpointValue } from '@chakra-ui/react';
 import JoyRide from 'react-joyride';
+import { getTourSteps } from '../utils/functions';
 
-const TOUR_STEPS = [
-  {
-    target: '.tour-categories',
-    content: 'You can chose here which category you want to modify. Let\'s take "Body" for this example !',
-    disableBeacon: true,
-  },
-  {
-    target: '.tour-items',
-    content: 'Here are all the different "Body" designs available. Having a body is mandatory, but some others categories -like accessories- are deletable.',
-  },
-  {
-    target: '.tour-avatar-screen',
-    content: 'Here\'s your canvas. You can see your Avatar with all your current choices.',
-    placement: 'right',
-  },
-  {
-    target: '.tour-avatar-customization',
-    content: 'Some items allows you to customize their color and/or their position.',
-  },
-  {
-    target: '.tour-random',
-    content: 'Feeling lucky ? You can generate a random avatar by clicking on the dice anytime.',
-  },
-  {
-    target: '.tour-avatar-download',
-    content: 'Satisfied with how your avatar is looking ? Download it and use it anywhere you want !',
-  },
-];
-
-const Tutorial = ({ isTutorialRunning, setIsTutorialRunning }) => {
+const Tutorial = ({ isTutorialRunning, setIsTutorialRunning, currentCategoryName }) => {
   const padding = useBreakpointValue({ base: '10px 20px', lg: '25px 35px' });
   const [storeHelpers, setStoreHelpers] = useState(null);
 
@@ -48,6 +20,8 @@ const Tutorial = ({ isTutorialRunning, setIsTutorialRunning }) => {
   const getHelpers = (helpers) => {
     setStoreHelpers(helpers);
   };
+
+  const TOUR_STEPS = getTourSteps(currentCategoryName);
 
   return (
     <>
@@ -91,9 +65,14 @@ const Tutorial = ({ isTutorialRunning, setIsTutorialRunning }) => {
   );
 };
 
+Tutorial.defaultProps = {
+  currentCategoryName: 'body',
+};
+
 Tutorial.propTypes = {
   isTutorialRunning: PropTypes.bool.isRequired,
   setIsTutorialRunning: PropTypes.func.isRequired,
+  currentCategoryName: PropTypes.string,
 };
 
 export default Tutorial;

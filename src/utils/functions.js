@@ -50,3 +50,34 @@ export const composeRandomAvatar = (
   setBackgroundColor(getRandomColorForCategory('background-color'));
   setItemColor(getRandomColorForItems(categories));
 };
+
+export const getTourSteps = (currentCategoryName) => (
+  [
+    {
+      target: '.tour-categories',
+      content: `You can chose here which category you want to modify. Let's take "${currentCategoryName}" for this example !`,
+      disableBeacon: true,
+    },
+    {
+      target: '.tour-items',
+      content: `Here are all the different "${currentCategoryName}" designs available. Some categories are mandatory, but some others -like accessories- are deletable.`,
+    },
+    {
+      target: '.tour-avatar-screen',
+      content: 'Here\'s your canvas. You can see your Avatar with all your current choices.',
+      placement: 'right',
+    },
+    {
+      target: '.tour-avatar-customization',
+      content: 'Some items allows you to customize their color and/or their position.',
+    },
+    {
+      target: '.tour-random',
+      content: 'Feeling lucky ? You can generate a random avatar by clicking on the dice anytime.',
+    },
+    {
+      target: '.tour-avatar-download',
+      content: 'Satisfied with how your avatar is looking ? Download it and use it anywhere you want !',
+    },
+  ]
+);

@@ -2,7 +2,9 @@ import { Button } from '@chakra-ui/react';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TutorialStartButton = ({ setIsTutorialRunning, closeModal }) => {
+const TutorialStartButton = ({
+  setIsTutorialRunning, closeModal,
+}) => {
   /* Modal (present on mobile & tablet devices) closed  before start tutorial */
   const startTutorial = () => {
     if (closeModal) {

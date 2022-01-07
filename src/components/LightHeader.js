@@ -38,7 +38,10 @@ const LightHeader = ({ setIsTutorialRunning }) => {
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <TutorialStartButton setIsTutorialRunning={setIsTutorialRunning} closeModal={onClose} />
+            <TutorialStartButton
+              setIsTutorialRunning={setIsTutorialRunning}
+              closeModal={onClose}
+            />
           </ModalFooter>
         </ModalContent>
       </Modal>
