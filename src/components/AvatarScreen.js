@@ -20,6 +20,7 @@ const AvatarScreen = ({
   isHeaderFullyDisplayed,
   isTutorialRunning,
   setIsTutorialRunning,
+  setItems,
 }) => {
   const sortedItemsArray = selectedItems.sort(
     // eslint-disable-next-line max-len
@@ -41,7 +42,12 @@ const AvatarScreen = ({
         bottom={{ lg: '11px' }}
       />
 
-      { !isHeaderFullyDisplayed && <LightHeader setIsTutorialRunning={setIsTutorialRunning} /> }
+      { !isHeaderFullyDisplayed && (
+      <LightHeader
+        setIsTutorialRunning={setIsTutorialRunning}
+        setItems={setItems}
+      />
+      ) }
 
       {/* This box represent the avatar's background to color */}
       <Flex bg={backgroundColor} width="100%" height="100%" overflow="hidden" alignItems="flex-end" className="canvas">
@@ -102,6 +108,7 @@ AvatarScreen.propTypes = {
   isHeaderFullyDisplayed: PropTypes.bool.isRequired,
   isTutorialRunning: PropTypes.bool.isRequired,
   setIsTutorialRunning: PropTypes.func.isRequired,
+  setItems: PropTypes.func.isRequired,
 };
 
 const MemoizedAvatarScreen = React.memo(AvatarScreen);

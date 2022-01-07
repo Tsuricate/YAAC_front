@@ -7,7 +7,7 @@ import {
 import { InfoOutlineIcon } from '@chakra-ui/icons';
 import TutorialStartButton from './TutorialStartButton';
 
-const LightHeader = ({ setIsTutorialRunning }) => {
+const LightHeader = ({ setIsTutorialRunning, setItems }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -38,7 +38,11 @@ const LightHeader = ({ setIsTutorialRunning }) => {
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <TutorialStartButton setIsTutorialRunning={setIsTutorialRunning} closeModal={onClose} />
+            <TutorialStartButton
+              setIsTutorialRunning={setIsTutorialRunning}
+              closeModal={onClose}
+              setItems={setItems}
+            />
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -49,6 +53,7 @@ const LightHeader = ({ setIsTutorialRunning }) => {
 
 LightHeader.propTypes = {
   setIsTutorialRunning: PropTypes.func.isRequired,
+  setItems: PropTypes.func.isRequired,
 };
 
 export default LightHeader;

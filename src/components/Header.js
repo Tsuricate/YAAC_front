@@ -5,7 +5,7 @@ import {
 } from '@chakra-ui/react';
 import TutorialStartButton from './TutorialStartButton';
 
-const Header = ({ setIsTutorialRunning }) => (
+const Header = ({ setIsTutorialRunning, setItems }) => (
   <Flex
     height={{ lg: '100%' }}
     width={{ lg: '17%' }}
@@ -31,7 +31,7 @@ const Header = ({ setIsTutorialRunning }) => (
       </Text>
     </Stack>
 
-    <TutorialStartButton setIsTutorialRunning={setIsTutorialRunning} />
+    <TutorialStartButton setIsTutorialRunning={setIsTutorialRunning} setItems={setItems} />
 
   </Flex>
 
@@ -39,6 +39,7 @@ const Header = ({ setIsTutorialRunning }) => (
 
 Header.propTypes = {
   setIsTutorialRunning: PropTypes.func.isRequired,
+  setItems: PropTypes.func.isRequired,
 };
 
 const MemoizedHeader = React.memo(Header);

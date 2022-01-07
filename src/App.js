@@ -50,9 +50,17 @@ const App = () => {
       p={{ lg: 4 }}
       bgColor="#F7F6F4"
     >
-      <Tutorial isTutorialRunning={isTutorialRunning} setIsTutorialRunning={setIsTutorialRunning} />
+      <Tutorial
+        isTutorialRunning={isTutorialRunning}
+        setIsTutorialRunning={setIsTutorialRunning}
+      />
 
-      {isHeaderFullyDisplayed && (<MemoizedHeader setIsTutorialRunning={setIsTutorialRunning} />)}
+      {isHeaderFullyDisplayed && (
+      <MemoizedHeader
+        setIsTutorialRunning={setIsTutorialRunning}
+        setItems={setItems}
+      />
+      )}
 
       {/* Theses two boxes help display AvatarScreen block above categories & items block */}
       <Box order={{ lg: '3' }} position={{ lg: 'relative' }} height={{ lg: '100%' }} width={{ lg: '35%' }}>
@@ -68,6 +76,7 @@ const App = () => {
             isHeaderFullyDisplayed={isHeaderFullyDisplayed}
             isTutorialRunning={isTutorialRunning}
             setIsTutorialRunning={setIsTutorialRunning}
+            setItems={setItems}
           />
         </Box>
       </Box>
