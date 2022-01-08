@@ -44,9 +44,9 @@ const ItemChoices = ({
           <WrapItem
             key={item.id}
             overflow="hidden"
-            fallback={<Skeleton h={{ base: '80px', lg: '100px' }} />}
-            h={{ base: '80px', lg: '100px' }}
-            w={{ base: '80px', lg: '100px' }}
+            fallback={<Skeleton h={{ base: '75px', lg: '100px' }} />}
+            h={{ base: '75px', lg: '100px' }}
+            w={{ base: '75px', lg: '100px' }}
             border={borderStyle}
             borderRadius="5px"
             boxShadow={{ lg: '0px 3px 12px #151b1f' }}
