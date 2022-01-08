@@ -30,3 +30,8 @@ This project relies on back-end project: https://github.com/Tsuricate/YAAC_back
 
 but API is already hosted at https://yaac-back.vercel.app, so you don't need to host it yourself.
 
+## Notes
+
+This project is a POC (Proof Of Concept) but it's fully usable and stable.
+
+However, due to performance issues, a refactor is planned using Redux for better state management.
