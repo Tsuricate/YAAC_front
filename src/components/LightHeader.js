@@ -11,10 +11,11 @@ const LightHeader = ({ setIsTutorialRunning }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Flex position="absolute" pl="2" alignItems="baseline" zIndex="1">
-
-      <Text fontWeight="bold">YAAC</Text>
-      <IconButton aria-label="Application description and tutorial" icon={<InfoOutlineIcon />} bgColor="transparent" onClick={onOpen} size="sm" />
+    <Flex position="absolute" pl="2" zIndex="1">
+      <Flex alignItems="baseline" bg="whiteAlpha.400" px={2} borderRadius="5px">
+        <Text fontWeight="bold">YAAC</Text>
+        <IconButton aria-label="Application description and tutorial" icon={<InfoOutlineIcon />} bgColor="transparent" onClick={onOpen} size="sm" />
+      </Flex>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
