@@ -12,6 +12,8 @@ YAAC is a web application that allows you to create a unique, personalized avata
 
 ### Step 2 : Install dependencies
 
+`cd YAAC_front`
+
 Using yarn : `yarn`
 
 Using npm : `npm install`
