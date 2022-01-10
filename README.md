@@ -8,9 +8,11 @@ YAAC is a web application that allows you to create a unique, personalized avata
 
 ### Step 1 : Clone projet
 
-`git clone https://github.com/Tsuricate/YAAC_back.git`
+`git clone https://github.com/Tsuricate/YAAC_front.git`
 
 ### Step 2 : Install dependencies
+
+`cd YAAC_front`
 
 Using yarn : `yarn`
 
