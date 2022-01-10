@@ -24,11 +24,11 @@ const App = () => {
   const [selectedItems, setSelectedItems] = useState([]);
   const [itemsPosition, dispatchItemsPosition] = useReducer(reducer,
     {
-      body: { directionX: 0, directionY: 0 },
       eyes: { directionX: 0, directionY: 0 },
       eyebrows: { directionX: 0, directionY: 0 },
       mouth: { directionX: 0, directionY: 0 },
       nose: { directionX: 0, directionY: 0 },
+      'hair-spike': { directionX: 0, directionY: 0 },
       'face-accessories': { directionX: 0, directionY: 0 },
       'face-details': { directionX: 0, directionY: 0 },
     });
