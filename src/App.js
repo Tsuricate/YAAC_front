@@ -67,6 +67,7 @@ const App = () => {
       <Box order={{ lg: '3' }} position={{ lg: 'relative' }} height={{ lg: '100%' }} width={{ lg: '35%' }}>
         <Box position={{ lg: 'absolute' }} left={{ lg: '-10em' }} top={{ lg: '7em' }} className="tour-avatar-screen">
           <MemoizedAvatarScreen
+            editionMode={editionMode}
             setEditionMode={setEditionMode}
             backgroundColor={backgroundColor}
             selectedItems={selectedItems}

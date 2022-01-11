@@ -10,6 +10,7 @@ import AvatarImageContainer from './AvatarImageContainer';
 import LightHeader from './LightHeader';
 
 const AvatarScreen = ({
+  editionMode,
   setEditionMode,
   backgroundColor,
   selectedItems,
@@ -70,6 +71,7 @@ const AvatarScreen = ({
       </Flex>
       <Box position="absolute" width="100%" bottom={{ base: 2, lg: 3 }} px={{ base: 2, lg: 4 }}>
         <ActionButtons
+          editionMode={editionMode}
           setEditionMode={setEditionMode}
           changeColor={changeColor}
           changePosition={changePosition}
@@ -87,6 +89,7 @@ AvatarScreen.defaultProps = {
 };
 
 AvatarScreen.propTypes = {
+  editionMode: PropTypes.string.isRequired,
   setEditionMode: PropTypes.func.isRequired,
   backgroundColor: PropTypes.string.isRequired,
   selectedItems: PropTypes.arrayOf(

@@ -10,11 +10,11 @@ import RoundButton from './RoundButton';
 import { actionButtonsAnimation } from '../utils/animations';
 
 const ActionButtons = ({
-  setEditionMode, changeColor, changePosition, isTutorialRunning,
+  editionMode, setEditionMode, changeColor, changePosition, isTutorialRunning,
 }) => {
-  const handleDisplay = (mode) => {
-    setEditionMode(mode);
-  };
+  const handleDisplay = (mode) => (
+    editionMode === mode ? setEditionMode('Items') : setEditionMode(mode)
+  );
 
   const downloadAvatar = () => {
     const node = document.querySelector('.canvas');
@@ -70,6 +70,7 @@ const ActionButtons = ({
 };
 
 ActionButtons.propTypes = {
+  editionMode: PropTypes.string.isRequired,
   setEditionMode: PropTypes.func.isRequired,
   changeColor: PropTypes.bool.isRequired,
   changePosition: PropTypes.bool.isRequired,
